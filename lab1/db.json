@@ -1,0 +1,2507 @@
+{
+  "structured": [
+    1,
+    {
+      "lemma": "structure",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Perf",
+        "Tense": "Past",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "abstract": [
+    1,
+    {
+      "lemma": "abstract",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "introduction": [
+    1,
+    {
+      "lemma": "introduction",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "heart": [
+    10,
+    {
+      "lemma": "heart",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "development": [
+    4,
+    {
+      "lemma": "development",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "is": [
+    1,
+    {
+      "lemma": "be",
+      "pos": "auxiliary",
+      "morph": {
+        "Mood": "Ind",
+        "Number": "Sing",
+        "Person": "3",
+        "Tense": "Pres",
+        "VerbForm": "Fin"
+      }
+    }
+  ],
+  "a": [
+    5,
+    {
+      "lemma": "a",
+      "pos": "pronoun",
+      "morph": {
+        "Definite": "Ind",
+        "PronType": "Art"
+      }
+    }
+  ],
+  "highly": [
+    1,
+    {
+      "lemma": "new_state",
+      "pos": "ad",
+      "morph": {}
+    }
+  ],
+  "orchestrated": [
+    1,
+    {
+      "lemma": "orchestrate",
+      "pos": "verb",
+      "morph": {
+        "Tense": "Past",
+        "VerbForm": "Fin"
+      }
+    }
+  ],
+  "process": [
+    1,
+    {
+      "lemma": "process",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "dependent": [
+    1,
+    {
+      "lemma": "dependent",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "on": [
+    3,
+    {
+      "lemma": "on",
+      "pos": "adposition",
+      "morph": {}
+    }
+  ],
+  "dynamic": [
+    1,
+    {
+      "lemma": "dynamic",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "interactions": [
+    4,
+    {
+      "lemma": "interaction",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "between": [
+    7,
+    {
+      "lemma": "between",
+      "pos": "adposition",
+      "morph": {}
+    }
+  ],
+  "the": [
+    34,
+    {
+      "lemma": "the",
+      "pos": "pronoun",
+      "morph": {
+        "Definite": "Def",
+        "PronType": "Art"
+      }
+    }
+  ],
+  "myocardium": [
+    5,
+    {
+      "lemma": "myocardium",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "and": [
+    26,
+    {
+      "lemma": "and",
+      "pos": "coordinating conjunction",
+      "morph": {
+        "ConjType": "Cmp"
+      }
+    }
+  ],
+  "endocardium": [
+    5,
+    {
+      "lemma": "endocardium",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "two": [
+    2,
+    {
+      "lemma": "two",
+      "pos": "numeral",
+      "morph": {
+        "NumType": "Card"
+      }
+    }
+  ],
+  "layers": [
+    3,
+    {
+      "lemma": "layer",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "are": [
+    2,
+    {
+      "lemma": "be",
+      "pos": "auxiliary",
+      "morph": {
+        "Mood": "Ind",
+        "Tense": "Pres",
+        "VerbForm": "Fin"
+      }
+    }
+  ],
+  "separated": [
+    1,
+    {
+      "lemma": "separate",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Perf",
+        "Tense": "Past",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "by": [
+    4,
+    {
+      "lemma": "by",
+      "pos": "adposition",
+      "morph": {}
+    }
+  ],
+  "noncellular": [
+    1,
+    {
+      "lemma": "noncellular",
+      "pos": "adverb",
+      "morph": {}
+    }
+  ],
+  "matrix": [
+    1,
+    {
+      "lemma": "matrix",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "called": [
+    1,
+    {
+      "lemma": "call",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Perf",
+        "Tense": "Past",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "cardiac": [
+    6,
+    {
+      "lemma": "cardiac",
+      "pos": "proper noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "jelly": [
+    3,
+    {
+      "lemma": "jelly",
+      "pos": "adverb",
+      "morph": {}
+    }
+  ],
+  "communicate": [
+    1,
+    {
+      "lemma": "communicate",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "through": [
+    3,
+    {
+      "lemma": "through",
+      "pos": "adposition",
+      "morph": {}
+    }
+  ],
+  "signaling": [
+    12,
+    {
+      "lemma": "signal",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Prog",
+        "Tense": "Pres",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "pathways": [
+    4,
+    {
+      "lemma": "pathway",
+      "pos": "verb",
+      "morph": {
+        "Number": "Sing",
+        "Person": "3",
+        "Tense": "Pres",
+        "VerbForm": "Fin"
+      }
+    }
+  ],
+  "involving": [
+    1,
+    {
+      "lemma": "involve",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Prog",
+        "Tense": "Pres",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "membrane-bound": [
+    1,
+    {
+      "lemma": "bind",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Perf",
+        "Tense": "Past",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "receptors": [
+    2,
+    {
+      "lemma": "receptor",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "ligands": [
+    3,
+    {
+      "lemma": "ligand",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "however": [
+    1,
+    {
+      "lemma": "however",
+      "pos": "adverb",
+      "morph": {}
+    }
+  ],
+  "mechanisms": [
+    3,
+    {
+      "lemma": "mechanism",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "enabling": [
+    2,
+    {
+      "lemma": "enable",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Prog",
+        "Tense": "Pres",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "such": [
+    2,
+    {
+      "lemma": "such",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "interaction": [
+    1,
+    {
+      "lemma": "interaction",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "over": [
+    1,
+    {
+      "lemma": "over",
+      "pos": "adverb",
+      "morph": {}
+    }
+  ],
+  "physical": [
+    1,
+    {
+      "lemma": "physical",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "distances": [
+    1,
+    {
+      "lemma": "distance",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "remain": [
+    1,
+    {
+      "lemma": "remain",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "poorly": [
+    1,
+    {
+      "lemma": "poorly",
+      "pos": "adverb",
+      "morph": {}
+    }
+  ],
+  "understood": [
+    1,
+    {
+      "lemma": "understand",
+      "pos": "verb",
+      "morph": {
+        "Tense": "Past",
+        "VerbForm": "Fin"
+      }
+    }
+  ],
+  "in": [
+    18,
+    {
+      "lemma": "in",
+      "pos": "adposition",
+      "morph": {}
+    }
+  ],
+  "this": [
+    3,
+    {
+      "lemma": "this",
+      "pos": "pronoun",
+      "morph": {
+        "Number": "Sing",
+        "PronType": "Dem"
+      }
+    }
+  ],
+  "work": [
+    3,
+    {
+      "lemma": "work",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "we": [
+    5,
+    {
+      "lemma": "we",
+      "pos": "pronoun",
+      "morph": {
+        "Case": "Nom",
+        "Number": "Plur",
+        "Person": "1",
+        "PronType": "Prs"
+      }
+    }
+  ],
+  "characterized": [
+    2,
+    {
+      "lemma": "characterize",
+      "pos": "verb",
+      "morph": {
+        "Tense": "Past",
+        "VerbForm": "Fin"
+      }
+    }
+  ],
+  "tunneling": [
+    1,
+    {
+      "lemma": "tunneling",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "nanotube–like": [
+    1,
+    {
+      "lemma": "like",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "structures": [
+    6,
+    {
+      "lemma": "structure",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "(tntls)": [
+    1,
+    {
+      "lemma": ")",
+      "pos": "punctuation",
+      "morph": {
+        "PunctSide": "Fin",
+        "PunctType": "Brck"
+      }
+    }
+  ],
+  "which": [
+    1,
+    {
+      "lemma": "which",
+      "pos": "pronoun",
+      "morph": {}
+    }
+  ],
+  "found": [
+    1,
+    {
+      "lemma": "find",
+      "pos": "verb",
+      "morph": {
+        "Tense": "Past",
+        "VerbForm": "Fin"
+      }
+    }
+  ],
+  "physically": [
+    2,
+    {
+      "lemma": "physically",
+      "pos": "adverb",
+      "morph": {}
+    }
+  ],
+  "connecting": [
+    1,
+    {
+      "lemma": "connect",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Prog",
+        "Tense": "Pres",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "cardiomyocytes": [
+    1,
+    {
+      "lemma": "cardiomyocyte",
+      "pos": "verb",
+      "morph": {
+        "Number": "Sing",
+        "Person": "3",
+        "Tense": "Pres",
+        "VerbForm": "Fin"
+      }
+    }
+  ],
+  "(cms)": [
+    1,
+    {
+      "lemma": ")",
+      "pos": "punctuation",
+      "morph": {
+        "PunctSide": "Fin",
+        "PunctType": "Brck"
+      }
+    }
+  ],
+  "to": [
+    9,
+    {
+      "lemma": "to",
+      "pos": "particle",
+      "morph": {}
+    }
+  ],
+  "endocardial": [
+    2,
+    {
+      "lemma": "endocardial",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "cells": [
+    3,
+    {
+      "lemma": "cell",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "(ecs)": [
+    1,
+    {
+      "lemma": ")",
+      "pos": "punctuation",
+      "morph": {
+        "PunctSide": "Fin",
+        "PunctType": "Brck"
+      }
+    }
+  ],
+  "these": [
+    8,
+    {
+      "lemma": "these",
+      "pos": "pronoun",
+      "morph": {
+        "Number": "Plur",
+        "PronType": "Dem"
+      }
+    }
+  ],
+  "likely": [
+    1,
+    {
+      "lemma": "likely",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "help": [
+    2,
+    {
+      "lemma": "help",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "facilitate": [
+    1,
+    {
+      "lemma": "facilitate",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "long-distance": [
+    5,
+    {
+      "lemma": "distance",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "intercellular": [
+    4,
+    {
+      "lemma": "intercellular",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "communication": [
+    6,
+    {
+      "lemma": "communication",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "essential": [
+    3,
+    {
+      "lemma": "essential",
+      "pos": "proper noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "for": [
+    6,
+    {
+      "lemma": "for",
+      "pos": "adposition",
+      "morph": {}
+    }
+  ],
+  "formation": [
+    7,
+    {
+      "lemma": "formation",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "rationale": [
+    1,
+    {
+      "lemma": "rationale",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "relies": [
+    1,
+    {
+      "lemma": "rely",
+      "pos": "verb",
+      "morph": {
+        "Number": "Sing",
+        "Person": "3",
+        "Tense": "Pres",
+        "VerbForm": "Fin"
+      }
+    }
+  ],
+  "precise": [
+    1,
+    {
+      "lemma": "precise",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "particularly": [
+    1,
+    {
+      "lemma": "particularly",
+      "pos": "adverb",
+      "morph": {}
+    }
+  ],
+  "during": [
+    4,
+    {
+      "lemma": "during",
+      "pos": "adposition",
+      "morph": {}
+    }
+  ],
+  "trabecular": [
+    2,
+    {
+      "lemma": "trabecular",
+      "pos": "adverb",
+      "morph": {}
+    }
+  ],
+  "as": [
+    5,
+    {
+      "lemma": "as",
+      "pos": "adposition",
+      "morph": {}
+    }
+  ],
+  "notch1": [
+    3,
+    {
+      "lemma": "notch1",
+      "pos": "proper noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "vegf": [
+    1,
+    {
+      "lemma": "vegf",
+      "pos": "proper noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "nrg1": [
+    1,
+    {
+      "lemma": "nrg1",
+      "pos": "proper noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "have": [
+    1,
+    {
+      "lemma": "have",
+      "pos": "verb",
+      "morph": {
+        "Mood": "Ind",
+        "Tense": "Pres",
+        "VerbForm": "Fin"
+      }
+    }
+  ],
+  "segregated": [
+    1,
+    {
+      "lemma": "segregate",
+      "pos": "verb",
+      "morph": {
+        "Tense": "Past",
+        "VerbForm": "Fin"
+      }
+    }
+  ],
+  "across": [
+    3,
+    {
+      "lemma": "across",
+      "pos": "adposition",
+      "morph": {}
+    }
+  ],
+  "intervening": [
+    1,
+    {
+      "lemma": "intervene",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Prog",
+        "Tense": "Pres",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "unclear": [
+    1,
+    {
+      "lemma": "unclear",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "hypothesized": [
+    1,
+    {
+      "lemma": "hypothesize",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Perf",
+        "Tense": "Past",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "that": [
+    4,
+    {
+      "lemma": "that",
+      "pos": "subordinating conjunction",
+      "morph": {}
+    }
+  ],
+  "tntl": [
+    6,
+    {
+      "lemma": "tntl",
+      "pos": "proper noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "exist": [
+    1,
+    {
+      "lemma": "exist",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "could": [
+    2,
+    {
+      "lemma": "could",
+      "pos": "auxiliary",
+      "morph": {
+        "VerbForm": "Fin"
+      }
+    }
+  ],
+  "mediate": [
+    1,
+    {
+      "lemma": "mediate",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "developing": [
+    1,
+    {
+      "lemma": "develop",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Prog",
+        "Tense": "Pres",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "allowing": [
+    2,
+    {
+      "lemma": "allow",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Prog",
+        "Tense": "Pres",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "transport": [
+    2,
+    {
+      "lemma": "transport",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "of": [
+    15,
+    {
+      "lemma": "of",
+      "pos": "adposition",
+      "morph": {}
+    }
+  ],
+  "molecules": [
+    3,
+    {
+      "lemma": "molecule",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "cytoplasmic": [
+    4,
+    {
+      "lemma": "cytoplasmic",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "proteins": [
+    2,
+    {
+      "lemma": "protein",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "them": [
+    1,
+    {
+      "lemma": "they",
+      "pos": "pronoun",
+      "morph": {
+        "Case": "Acc",
+        "Number": "Plur",
+        "Person": "3",
+        "PronType": "Prs"
+      }
+    }
+  ],
+  "results": [
+    1,
+    {
+      "lemma": "result",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "used": [
+    1,
+    {
+      "lemma": "use",
+      "pos": "verb",
+      "morph": {
+        "Tense": "Past",
+        "VerbForm": "Fin"
+      }
+    }
+  ],
+  "genetic": [
+    2,
+    {
+      "lemma": "genetic",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "labeling": [
+    2,
+    {
+      "lemma": "label",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Prog",
+        "Tense": "Pres",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "contact-tracing": [
+    1,
+    {
+      "lemma": "trace",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Prog",
+        "Tense": "Pres",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "techniques": [
+    1,
+    {
+      "lemma": "technique",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "advanced": [
+    1,
+    {
+      "lemma": "advance",
+      "pos": "verb",
+      "morph": {
+        "Tense": "Past",
+        "VerbForm": "Fin"
+      }
+    }
+  ],
+  "imaging": [
+    2,
+    {
+      "lemma": "image",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Prog",
+        "Tense": "Pres",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "demonstrate": [
+    1,
+    {
+      "lemma": "demonstrate",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "existence": [
+    1,
+    {
+      "lemma": "existence",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "tntls": [
+    16,
+    {
+      "lemma": "tntls",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "mouse": [
+    3,
+    {
+      "lemma": "mouse",
+      "pos": "proper noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "embryonic": [
+    3,
+    {
+      "lemma": "embryonic",
+      "pos": "proper noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "hearts": [
+    2,
+    {
+      "lemma": "heart",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "extended": [
+    1,
+    {
+      "lemma": "extend",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Perf",
+        "Tense": "Past",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "from": [
+    2,
+    {
+      "lemma": "from",
+      "pos": "adposition",
+      "morph": {}
+    }
+  ],
+  "cms": [
+    3,
+    {
+      "lemma": "cms",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "ecs": [
+    4,
+    {
+      "lemma": "ec",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "establishing": [
+    1,
+    {
+      "lemma": "establish",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Prog",
+        "Tense": "Pres",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "direct": [
+    1,
+    {
+      "lemma": "direct",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "connections": [
+    1,
+    {
+      "lemma": "connection",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "enable": [
+    1,
+    {
+      "lemma": "enable",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "signal": [
+    1,
+    {
+      "lemma": "signal",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "transduction": [
+    1,
+    {
+      "lemma": "transduction",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "protein": [
+    3,
+    {
+      "lemma": "protein",
+      "pos": "proper noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "transfer": [
+    2,
+    {
+      "lemma": "transfer",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "were": [
+    7,
+    {
+      "lemma": "be",
+      "pos": "auxiliary",
+      "morph": {
+        "Mood": "Ind",
+        "Tense": "Past",
+        "VerbForm": "Fin"
+      }
+    }
+  ],
+  "identified": [
+    2,
+    {
+      "lemma": "identify",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Perf",
+        "Tense": "Past",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "cellular": [
+    2,
+    {
+      "lemma": "cellular",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "protrusions": [
+    1,
+    {
+      "lemma": "protrusion",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "shown": [
+    1,
+    {
+      "lemma": "show",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Perf",
+        "Tense": "Past",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "form": [
+    1,
+    {
+      "lemma": "form",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "early": [
+    1,
+    {
+      "lemma": "early",
+      "pos": "adverb",
+      "morph": {}
+    }
+  ],
+  "day": [
+    1,
+    {
+      "lemma": "day",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "8.0": [
+    1,
+    {
+      "lemma": "8.0",
+      "pos": "numeral",
+      "morph": {
+        "NumType": "Card"
+      }
+    }
+  ],
+  "filamentous": [
+    1,
+    {
+      "lemma": "filamentous",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "inside": [
+    2,
+    {
+      "lemma": "inside",
+      "pos": "adverb",
+      "morph": {}
+    }
+  ],
+  "three-dimensional": [
+    1,
+    {
+      "lemma": "dimensional",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "reconstruction": [
+    1,
+    {
+      "lemma": "reconstruction",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "electron": [
+    1,
+    {
+      "lemma": "electron",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "microscopy": [
+    1,
+    {
+      "lemma": "microscopy",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "(em)": [
+    1,
+    {
+      "lemma": ")",
+      "pos": "punctuation",
+      "morph": {
+        "PunctSide": "Fin",
+        "PunctType": "Brck"
+      }
+    }
+  ],
+  "cryo-em": [
+    1,
+    {
+      "lemma": "em",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "images": [
+    1,
+    {
+      "lemma": "image",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "contained": [
+    1,
+    {
+      "lemma": "contain",
+      "pos": "verb",
+      "morph": {
+        "Tense": "Past",
+        "VerbForm": "Fin"
+      }
+    }
+  ],
+  "actin": [
+    5,
+    {
+      "lemma": "actin",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "filaments": [
+    3,
+    {
+      "lemma": "filament",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "depended": [
+    1,
+    {
+      "lemma": "depend",
+      "pos": "verb",
+      "morph": {
+        "Tense": "Past",
+        "VerbForm": "Fin"
+      }
+    }
+  ],
+  "polymerization": [
+    2,
+    {
+      "lemma": "polymerization",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "presence": [
+    1,
+    {
+      "lemma": "presence",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "was": [
+    1,
+    {
+      "lemma": "be",
+      "pos": "auxiliary",
+      "morph": {
+        "Mood": "Ind",
+        "Number": "Sing",
+        "Person": "3",
+        "Tense": "Past",
+        "VerbForm": "Fin"
+      }
+    }
+  ],
+  "confirmed": [
+    1,
+    {
+      "lemma": "confirm",
+      "pos": "verb",
+      "morph": {
+        "Tense": "Past",
+        "VerbForm": "Fin"
+      }
+    }
+  ],
+  "transgenic": [
+    1,
+    {
+      "lemma": "transgenic",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "line": [
+    1,
+    {
+      "lemma": "line",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "label": [
+    1,
+    {
+      "lemma": "label",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "with": [
+    2,
+    {
+      "lemma": "with",
+      "pos": "adposition",
+      "morph": {}
+    }
+  ],
+  "fluorescent": [
+    1,
+    {
+      "lemma": "fluorescent",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "marker": [
+    1,
+    {
+      "lemma": "marker",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "inhibiting": [
+    1,
+    {
+      "lemma": "inhibit",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Prog",
+        "Tense": "Pres",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "chemically": [
+    1,
+    {
+      "lemma": "chemically",
+      "pos": "adverb",
+      "morph": {}
+    }
+  ],
+  "or": [
+    1,
+    {
+      "lemma": "or",
+      "pos": "coordinating conjunction",
+      "morph": {
+        "ConjType": "Cmp"
+      }
+    }
+  ],
+  "ablating": [
+    1,
+    {
+      "lemma": "ablate",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Prog",
+        "Tense": "Pres",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "small": [
+    1,
+    {
+      "lemma": "small",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "guanosine": [
+    1,
+    {
+      "lemma": "guanosine",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "triphosphatase": [
+    1,
+    {
+      "lemma": "triphosphatase",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "cdc42": [
+    1,
+    {
+      "lemma": "cdc42",
+      "pos": "proper noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "eliminated": [
+    1,
+    {
+      "lemma": "eliminate",
+      "pos": "verb",
+      "morph": {
+        "Tense": "Past",
+        "VerbForm": "Fin"
+      }
+    }
+  ],
+  "involved": [
+    1,
+    {
+      "lemma": "involve",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Perf",
+        "Tense": "Past",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "regulating": [
+    1,
+    {
+      "lemma": "regulate",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Prog",
+        "Tense": "Pres",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "other": [
+    2,
+    {
+      "lemma": "other",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "sufficient": [
+    1,
+    {
+      "lemma": "sufficient",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "activate": [
+    1,
+    {
+      "lemma": "activate",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "transported": [
+    1,
+    {
+      "lemma": "transport",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Perf",
+        "Tense": "Past",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "microstructures": [
+    1,
+    {
+      "lemma": "microstructure",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "loss": [
+    2,
+    {
+      "lemma": "loss",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "resulted": [
+    2,
+    {
+      "lemma": "result",
+      "pos": "verb",
+      "morph": {
+        "Tense": "Past",
+        "VerbForm": "Fin"
+      }
+    }
+  ],
+  "reduced": [
+    1,
+    {
+      "lemma": "reduce",
+      "pos": "verb",
+      "morph": {
+        "Tense": "Past",
+        "VerbForm": "Fin"
+      }
+    }
+  ],
+  "notch": [
+    1,
+    {
+      "lemma": "notch",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "able": [
+    1,
+    {
+      "lemma": "able",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "trafficking": [
+    2,
+    {
+      "lemma": "traffic",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Prog",
+        "Tense": "Pres",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "vesicles": [
+    1,
+    {
+      "lemma": "vesicle",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "underscoring": [
+    1,
+    {
+      "lemma": "underscore",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Prog",
+        "Tense": "Pres",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "their": [
+    2,
+    {
+      "lemma": "their",
+      "pos": "pronoun",
+      "morph": {
+        "Number": "Plur",
+        "Person": "3",
+        "Poss": "Yes",
+        "PronType": "Prs"
+      }
+    }
+  ],
+  "role": [
+    2,
+    {
+      "lemma": "role",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "conduits": [
+    1,
+    {
+      "lemma": "conduit",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "morphogenesis": [
+    3,
+    {
+      "lemma": "morphogenesis",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "disruption": [
+    2,
+    {
+      "lemma": "disruption",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "impaired": [
+    1,
+    {
+      "lemma": "impaired",
+      "pos": "proper noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "ventricular": [
+    2,
+    {
+      "lemma": "ventricular",
+      "pos": "proper noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "wall": [
+    2,
+    {
+      "lemma": "wall",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "evidenced": [
+    1,
+    {
+      "lemma": "evidence",
+      "pos": "verb",
+      "morph": {
+        "Tense": "Past",
+        "VerbForm": "Fin"
+      }
+    }
+  ],
+  "trabeculae": [
+    1,
+    {
+      "lemma": "trabeculae",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "defective": [
+    1,
+    {
+      "lemma": "defective",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "myocardial": [
+    1,
+    {
+      "lemma": "myocardial",
+      "pos": "proper noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "growth": [
+    1,
+    {
+      "lemma": "growth",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "conclusion": [
+    1,
+    {
+      "lemma": "conclusion",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "critical": [
+    1,
+    {
+      "lemma": "critical",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "mechanism": [
+    2,
+    {
+      "lemma": "mechanism",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "actin-rich": [
+    1,
+    {
+      "lemma": "rich",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "bridge": [
+    1,
+    {
+      "lemma": "bridge",
+      "pos": "proper noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "efficient": [
+    1,
+    {
+      "lemma": "efficient",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "exchange": [
+    1,
+    {
+      "lemma": "exchange",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "necessary": [
+    1,
+    {
+      "lemma": "necessary",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "compromises": [
+    1,
+    {
+      "lemma": "compromise",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "highlighting": [
+    1,
+    {
+      "lemma": "highlight",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Prog",
+        "Tense": "Pres",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "patterning": [
+    2,
+    {
+      "lemma": "pattern",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Prog",
+        "Tense": "Pres",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "provides": [
+    1,
+    {
+      "lemma": "provide",
+      "pos": "verb",
+      "morph": {
+        "Number": "Sing",
+        "Person": "3",
+        "Tense": "Pres",
+        "VerbForm": "Fin"
+      }
+    }
+  ],
+  "insights": [
+    1,
+    {
+      "lemma": "insight",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "into": [
+    1,
+    {
+      "lemma": "into",
+      "pos": "adposition",
+      "morph": {}
+    }
+  ],
+  "suggests": [
+    1,
+    {
+      "lemma": "suggest",
+      "pos": "verb",
+      "morph": {
+        "Number": "Sing",
+        "Person": "3",
+        "Tense": "Pres",
+        "VerbForm": "Fin"
+      }
+    }
+  ],
+  "might": [
+    1,
+    {
+      "lemma": "might",
+      "pos": "auxiliary",
+      "morph": {
+        "VerbForm": "Fin"
+      }
+    }
+  ],
+  "regulate": [
+    1,
+    {
+      "lemma": "regulate",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "cell-cell": [
+    1,
+    {
+      "lemma": "cell",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "modulate": [
+    1,
+    {
+      "lemma": "modulate",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "tissue": [
+    1,
+    {
+      "lemma": "tissue",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "mammalian": [
+    1,
+    {
+      "lemma": "mammalian",
+      "pos": "proper noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "systems": [
+    1,
+    {
+      "lemma": "system",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "future": [
+    1,
+    {
+      "lemma": "future",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "research": [
+    1,
+    {
+      "lemma": "research",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "should": [
+    1,
+    {
+      "lemma": "should",
+      "pos": "auxiliary",
+      "morph": {
+        "VerbForm": "Fin"
+      }
+    }
+  ],
+  "explore": [
+    1,
+    {
+      "lemma": "explore",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "molecular": [
+    2,
+    {
+      "lemma": "molecular",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "machinery": [
+    1,
+    {
+      "lemma": "machinery",
+      "pos": "proper noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "governing": [
+    1,
+    {
+      "lemma": "govern",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Prog",
+        "Tense": "Pres",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "structural": [
+    1,
+    {
+      "lemma": "structural",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "basis": [
+    1,
+    {
+      "lemma": "basis",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "interface": [
+    1,
+    {
+      "lemma": "interface",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "(see": [
+    1,
+    {
+      "lemma": "see",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "summary": [
+    1,
+    {
+      "lemma": "summary",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "figure)": [
+    1,
+    {
+      "lemma": ")",
+      "pos": "punctuation",
+      "morph": {
+        "PunctSide": "Fin",
+        "PunctType": "Brck"
+      }
+    }
+  ],
+  "potential": [
+    2,
+    {
+      "lemma": "potential",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "functions": [
+    1,
+    {
+      "lemma": "function",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "therapeutic": [
+    1,
+    {
+      "lemma": "therapeutic",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "implications": [
+    1,
+    {
+      "lemma": "implication",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "modulating": [
+    1,
+    {
+      "lemma": "modulate",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Prog",
+        "Tense": "Pres",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "congenital": [
+    1,
+    {
+      "lemma": "congenital",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "defects": [
+    1,
+    {
+      "lemma": "defect",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "failure": [
+    1,
+    {
+      "lemma": "failure",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ]
+}
