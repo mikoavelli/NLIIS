@@ -52,7 +52,7 @@
     }
   ],
   "is": [
-    1,
+    90,
     {
       "lemma": "be",
       "pos": "auxiliary",
@@ -66,7 +66,7 @@
     }
   ],
   "a": [
-    5,
+    115,
     {
       "lemma": "a",
       "pos": "pronoun",
@@ -79,8 +79,8 @@
   "highly": [
     1,
     {
-      "lemma": "new_state",
-      "pos": "ad",
+      "lemma": "highly",
+      "pos": "adverb",
       "morph": {}
     }
   ],
@@ -96,7 +96,7 @@
     }
   ],
   "process": [
-    1,
+    2,
     {
       "lemma": "process",
       "pos": "noun",
@@ -116,7 +116,7 @@
     }
   ],
   "on": [
-    3,
+    11,
     {
       "lemma": "on",
       "pos": "adposition",
@@ -144,7 +144,7 @@
     }
   ],
   "between": [
-    7,
+    10,
     {
       "lemma": "between",
       "pos": "adposition",
@@ -152,7 +152,7 @@
     }
   ],
   "the": [
-    34,
+    273,
     {
       "lemma": "the",
       "pos": "pronoun",
@@ -173,7 +173,7 @@
     }
   ],
   "and": [
-    26,
+    224,
     {
       "lemma": "and",
       "pos": "coordinating conjunction",
@@ -213,7 +213,7 @@
     }
   ],
   "are": [
-    2,
+    19,
     {
       "lemma": "be",
       "pos": "auxiliary",
@@ -237,7 +237,7 @@
     }
   ],
   "by": [
-    4,
+    8,
     {
       "lemma": "by",
       "pos": "adposition",
@@ -303,7 +303,7 @@
     }
   ],
   "through": [
-    3,
+    9,
     {
       "lemma": "through",
       "pos": "adposition",
@@ -350,12 +350,10 @@
   "membrane-bound": [
     1,
     {
-      "lemma": "bind",
-      "pos": "verb",
+      "lemma": "membrane",
+      "pos": "noun",
       "morph": {
-        "Aspect": "Perf",
-        "Tense": "Past",
-        "VerbForm": "Part"
+        "Number": "Sing"
       }
     }
   ],
@@ -388,7 +386,7 @@
     }
   ],
   "mechanisms": [
-    3,
+    4,
     {
       "lemma": "mechanism",
       "pos": "noun",
@@ -438,7 +436,7 @@
     }
   ],
   "physical": [
-    1,
+    2,
     {
       "lemma": "physical",
       "pos": "adjective",
@@ -487,7 +485,7 @@
     }
   ],
   "in": [
-    18,
+    71,
     {
       "lemma": "in",
       "pos": "adposition",
@@ -495,7 +493,7 @@
     }
   ],
   "this": [
-    3,
+    12,
     {
       "lemma": "this",
       "pos": "pronoun",
@@ -506,7 +504,7 @@
     }
   ],
   "work": [
-    3,
+    7,
     {
       "lemma": "work",
       "pos": "verb",
@@ -516,7 +514,7 @@
     }
   ],
   "we": [
-    5,
+    53,
     {
       "lemma": "we",
       "pos": "pronoun",
@@ -552,10 +550,10 @@
   "nanotube–like": [
     1,
     {
-      "lemma": "like",
-      "pos": "adjective",
+      "lemma": "nanotube",
+      "pos": "noun",
       "morph": {
-        "Degree": "Pos"
+        "Number": "Sing"
       }
     }
   ],
@@ -569,19 +567,18 @@
       }
     }
   ],
-  "(tntls)": [
-    1,
+  "tntls": [
+    17,
     {
-      "lemma": ")",
-      "pos": "punctuation",
+      "lemma": "tntls",
+      "pos": "noun",
       "morph": {
-        "PunctSide": "Fin",
-        "PunctType": "Brck"
+        "Number": "Sing"
       }
     }
   ],
   "which": [
-    1,
+    2,
     {
       "lemma": "which",
       "pos": "pronoun",
@@ -589,7 +586,7 @@
     }
   ],
   "found": [
-    1,
+    2,
     {
       "lemma": "find",
       "pos": "verb",
@@ -632,19 +629,18 @@
       }
     }
   ],
-  "(cms)": [
-    1,
+  "cms": [
+    4,
     {
-      "lemma": ")",
-      "pos": "punctuation",
+      "lemma": "cms",
+      "pos": "verb",
       "morph": {
-        "PunctSide": "Fin",
-        "PunctType": "Brck"
+        "VerbForm": "Inf"
       }
     }
   ],
   "to": [
-    9,
+    150,
     {
       "lemma": "to",
       "pos": "particle",
@@ -671,19 +667,18 @@
       }
     }
   ],
-  "(ecs)": [
-    1,
+  "ecs": [
+    5,
     {
-      "lemma": ")",
-      "pos": "punctuation",
+      "lemma": "ec",
+      "pos": "noun",
       "morph": {
-        "PunctSide": "Fin",
-        "PunctType": "Brck"
+        "Number": "Plur"
       }
     }
   ],
   "these": [
-    8,
+    11,
     {
       "lemma": "these",
       "pos": "pronoun",
@@ -704,7 +699,7 @@
     }
   ],
   "help": [
-    2,
+    4,
     {
       "lemma": "help",
       "pos": "verb",
@@ -726,10 +721,10 @@
   "long-distance": [
     5,
     {
-      "lemma": "distance",
-      "pos": "noun",
+      "lemma": "long",
+      "pos": "adjective",
       "morph": {
-        "Number": "Sing"
+        "Degree": "Pos"
       }
     }
   ],
@@ -744,7 +739,7 @@
     }
   ],
   "communication": [
-    6,
+    7,
     {
       "lemma": "communication",
       "pos": "noun",
@@ -754,7 +749,7 @@
     }
   ],
   "essential": [
-    3,
+    14,
     {
       "lemma": "essential",
       "pos": "proper noun",
@@ -764,7 +759,7 @@
     }
   ],
   "for": [
-    6,
+    50,
     {
       "lemma": "for",
       "pos": "adposition",
@@ -839,18 +834,18 @@
     }
   ],
   "as": [
-    5,
+    7,
     {
       "lemma": "as",
       "pos": "adposition",
       "morph": {}
     }
   ],
-  "notch1": [
-    3,
+  "notch": [
+    4,
     {
-      "lemma": "notch1",
-      "pos": "proper noun",
+      "lemma": "notch",
+      "pos": "noun",
       "morph": {
         "Number": "Sing"
       }
@@ -866,18 +861,18 @@
       }
     }
   ],
-  "nrg1": [
+  "nrg": [
     1,
     {
-      "lemma": "nrg1",
-      "pos": "proper noun",
+      "lemma": "nrg",
+      "pos": "noun",
       "morph": {
         "Number": "Sing"
       }
     }
   ],
   "have": [
-    1,
+    10,
     {
       "lemma": "have",
       "pos": "verb",
@@ -900,7 +895,7 @@
     }
   ],
   "across": [
-    3,
+    4,
     {
       "lemma": "across",
       "pos": "adposition",
@@ -942,7 +937,7 @@
     }
   ],
   "that": [
-    4,
+    42,
     {
       "lemma": "that",
       "pos": "subordinating conjunction",
@@ -970,7 +965,7 @@
     }
   ],
   "could": [
-    2,
+    3,
     {
       "lemma": "could",
       "pos": "auxiliary",
@@ -1014,7 +1009,7 @@
     }
   ],
   "transport": [
-    2,
+    3,
     {
       "lemma": "transport",
       "pos": "noun",
@@ -1024,7 +1019,7 @@
     }
   ],
   "of": [
-    15,
+    197,
     {
       "lemma": "of",
       "pos": "adposition",
@@ -1120,12 +1115,10 @@
   "contact-tracing": [
     1,
     {
-      "lemma": "trace",
-      "pos": "verb",
+      "lemma": "contact",
+      "pos": "noun",
       "morph": {
-        "Aspect": "Prog",
-        "Tense": "Pres",
-        "VerbForm": "Part"
+        "Number": "Sing"
       }
     }
   ],
@@ -1173,19 +1166,9 @@
     }
   ],
   "existence": [
-    1,
+    2,
     {
       "lemma": "existence",
-      "pos": "noun",
-      "morph": {
-        "Number": "Sing"
-      }
-    }
-  ],
-  "tntls": [
-    16,
-    {
-      "lemma": "tntls",
       "pos": "noun",
       "morph": {
         "Number": "Sing"
@@ -1213,7 +1196,7 @@
     }
   ],
   "hearts": [
-    2,
+    3,
     {
       "lemma": "heart",
       "pos": "noun",
@@ -1235,31 +1218,11 @@
     }
   ],
   "from": [
-    2,
+    13,
     {
       "lemma": "from",
       "pos": "adposition",
       "morph": {}
-    }
-  ],
-  "cms": [
-    3,
-    {
-      "lemma": "cms",
-      "pos": "verb",
-      "morph": {
-        "VerbForm": "Inf"
-      }
-    }
-  ],
-  "ecs": [
-    4,
-    {
-      "lemma": "ec",
-      "pos": "noun",
-      "morph": {
-        "Number": "Plur"
-      }
     }
   ],
   "establishing": [
@@ -1345,7 +1308,7 @@
     }
   ],
   "were": [
-    7,
+    8,
     {
       "lemma": "be",
       "pos": "auxiliary",
@@ -1401,7 +1364,7 @@
     }
   ],
   "form": [
-    1,
+    2,
     {
       "lemma": "form",
       "pos": "noun",
@@ -1419,22 +1382,12 @@
     }
   ],
   "day": [
-    1,
+    2,
     {
       "lemma": "day",
       "pos": "noun",
       "morph": {
         "Number": "Sing"
-      }
-    }
-  ],
-  "8.0": [
-    1,
-    {
-      "lemma": "8.0",
-      "pos": "numeral",
-      "morph": {
-        "NumType": "Card"
       }
     }
   ],
@@ -1459,10 +1412,10 @@
   "three-dimensional": [
     1,
     {
-      "lemma": "dimensional",
-      "pos": "adjective",
+      "lemma": "three",
+      "pos": "numeral",
       "morph": {
-        "Degree": "Pos"
+        "NumType": "Card"
       }
     }
   ],
@@ -1496,21 +1449,20 @@
       }
     }
   ],
-  "(em)": [
+  "em": [
     1,
     {
-      "lemma": ")",
-      "pos": "punctuation",
+      "lemma": "em",
+      "pos": "pronoun",
       "morph": {
-        "PunctSide": "Fin",
-        "PunctType": "Brck"
+        "PronType": "Prs"
       }
     }
   ],
   "cryo-em": [
     1,
     {
-      "lemma": "em",
+      "lemma": "cryo",
       "pos": "noun",
       "morph": {
         "Number": "Sing"
@@ -1580,7 +1532,7 @@
     }
   ],
   "presence": [
-    1,
+    2,
     {
       "lemma": "presence",
       "pos": "noun",
@@ -1645,7 +1597,7 @@
     }
   ],
   "with": [
-    2,
+    29,
     {
       "lemma": "with",
       "pos": "adposition",
@@ -1693,7 +1645,7 @@
     }
   ],
   "or": [
-    1,
+    6,
     {
       "lemma": "or",
       "pos": "coordinating conjunction",
@@ -1715,7 +1667,7 @@
     }
   ],
   "small": [
-    1,
+    4,
     {
       "lemma": "small",
       "pos": "adjective",
@@ -1744,10 +1696,10 @@
       }
     }
   ],
-  "cdc42": [
+  "cdc": [
     1,
     {
-      "lemma": "cdc42",
+      "lemma": "cdc",
       "pos": "proper noun",
       "morph": {
         "Number": "Sing"
@@ -1766,7 +1718,7 @@
     }
   ],
   "involved": [
-    1,
+    2,
     {
       "lemma": "involve",
       "pos": "verb",
@@ -1790,7 +1742,7 @@
     }
   ],
   "other": [
-    2,
+    4,
     {
       "lemma": "other",
       "pos": "adjective",
@@ -1842,7 +1794,7 @@
     }
   ],
   "loss": [
-    2,
+    3,
     {
       "lemma": "loss",
       "pos": "noun",
@@ -1870,16 +1822,6 @@
       "morph": {
         "Tense": "Past",
         "VerbForm": "Fin"
-      }
-    }
-  ],
-  "notch": [
-    1,
-    {
-      "lemma": "notch",
-      "pos": "noun",
-      "morph": {
-        "Number": "Sing"
       }
     }
   ],
@@ -1928,7 +1870,7 @@
     }
   ],
   "their": [
-    2,
+    8,
     {
       "lemma": "their",
       "pos": "pronoun",
@@ -1941,7 +1883,7 @@
     }
   ],
   "role": [
-    2,
+    3,
     {
       "lemma": "role",
       "pos": "noun",
@@ -2052,7 +1994,7 @@
     }
   ],
   "growth": [
-    1,
+    3,
     {
       "lemma": "growth",
       "pos": "noun",
@@ -2072,7 +2014,7 @@
     }
   ],
   "critical": [
-    1,
+    3,
     {
       "lemma": "critical",
       "pos": "adjective",
@@ -2094,15 +2036,15 @@
   "actin-rich": [
     1,
     {
-      "lemma": "rich",
-      "pos": "adjective",
+      "lemma": "actin",
+      "pos": "noun",
       "morph": {
-        "Degree": "Pos"
+        "Number": "Sing"
       }
     }
   ],
   "bridge": [
-    1,
+    2,
     {
       "lemma": "bridge",
       "pos": "proper noun",
@@ -2189,7 +2131,7 @@
     }
   ],
   "insights": [
-    1,
+    2,
     {
       "lemma": "insight",
       "pos": "noun",
@@ -2199,7 +2141,7 @@
     }
   ],
   "into": [
-    1,
+    2,
     {
       "lemma": "into",
       "pos": "adposition",
@@ -2290,7 +2232,7 @@
     }
   ],
   "future": [
-    1,
+    11,
     {
       "lemma": "future",
       "pos": "noun",
@@ -2310,7 +2252,7 @@
     }
   ],
   "should": [
-    1,
+    3,
     {
       "lemma": "should",
       "pos": "auxiliary",
@@ -2320,7 +2262,7 @@
     }
   ],
   "explore": [
-    1,
+    4,
     {
       "lemma": "explore",
       "pos": "noun",
@@ -2391,7 +2333,7 @@
       }
     }
   ],
-  "(see": [
+  "see": [
     1,
     {
       "lemma": "see",
@@ -2411,19 +2353,18 @@
       }
     }
   ],
-  "figure)": [
+  "figure": [
     1,
     {
-      "lemma": ")",
-      "pos": "punctuation",
+      "lemma": "figure",
+      "pos": "noun",
       "morph": {
-        "PunctSide": "Fin",
-        "PunctType": "Brck"
+        "Number": "Sing"
       }
     }
   ],
   "potential": [
-    2,
+    9,
     {
       "lemma": "potential",
       "pos": "noun",
@@ -2453,7 +2394,7 @@
     }
   ],
   "implications": [
-    1,
+    3,
     {
       "lemma": "implication",
       "pos": "noun",
@@ -2501,6 +2442,8494 @@
       "pos": "noun",
       "morph": {
         "Number": "Sing"
+      }
+    }
+  ],
+  "digital": [
+    1,
+    {
+      "lemma": "digital",
+      "pos": "proper noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "realm": [
+    2,
+    {
+      "lemma": "realm",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "unfolds": [
+    1,
+    {
+      "lemma": "unfold",
+      "pos": "verb",
+      "morph": {
+        "Number": "Sing",
+        "Person": "3",
+        "Tense": "Pres",
+        "VerbForm": "Fin"
+      }
+    }
+  ],
+  "before": [
+    2,
+    {
+      "lemma": "before",
+      "pos": "adposition",
+      "morph": {}
+    }
+  ],
+  "us": [
+    21,
+    {
+      "lemma": "we",
+      "pos": "pronoun",
+      "morph": {
+        "Case": "Acc",
+        "Number": "Plur",
+        "Person": "1",
+        "PronType": "Prs"
+      }
+    }
+  ],
+  "boundless": [
+    2,
+    {
+      "lemma": "boundless",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "expanse": [
+    2,
+    {
+      "lemma": "expanse",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "interconnected": [
+    3,
+    {
+      "lemma": "interconnect",
+      "pos": "verb",
+      "morph": {
+        "Tense": "Past",
+        "VerbForm": "Fin"
+      }
+    }
+  ],
+  "nodes": [
+    1,
+    {
+      "lemma": "node",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "each": [
+    3,
+    {
+      "lemma": "each",
+      "pos": "pronoun",
+      "morph": {}
+    }
+  ],
+  "pulsing": [
+    1,
+    {
+      "lemma": "pulsing",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "creation": [
+    2,
+    {
+      "lemma": "creation",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "destruction": [
+    1,
+    {
+      "lemma": "destruction",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "architects": [
+    1,
+    {
+      "lemma": "architect",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "new": [
+    11,
+    {
+      "lemma": "new",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "reality": [
+    2,
+    {
+      "lemma": "reality",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "wielding": [
+    1,
+    {
+      "lemma": "wield",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Prog",
+        "Tense": "Pres",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "algorithms": [
+    1,
+    {
+      "lemma": "algorithm",
+      "pos": "verb",
+      "morph": {
+        "Number": "Sing",
+        "Person": "3",
+        "Tense": "Pres",
+        "VerbForm": "Fin"
+      }
+    }
+  ],
+  "code": [
+    1,
+    {
+      "lemma": "code",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "our": [
+    58,
+    {
+      "lemma": "our",
+      "pos": "pronoun",
+      "morph": {
+        "Number": "Plur",
+        "Person": "1",
+        "Poss": "Yes",
+        "PronType": "Prs"
+      }
+    }
+  ],
+  "tools": [
+    1,
+    {
+      "lemma": "tool",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "shaping": [
+    1,
+    {
+      "lemma": "shape",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Prog",
+        "Tense": "Pres",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "very": [
+    1,
+    {
+      "lemma": "very",
+      "pos": "adverb",
+      "morph": {}
+    }
+  ],
+  "fabric": [
+    1,
+    {
+      "lemma": "fabric",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "ways": [
+    2,
+    {
+      "lemma": "way",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "once": [
+    1,
+    {
+      "lemma": "once",
+      "pos": "adverb",
+      "morph": {
+        "NumType": "Mult"
+      }
+    }
+  ],
+  "relegated": [
+    1,
+    {
+      "lemma": "relegate",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Perf",
+        "Tense": "Past",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "science": [
+    2,
+    {
+      "lemma": "science",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "fiction": [
+    1,
+    {
+      "lemma": "fiction",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "but": [
+    15,
+    {
+      "lemma": "but",
+      "pos": "coordinating conjunction",
+      "morph": {
+        "ConjType": "Cmp"
+      }
+    }
+  ],
+  "power": [
+    15,
+    {
+      "lemma": "power",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "comes": [
+    3,
+    {
+      "lemma": "come",
+      "pos": "verb",
+      "morph": {
+        "Number": "Sing",
+        "Person": "3",
+        "Tense": "Pres",
+        "VerbForm": "Fin"
+      }
+    }
+  ],
+  "responsibility": [
+    8,
+    {
+      "lemma": "responsibility",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "burden": [
+    1,
+    {
+      "lemma": "burden",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "must": [
+    14,
+    {
+      "lemma": "must",
+      "pos": "auxiliary",
+      "morph": {
+        "VerbForm": "Fin"
+      }
+    }
+  ],
+  "bear": [
+    1,
+    {
+      "lemma": "bear",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "careful": [
+    1,
+    {
+      "lemma": "careful",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "consideration": [
+    1,
+    {
+      "lemma": "consideration",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "unwavering": [
+    1,
+    {
+      "lemma": "unwavere",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Prog",
+        "Tense": "Pres",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "ethical": [
+    5,
+    {
+      "lemma": "ethical",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "commitment": [
+    4,
+    {
+      "lemma": "commitment",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "consider": [
+    2,
+    {
+      "lemma": "consider",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "artificial": [
+    1,
+    {
+      "lemma": "artificial",
+      "pos": "proper noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "intelligence": [
+    1,
+    {
+      "lemma": "intelligence",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "force": [
+    1,
+    {
+      "lemma": "force",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "rapidly": [
+    2,
+    {
+      "lemma": "rapidly",
+      "pos": "adverb",
+      "morph": {}
+    }
+  ],
+  "transforming": [
+    1,
+    {
+      "lemma": "transform",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Prog",
+        "Tense": "Pres",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "every": [
+    2,
+    {
+      "lemma": "every",
+      "pos": "pronoun",
+      "morph": {}
+    }
+  ],
+  "aspect": [
+    2,
+    {
+      "lemma": "aspect",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "lives": [
+    6,
+    {
+      "lemma": "life",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "self-driving": [
+    1,
+    {
+      "lemma": "self",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "cars": [
+    1,
+    {
+      "lemma": "car",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "personalized": [
+    1,
+    {
+      "lemma": "personalize",
+      "pos": "verb",
+      "morph": {
+        "Tense": "Past",
+        "VerbForm": "Fin"
+      }
+    }
+  ],
+  "medicine": [
+    1,
+    {
+      "lemma": "medicine",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "ai": [
+    1,
+    {
+      "lemma": "ai",
+      "pos": "verb",
+      "morph": {
+        "Tense": "Pres",
+        "VerbForm": "Fin"
+      }
+    }
+  ],
+  "promises": [
+    1,
+    {
+      "lemma": "promise",
+      "pos": "verb",
+      "morph": {
+        "Number": "Sing",
+        "Person": "3",
+        "Tense": "Pres",
+        "VerbForm": "Fin"
+      }
+    }
+  ],
+  "solve": [
+    4,
+    {
+      "lemma": "solve",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "some": [
+    1,
+    {
+      "lemma": "some",
+      "pos": "pronoun",
+      "morph": {}
+    }
+  ],
+  "humanity's": [
+    2,
+    {
+      "lemma": "humanity",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "most": [
+    1,
+    {
+      "lemma": "most",
+      "pos": "adverb",
+      "morph": {
+        "Degree": "Sup"
+      }
+    }
+  ],
+  "pressing": [
+    1,
+    {
+      "lemma": "press",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Prog",
+        "Tense": "Pres",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "challenges": [
+    8,
+    {
+      "lemma": "challenge",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "yet": [
+    1,
+    {
+      "lemma": "yet",
+      "pos": "adverb",
+      "morph": {}
+    }
+  ],
+  "misuse": [
+    1,
+    {
+      "lemma": "misuse",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "undeniable": [
+    5,
+    {
+      "lemma": "undeniable",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "algorithmic": [
+    1,
+    {
+      "lemma": "algorithmic",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "bias": [
+    1,
+    {
+      "lemma": "bias",
+      "pos": "proper noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "job": [
+    1,
+    {
+      "lemma": "job",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "displacement": [
+    1,
+    {
+      "lemma": "displacement",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "erosion": [
+    1,
+    {
+      "lemma": "erosion",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "privacy": [
+    1,
+    {
+      "lemma": "privacy",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "just": [
+    11,
+    {
+      "lemma": "just",
+      "pos": "adverb",
+      "morph": {}
+    }
+  ],
+  "few": [
+    2,
+    {
+      "lemma": "few",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "concerns": [
+    1,
+    {
+      "lemma": "concern",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "address": [
+    2,
+    {
+      "lemma": "address",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "proactively": [
+    1,
+    {
+      "lemma": "proactively",
+      "pos": "adverb",
+      "morph": {}
+    }
+  ],
+  "quest": [
+    3,
+    {
+      "lemma": "quest",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "knowledge": [
+    8,
+    {
+      "lemma": "knowledge",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "an": [
+    3,
+    {
+      "lemma": "an",
+      "pos": "pronoun",
+      "morph": {
+        "Definite": "Ind",
+        "PronType": "Art"
+      }
+    }
+  ],
+  "inherent": [
+    1,
+    {
+      "lemma": "inherent",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "human": [
+    19,
+    {
+      "lemma": "human",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "drive": [
+    1,
+    {
+      "lemma": "drive",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "thirst": [
+    1,
+    {
+      "lemma": "thirst",
+      "pos": "verb",
+      "morph": {
+        "Tense": "Past",
+        "VerbForm": "Fin"
+      }
+    }
+  ],
+  "propels": [
+    1,
+    {
+      "lemma": "propel",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "uncharted": [
+    1,
+    {
+      "lemma": "uncharted",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "territories": [
+    1,
+    {
+      "lemma": "territory",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "philosophy": [
+    1,
+    {
+      "lemma": "philosophy",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "art": [
+    3,
+    {
+      "lemma": "art",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "seek": [
+    6,
+    {
+      "lemma": "seek",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "understand": [
+    5,
+    {
+      "lemma": "understand",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "fundamental": [
+    5,
+    {
+      "lemma": "fundamental",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "principles": [
+    1,
+    {
+      "lemma": "principle",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "govern": [
+    1,
+    {
+      "lemma": "govern",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "universe": [
+    3,
+    {
+      "lemma": "universe",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "unravel": [
+    1,
+    {
+      "lemma": "unravel",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "mysteries": [
+    3,
+    {
+      "lemma": "mystery",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "consciousness": [
+    1,
+    {
+      "lemma": "consciousness",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "express": [
+    4,
+    {
+      "lemma": "express",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "beauty": [
+    10,
+    {
+      "lemma": "beauty",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "complexity": [
+    4,
+    {
+      "lemma": "complexity",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "experience": [
+    4,
+    {
+      "lemma": "experience",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "pursuit": [
+    12,
+    {
+      "lemma": "pursuit",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "not": [
+    8,
+    {
+      "lemma": "not",
+      "pos": "particle",
+      "morph": {
+        "Polarity": "Neg"
+      }
+    }
+  ],
+  "without": [
+    3,
+    {
+      "lemma": "without",
+      "pos": "adposition",
+      "morph": {}
+    }
+  ],
+  "its": [
+    11,
+    {
+      "lemma": "its",
+      "pos": "pronoun",
+      "morph": {
+        "Gender": "Neut",
+        "Number": "Sing",
+        "Person": "3",
+        "Poss": "Yes",
+        "PronType": "Prs"
+      }
+    }
+  ],
+  "obstacles": [
+    2,
+    {
+      "lemma": "obstacle",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "limitations": [
+    2,
+    {
+      "lemma": "limitation",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "own": [
+    8,
+    {
+      "lemma": "own",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "perception": [
+    1,
+    {
+      "lemma": "perception",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "biases": [
+    2,
+    {
+      "lemma": "bias",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "cultural": [
+    2,
+    {
+      "lemma": "cultural",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "conditioning": [
+    1,
+    {
+      "lemma": "condition",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Prog",
+        "Tense": "Pres",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "ever-present": [
+    1,
+    {
+      "lemma": "ever",
+      "pos": "adverb",
+      "morph": {}
+    }
+  ],
+  "threat": [
+    1,
+    {
+      "lemma": "threat",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "misinformation": [
+    1,
+    {
+      "lemma": "misinformation",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "can": [
+    17,
+    {
+      "lemma": "can",
+      "pos": "auxiliary",
+      "morph": {
+        "VerbForm": "Fin"
+      }
+    }
+  ],
+  "all": [
+    16,
+    {
+      "lemma": "all",
+      "pos": "pronoun",
+      "morph": {}
+    }
+  ],
+  "distort": [
+    1,
+    {
+      "lemma": "distort",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "understanding": [
+    13,
+    {
+      "lemma": "understand",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Prog",
+        "Tense": "Pres",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "truth": [
+    4,
+    {
+      "lemma": "truth",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "nature": [
+    7,
+    {
+      "lemma": "nature",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "raw": [
+    1,
+    {
+      "lemma": "raw",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "untamed": [
+    1,
+    {
+      "lemma": "untame",
+      "pos": "verb",
+      "morph": {
+        "Tense": "Past",
+        "VerbForm": "Fin"
+      }
+    }
+  ],
+  "glory": [
+    1,
+    {
+      "lemma": "glory",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "remains": [
+    1,
+    {
+      "lemma": "remain",
+      "pos": "verb",
+      "morph": {
+        "Number": "Sing",
+        "Person": "3",
+        "Tense": "Pres",
+        "VerbForm": "Fin"
+      }
+    }
+  ],
+  "constant": [
+    3,
+    {
+      "lemma": "constant",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "source": [
+    2,
+    {
+      "lemma": "source",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "inspiration": [
+    2,
+    {
+      "lemma": "inspiration",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "wonder": [
+    4,
+    {
+      "lemma": "wonder",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "soaring": [
+    1,
+    {
+      "lemma": "soar",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Prog",
+        "Tense": "Pres",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "peaks": [
+    1,
+    {
+      "lemma": "peak",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "mountains": [
+    1,
+    {
+      "lemma": "mountain",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "vast": [
+    2,
+    {
+      "lemma": "vast",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "ocean": [
+    1,
+    {
+      "lemma": "ocean",
+      "pos": "proper noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "intricate": [
+    2,
+    {
+      "lemma": "intricate",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "details": [
+    2,
+    {
+      "lemma": "detail",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "single": [
+    1,
+    {
+      "lemma": "single",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "flower": [
+    2,
+    {
+      "lemma": "flower",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "speak": [
+    2,
+    {
+      "lemma": "speak",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "profound": [
+    4,
+    {
+      "lemma": "profound",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "interconnectedness": [
+    3,
+    {
+      "lemma": "interconnectedness",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "life": [
+    19,
+    {
+      "lemma": "life",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "part": [
+    2,
+    {
+      "lemma": "part",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "grand": [
+    1,
+    {
+      "lemma": "grand",
+      "pos": "proper noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "tapestry": [
+    1,
+    {
+      "lemma": "tapestry",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "it": [
+    21,
+    {
+      "lemma": "it",
+      "pos": "pronoun",
+      "morph": {
+        "Gender": "Neut",
+        "Number": "Sing",
+        "Person": "3",
+        "PronType": "Prs"
+      }
+    }
+  ],
+  "duty": [
+    1,
+    {
+      "lemma": "duty",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "protect": [
+    3,
+    {
+      "lemma": "protect",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "preserve": [
+    2,
+    {
+      "lemma": "preserve",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "natural": [
+    2,
+    {
+      "lemma": "natural",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "world": [
+    23,
+    {
+      "lemma": "world",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "generations": [
+    4,
+    {
+      "lemma": "generation",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "ephemeral": [
+    2,
+    {
+      "lemma": "ephemeral",
+      "pos": "proper noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "time": [
+    6,
+    {
+      "lemma": "time",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "weighs": [
+    1,
+    {
+      "lemma": "weigh",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "heavily": [
+    1,
+    {
+      "lemma": "heavily",
+      "pos": "adverb",
+      "morph": {}
+    }
+  ],
+  "spirit": [
+    3,
+    {
+      "lemma": "spirit",
+      "pos": "proper noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "born": [
+    1,
+    {
+      "lemma": "bear",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Perf",
+        "Tense": "Past",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "live": [
+    6,
+    {
+      "lemma": "live",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "die": [
+    1,
+    {
+      "lemma": "die",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "leaving": [
+    2,
+    {
+      "lemma": "leave",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Prog",
+        "Tense": "Pres",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "behind": [
+    2,
+    {
+      "lemma": "behind",
+      "pos": "adverb",
+      "morph": {}
+    }
+  ],
+  "only": [
+    1,
+    {
+      "lemma": "only",
+      "pos": "adverb",
+      "morph": {}
+    }
+  ],
+  "memories": [
+    1,
+    {
+      "lemma": "memory",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "legacies": [
+    1,
+    {
+      "lemma": "legacy",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "awareness": [
+    3,
+    {
+      "lemma": "awareness",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "mortality": [
+    1,
+    {
+      "lemma": "mortality",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "be": [
+    25,
+    {
+      "lemma": "be",
+      "pos": "auxiliary",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "both": [
+    5,
+    {
+      "lemma": "both",
+      "pos": "pronoun",
+      "morph": {}
+    }
+  ],
+  "terrifying": [
+    1,
+    {
+      "lemma": "terrify",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Prog",
+        "Tense": "Pres",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "liberating": [
+    1,
+    {
+      "lemma": "liberate",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Prog",
+        "Tense": "Pres",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "forces": [
+    1,
+    {
+      "lemma": "force",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "confront": [
+    1,
+    {
+      "lemma": "confront",
+      "pos": "proper noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "priorities": [
+    1,
+    {
+      "lemma": "priority",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "cherish": [
+    3,
+    {
+      "lemma": "cherish",
+      "pos": "proper noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "present": [
+    4,
+    {
+      "lemma": "present",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "moment": [
+    6,
+    {
+      "lemma": "moment",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "strive": [
+    12,
+    {
+      "lemma": "strive",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "make": [
+    6,
+    {
+      "lemma": "make",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "meaningful": [
+    9,
+    {
+      "lemma": "meaningful",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "contribution": [
+    1,
+    {
+      "lemma": "contribution",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "mundane": [
+    1,
+    {
+      "lemma": "mundane",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "daily": [
+    2,
+    {
+      "lemma": "daily",
+      "pos": "adverb",
+      "morph": {}
+    }
+  ],
+  "often": [
+    5,
+    {
+      "lemma": "often",
+      "pos": "adverb",
+      "morph": {}
+    }
+  ],
+  "obscure": [
+    1,
+    {
+      "lemma": "obscure",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "deeper": [
+    4,
+    {
+      "lemma": "deeply",
+      "pos": "adverb",
+      "morph": {
+        "Degree": "Cmp"
+      }
+    }
+  ],
+  "truths": [
+    1,
+    {
+      "lemma": "truth",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "lie": [
+    2,
+    {
+      "lemma": "lie",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "beneath": [
+    1,
+    {
+      "lemma": "beneath",
+      "pos": "adposition",
+      "morph": {}
+    }
+  ],
+  "surface": [
+    1,
+    {
+      "lemma": "surface",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "simple": [
+    2,
+    {
+      "lemma": "simple",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "cup": [
+    1,
+    {
+      "lemma": "cup",
+      "pos": "proper noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "coffee": [
+    1,
+    {
+      "lemma": "coffee",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "fleeting": [
+    2,
+    {
+      "lemma": "fleeting",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "conversation": [
+    1,
+    {
+      "lemma": "conversation",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "stranger": [
+    1,
+    {
+      "lemma": "strange",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Cmp"
+      }
+    }
+  ],
+  "gentle": [
+    1,
+    {
+      "lemma": "gentle",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "rustling": [
+    1,
+    {
+      "lemma": "rustle",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Prog",
+        "Tense": "Pres",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "leaves": [
+    1,
+    {
+      "lemma": "leave",
+      "pos": "verb",
+      "morph": {
+        "Number": "Sing",
+        "Person": "3",
+        "Tense": "Pres",
+        "VerbForm": "Fin"
+      }
+    }
+  ],
+  "wind": [
+    1,
+    {
+      "lemma": "wind",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "offer": [
+    1,
+    {
+      "lemma": "offer",
+      "pos": "verb",
+      "morph": {
+        "Tense": "Pres",
+        "VerbForm": "Fin"
+      }
+    }
+  ],
+  "if": [
+    2,
+    {
+      "lemma": "if",
+      "pos": "subordinating conjunction",
+      "morph": {}
+    }
+  ],
+  "take": [
+    5,
+    {
+      "lemma": "take",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "truly": [
+    4,
+    {
+      "lemma": "truly",
+      "pos": "adverb",
+      "morph": {}
+    }
+  ],
+  "observe": [
+    2,
+    {
+      "lemma": "observe",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "reflect": [
+    2,
+    {
+      "lemma": "reflect",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "moments": [
+    3,
+    {
+      "lemma": "moment",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "find": [
+    4,
+    {
+      "lemma": "find",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "greatest": [
+    1,
+    {
+      "lemma": "great",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Sup"
+      }
+    }
+  ],
+  "meaning": [
+    3,
+    {
+      "lemma": "mean",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Prog",
+        "Tense": "Pres",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "search": [
+    3,
+    {
+      "lemma": "search",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "universal": [
+    1,
+    {
+      "lemma": "universal",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "endeavor": [
+    3,
+    {
+      "lemma": "endeavor",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "place": [
+    3,
+    {
+      "lemma": "place",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "cosmos": [
+    3,
+    {
+      "lemma": "cosmos",
+      "pos": "proper noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "define": [
+    2,
+    {
+      "lemma": "define",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "purpose": [
+    4,
+    {
+      "lemma": "purpose",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "create": [
+    9,
+    {
+      "lemma": "create",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "fulfilling": [
+    4,
+    {
+      "lemma": "fulfil",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Prog",
+        "Tense": "Pres",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "journey": [
+    10,
+    {
+      "lemma": "journey",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "fraught": [
+    1,
+    {
+      "lemma": "fraught",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "setbacks": [
+    2,
+    {
+      "lemma": "setback",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "struggles": [
+    1,
+    {
+      "lemma": "struggle",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "ultimately": [
+    2,
+    {
+      "lemma": "ultimately",
+      "pos": "adverb",
+      "morph": {}
+    }
+  ],
+  "grow": [
+    1,
+    {
+      "lemma": "grow",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "evolve": [
+    1,
+    {
+      "lemma": "evolve",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "technology": [
+    2,
+    {
+      "lemma": "technology",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "while": [
+    1,
+    {
+      "lemma": "while",
+      "pos": "subordinating conjunction",
+      "morph": {}
+    }
+  ],
+  "powerful": [
+    2,
+    {
+      "lemma": "powerful",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "tool": [
+    1,
+    {
+      "lemma": "tool",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "panacea": [
+    1,
+    {
+      "lemma": "panacea",
+      "pos": "proper noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "ills": [
+    1,
+    {
+      "lemma": "ill",
+      "pos": "verb",
+      "morph": {
+        "Number": "Sing",
+        "Person": "3",
+        "Tense": "Pres",
+        "VerbForm": "Fin"
+      }
+    }
+  ],
+  "amplify": [
+    1,
+    {
+      "lemma": "amplify",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "strengths": [
+    1,
+    {
+      "lemma": "strength",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "weaknesses": [
+    1,
+    {
+      "lemma": "weakness",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "cannot": [
+    13,
+    {
+      "lemma": "can",
+      "pos": "auxiliary",
+      "morph": {
+        "VerbForm": "Fin"
+      }
+    }
+  ],
+  "replace": [
+    1,
+    {
+      "lemma": "replace",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "qualities": [
+    1,
+    {
+      "lemma": "quality",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "empathy": [
+    4,
+    {
+      "lemma": "empathy",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "compassion": [
+    9,
+    {
+      "lemma": "compassion",
+      "pos": "proper noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "thinking": [
+    3,
+    {
+      "lemma": "think",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Prog",
+        "Tense": "Pres",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "use": [
+    1,
+    {
+      "lemma": "use",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "wisely": [
+    2,
+    {
+      "lemma": "wisely",
+      "pos": "adverb",
+      "morph": {}
+    }
+  ],
+  "ethically": [
+    1,
+    {
+      "lemma": "ethically",
+      "pos": "adverb",
+      "morph": {}
+    }
+  ],
+  "ensuring": [
+    2,
+    {
+      "lemma": "ensure",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Prog",
+        "Tense": "Pres",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "serves": [
+    2,
+    {
+      "lemma": "serve",
+      "pos": "verb",
+      "morph": {
+        "Number": "Sing",
+        "Person": "3",
+        "Tense": "Pres",
+        "VerbForm": "Fin"
+      }
+    }
+  ],
+  "common": [
+    5,
+    {
+      "lemma": "common",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "good": [
+    8,
+    {
+      "lemma": "good",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "promotes": [
+    1,
+    {
+      "lemma": "promote",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "more": [
+    13,
+    {
+      "lemma": "more",
+      "pos": "adverb",
+      "morph": {
+        "Degree": "Cmp"
+      }
+    }
+  ],
+  "equitable": [
+    5,
+    {
+      "lemma": "equitable",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "exploration": [
+    3,
+    {
+      "lemma": "exploration",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "space": [
+    2,
+    {
+      "lemma": "space",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "represents": [
+    2,
+    {
+      "lemma": "represent",
+      "pos": "verb",
+      "morph": {
+        "Number": "Sing",
+        "Person": "3",
+        "Tense": "Pres",
+        "VerbForm": "Fin"
+      }
+    }
+  ],
+  "ultimate": [
+    1,
+    {
+      "lemma": "ultimate",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "frontier": [
+    1,
+    {
+      "lemma": "frontier",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "challenge": [
+    7,
+    {
+      "lemma": "challenge",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "pushes": [
+    1,
+    {
+      "lemma": "push",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "boundaries": [
+    1,
+    {
+      "lemma": "boundary",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "ingenuity": [
+    2,
+    {
+      "lemma": "ingenuity",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "determination": [
+    2,
+    {
+      "lemma": "determination",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "extraterrestrial": [
+    1,
+    {
+      "lemma": "extraterrestrial",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "colonization": [
+    1,
+    {
+      "lemma": "colonization",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "planets": [
+    1,
+    {
+      "lemma": "planet",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "unraveling": [
+    1,
+    {
+      "lemma": "unravel",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Prog",
+        "Tense": "Pres",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "hold": [
+    4,
+    {
+      "lemma": "hold",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "transform": [
+    1,
+    {
+      "lemma": "transform",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "ourselves": [
+    5,
+    {
+      "lemma": "ourselves",
+      "pos": "pronoun",
+      "morph": {
+        "Case": "Acc",
+        "Number": "Plur",
+        "Person": "1",
+        "PronType": "Prs",
+        "Reflex": "Yes"
+      }
+    }
+  ],
+  "storytelling": [
+    1,
+    {
+      "lemma": "storytelle",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Prog",
+        "Tense": "Pres",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "stories": [
+    3,
+    {
+      "lemma": "story",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "shape": [
+    1,
+    {
+      "lemma": "shape",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "beliefs": [
+    3,
+    {
+      "lemma": "belief",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "influence": [
+    1,
+    {
+      "lemma": "influence",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "actions": [
+    7,
+    {
+      "lemma": "action",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "connect": [
+    5,
+    {
+      "lemma": "connect",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "one": [
+    3,
+    {
+      "lemma": "one",
+      "pos": "numeral",
+      "morph": {
+        "NumType": "Card"
+      }
+    }
+  ],
+  "another": [
+    2,
+    {
+      "lemma": "another",
+      "pos": "pronoun",
+      "morph": {}
+    }
+  ],
+  "they": [
+    5,
+    {
+      "lemma": "they",
+      "pos": "pronoun",
+      "morph": {
+        "Case": "Nom",
+        "Number": "Plur",
+        "Person": "3",
+        "PronType": "Prs"
+      }
+    }
+  ],
+  "allow": [
+    5,
+    {
+      "lemma": "allow",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "different": [
+    3,
+    {
+      "lemma": "different",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "perspectives": [
+    6,
+    {
+      "lemma": "perspective",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "empathize": [
+    1,
+    {
+      "lemma": "empathize",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "others": [
+    7,
+    {
+      "lemma": "other",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "learn": [
+    6,
+    {
+      "lemma": "learn",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "mistakes": [
+    3,
+    {
+      "lemma": "mistake",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "past": [
+    2,
+    {
+      "lemma": "past",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "mindful": [
+    1,
+    {
+      "lemma": "mindful",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "tell": [
+    1,
+    {
+      "lemma": "tell",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "consume": [
+    1,
+    {
+      "lemma": "consume",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "promote": [
+    6,
+    {
+      "lemma": "promote",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "uncertain": [
+    2,
+    {
+      "lemma": "uncertain",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "thing": [
+    3,
+    {
+      "lemma": "thing",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "clear": [
+    1,
+    {
+      "lemma": "clear",
+      "pos": "adverb",
+      "morph": {}
+    }
+  ],
+  "embrace": [
+    12,
+    {
+      "lemma": "embrace",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "change": [
+    3,
+    {
+      "lemma": "change",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "adapt": [
+    2,
+    {
+      "lemma": "adapt",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "ahead": [
+    2,
+    {
+      "lemma": "ahead",
+      "pos": "adverb",
+      "morph": {}
+    }
+  ],
+  "becoming": [
+    2,
+    {
+      "lemma": "become",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Prog",
+        "Tense": "Pres",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "increasingly": [
+    2,
+    {
+      "lemma": "increasingly",
+      "pos": "adverb",
+      "morph": {}
+    }
+  ],
+  "complex": [
+    3,
+    {
+      "lemma": "complex",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "prepared": [
+    1,
+    {
+      "lemma": "prepare",
+      "pos": "verb",
+      "morph": {
+        "Tense": "Past",
+        "VerbForm": "Fin"
+      }
+    }
+  ],
+  "navigate": [
+    2,
+    {
+      "lemma": "navigate",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "landscape": [
+    1,
+    {
+      "lemma": "landscape",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "wisdom": [
+    5,
+    {
+      "lemma": "wisdom",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "resilience": [
+    5,
+    {
+      "lemma": "resilience",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "collaboration": [
+    3,
+    {
+      "lemma": "collaboration",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "happiness": [
+    6,
+    {
+      "lemma": "happiness",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "desire": [
+    3,
+    {
+      "lemma": "desire",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "elusive": [
+    1,
+    {
+      "lemma": "elusive",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "true": [
+    4,
+    {
+      "lemma": "true",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "material": [
+    1,
+    {
+      "lemma": "material",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "possessions": [
+    1,
+    {
+      "lemma": "possession",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "pleasures": [
+    1,
+    {
+      "lemma": "pleasure",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "relationships": [
+    9,
+    {
+      "lemma": "relationship",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "sense": [
+    9,
+    {
+      "lemma": "sense",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "connection": [
+    4,
+    {
+      "lemma": "connection",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "something": [
+    1,
+    {
+      "lemma": "something",
+      "pos": "pronoun",
+      "morph": {
+        "Number": "Sing",
+        "PronType": "Ind"
+      }
+    }
+  ],
+  "larger": [
+    1,
+    {
+      "lemma": "large",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Cmp"
+      }
+    }
+  ],
+  "than": [
+    2,
+    {
+      "lemma": "than",
+      "pos": "adposition",
+      "morph": {}
+    }
+  ],
+  "importance": [
+    13,
+    {
+      "lemma": "importance",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "education": [
+    5,
+    {
+      "lemma": "education",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "overstated": [
+    12,
+    {
+      "lemma": "overstate",
+      "pos": "verb",
+      "morph": {
+        "Tense": "Past",
+        "VerbForm": "Fin"
+      }
+    }
+  ],
+  "empowers": [
+    2,
+    {
+      "lemma": "empower",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "think": [
+    3,
+    {
+      "lemma": "think",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "critically": [
+    2,
+    {
+      "lemma": "critically",
+      "pos": "adverb",
+      "morph": {}
+    }
+  ],
+  "problems": [
+    4,
+    {
+      "lemma": "problem",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "creatively": [
+    2,
+    {
+      "lemma": "creatively",
+      "pos": "adverb",
+      "morph": {}
+    }
+  ],
+  "contribute": [
+    3,
+    {
+      "lemma": "contribute",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "meaningfully": [
+    2,
+    {
+      "lemma": "meaningfully",
+      "pos": "adverb",
+      "morph": {}
+    }
+  ],
+  "society": [
+    6,
+    {
+      "lemma": "society",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "foundation": [
+    1,
+    {
+      "lemma": "foundation",
+      "pos": "proper noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "upon": [
+    1,
+    {
+      "lemma": "upon",
+      "pos": "subordinating conjunction",
+      "morph": {}
+    }
+  ],
+  "build": [
+    7,
+    {
+      "lemma": "build",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "better": [
+    6,
+    {
+      "lemma": "well",
+      "pos": "adverb",
+      "morph": {
+        "Degree": "Cmp"
+      }
+    }
+  ],
+  "come": [
+    6,
+    {
+      "lemma": "come",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "arts": [
+    1,
+    {
+      "lemma": "art",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "provide": [
+    3,
+    {
+      "lemma": "provide",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "vital": [
+    1,
+    {
+      "lemma": "vital",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "outlet": [
+    1,
+    {
+      "lemma": "outlet",
+      "pos": "proper noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "expression": [
+    3,
+    {
+      "lemma": "expression",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "creativity": [
+    5,
+    {
+      "lemma": "creativity",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "music": [
+    1,
+    {
+      "lemma": "music",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "painting": [
+    1,
+    {
+      "lemma": "paint",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Prog",
+        "Tense": "Pres",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "literature": [
+    1,
+    {
+      "lemma": "literature",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "dance": [
+    2,
+    {
+      "lemma": "dance",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "depths": [
+    1,
+    {
+      "lemma": "depth",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "emotions": [
+    1,
+    {
+      "lemma": "emotion",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "unique": [
+    4,
+    {
+      "lemma": "unique",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "level": [
+    1,
+    {
+      "lemma": "level",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "concept": [
+    1,
+    {
+      "lemma": "concept",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "free": [
+    1,
+    {
+      "lemma": "free",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "will": [
+    3,
+    {
+      "lemma": "will",
+      "pos": "auxiliary",
+      "morph": {
+        "VerbForm": "Fin"
+      }
+    }
+  ],
+  "debated": [
+    1,
+    {
+      "lemma": "debate",
+      "pos": "verb",
+      "morph": {
+        "Tense": "Past",
+        "VerbForm": "Fin"
+      }
+    }
+  ],
+  "topic": [
+    1,
+    {
+      "lemma": "topic",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "do": [
+    4,
+    {
+      "lemma": "do",
+      "pos": "verb",
+      "morph": {
+        "Mood": "Ind",
+        "Tense": "Pres",
+        "VerbForm": "Fin"
+      }
+    }
+  ],
+  "choose": [
+    2,
+    {
+      "lemma": "choose",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "simply": [
+    2,
+    {
+      "lemma": "simply",
+      "pos": "adverb",
+      "morph": {}
+    }
+  ],
+  "puppets": [
+    1,
+    {
+      "lemma": "puppet",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "fate": [
+    1,
+    {
+      "lemma": "fate",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "answer": [
+    1,
+    {
+      "lemma": "answer",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "question": [
+    2,
+    {
+      "lemma": "question",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "has": [
+    2,
+    {
+      "lemma": "have",
+      "pos": "verb",
+      "morph": {
+        "Mood": "Ind",
+        "Number": "Sing",
+        "Person": "3",
+        "Tense": "Pres",
+        "VerbForm": "Fin"
+      }
+    }
+  ],
+  "morality": [
+    1,
+    {
+      "lemma": "morality",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "government": [
+    3,
+    {
+      "lemma": "government",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "serve": [
+    1,
+    {
+      "lemma": "serve",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "people": [
+    5,
+    {
+      "lemma": "people",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "rights": [
+    1,
+    {
+      "lemma": "right",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "also": [
+    1,
+    {
+      "lemma": "also",
+      "pos": "adverb",
+      "morph": {}
+    }
+  ],
+  "susceptible": [
+    1,
+    {
+      "lemma": "susceptible",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "corruption": [
+    1,
+    {
+      "lemma": "corruption",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "inefficiency": [
+    1,
+    {
+      "lemma": "inefficiency",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "abuse": [
+    1,
+    {
+      "lemma": "abuse",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "citizens": [
+    1,
+    {
+      "lemma": "citizen",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "elected": [
+    2,
+    {
+      "lemma": "elect",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Perf",
+        "Tense": "Past",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "officials": [
+    2,
+    {
+      "lemma": "official",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "accountable": [
+    3,
+    {
+      "lemma": "accountable",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "ensure": [
+    1,
+    {
+      "lemma": "ensure",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "intended": [
+    1,
+    {
+      "lemma": "intend",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Perf",
+        "Tense": "Past",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "impact": [
+    2,
+    {
+      "lemma": "impact",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "climate": [
+    2,
+    {
+      "lemma": "climate",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "apparent": [
+    1,
+    {
+      "lemma": "apparent",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "rising": [
+    1,
+    {
+      "lemma": "rise",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Prog",
+        "Tense": "Pres",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "sea": [
+    1,
+    {
+      "lemma": "sea",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "levels": [
+    1,
+    {
+      "lemma": "level",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "extreme": [
+    1,
+    {
+      "lemma": "extreme",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "weather": [
+    1,
+    {
+      "lemma": "weather",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "events": [
+    1,
+    {
+      "lemma": "event",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "biodiversity": [
+    1,
+    {
+      "lemma": "biodiversity",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "consequences": [
+    5,
+    {
+      "lemma": "consequence",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "already": [
+    1,
+    {
+      "lemma": "already",
+      "pos": "adverb",
+      "morph": {}
+    }
+  ],
+  "experiencing": [
+    1,
+    {
+      "lemma": "experience",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Prog",
+        "Tense": "Pres",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "urgent": [
+    1,
+    {
+      "lemma": "urgent",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "action": [
+    3,
+    {
+      "lemma": "action",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "reduce": [
+    1,
+    {
+      "lemma": "reduce",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "carbon": [
+    1,
+    {
+      "lemma": "carbon",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "emissions": [
+    1,
+    {
+      "lemma": "emission",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "mitigate": [
+    1,
+    {
+      "lemma": "mitigate",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "effects": [
+    1,
+    {
+      "lemma": "effect",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "too": [
+    1,
+    {
+      "lemma": "too",
+      "pos": "adverb",
+      "morph": {}
+    }
+  ],
+  "late": [
+    1,
+    {
+      "lemma": "late",
+      "pos": "adverb",
+      "morph": {}
+    }
+  ],
+  "issue": [
+    1,
+    {
+      "lemma": "issue",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "social": [
+    4,
+    {
+      "lemma": "social",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "justice": [
+    2,
+    {
+      "lemma": "justice",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "persistent": [
+    1,
+    {
+      "lemma": "persistent",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "inequality": [
+    1,
+    {
+      "lemma": "inequality",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "discrimination": [
+    1,
+    {
+      "lemma": "discrimination",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "prejudice": [
+    1,
+    {
+      "lemma": "prejudice",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "continue": [
+    2,
+    {
+      "lemma": "continue",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "plague": [
+    1,
+    {
+      "lemma": "plague",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "communities": [
+    2,
+    {
+      "lemma": "community",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "preventing": [
+    1,
+    {
+      "lemma": "prevent",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Prog",
+        "Tense": "Pres",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "many": [
+    2,
+    {
+      "lemma": "many",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "reaching": [
+    1,
+    {
+      "lemma": "reach",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Prog",
+        "Tense": "Pres",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "full": [
+    2,
+    {
+      "lemma": "full",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "considerations": [
+    1,
+    {
+      "lemma": "consideration",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "surrounding": [
+    1,
+    {
+      "lemma": "surround",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Prog",
+        "Tense": "Pres",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "gene": [
+    1,
+    {
+      "lemma": "gene",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "editing": [
+    1,
+    {
+      "lemma": "edit",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Prog",
+        "Tense": "Pres",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "ability": [
+    13,
+    {
+      "lemma": "ability",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "alter": [
+    1,
+    {
+      "lemma": "alter",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "genome": [
+    1,
+    {
+      "lemma": "genome",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "raises": [
+    1,
+    {
+      "lemma": "raise",
+      "pos": "verb",
+      "morph": {
+        "Number": "Sing",
+        "Person": "3",
+        "Tense": "Pres",
+        "VerbForm": "Fin"
+      }
+    }
+  ],
+  "questions": [
+    1,
+    {
+      "lemma": "question",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "about": [
+    2,
+    {
+      "lemma": "about",
+      "pos": "adverb",
+      "morph": {}
+    }
+  ],
+  "definition": [
+    1,
+    {
+      "lemma": "definition",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "humanity": [
+    2,
+    {
+      "lemma": "humanity",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "unintended": [
+    1,
+    {
+      "lemma": "unintended",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "collective": [
+    2,
+    {
+      "lemma": "collective",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "when": [
+    5,
+    {
+      "lemma": "when",
+      "pos": "subordinating conjunction",
+      "morph": {}
+    }
+  ],
+  "together": [
+    4,
+    {
+      "lemma": "together",
+      "pos": "adverb",
+      "morph": {}
+    }
+  ],
+  "towards": [
+    2,
+    {
+      "lemma": "towards",
+      "pos": "adposition",
+      "morph": {}
+    }
+  ],
+  "goal": [
+    2,
+    {
+      "lemma": "goal",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "achieve": [
+    3,
+    {
+      "lemma": "achieve",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "extraordinary": [
+    1,
+    {
+      "lemma": "extraordinary",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "things": [
+    6,
+    {
+      "lemma": "thing",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "harness": [
+    1,
+    {
+      "lemma": "harness",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "facing": [
+    2,
+    {
+      "lemma": "face",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Prog",
+        "Tense": "Pres",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "imperfection": [
+    1,
+    {
+      "lemma": "imperfection",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "lies": [
+    8,
+    {
+      "lemma": "lie",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "authenticity": [
+    1,
+    {
+      "lemma": "authenticity",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "flawed": [
+    1,
+    {
+      "lemma": "flaw",
+      "pos": "verb",
+      "morph": {
+        "Tense": "Past",
+        "VerbForm": "Fin"
+      }
+    }
+  ],
+  "individuals": [
+    1,
+    {
+      "lemma": "individual",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "imperfections": [
+    1,
+    {
+      "lemma": "imperfection",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "become": [
+    1,
+    {
+      "lemma": "become",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "relatable": [
+    1,
+    {
+      "lemma": "relatable",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "your": [
+    40,
+    {
+      "lemma": "your",
+      "pos": "pronoun",
+      "morph": {
+        "Person": "2",
+        "Poss": "Yes",
+        "PronType": "Prs"
+      }
+    }
+  ],
+  "flaws": [
+    1,
+    {
+      "lemma": "flaw",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "celebrate": [
+    1,
+    {
+      "lemma": "celebrate",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "imperfect": [
+    1,
+    {
+      "lemma": "imperfect",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "self": [
+    2,
+    {
+      "lemma": "self",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "share": [
+    2,
+    {
+      "lemma": "share",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "feelings": [
+    2,
+    {
+      "lemma": "feeling",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "building": [
+    2,
+    {
+      "lemma": "build",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Prog",
+        "Tense": "Pres",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "strong": [
+    2,
+    {
+      "lemma": "strong",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "resolving": [
+    1,
+    {
+      "lemma": "resolve",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Prog",
+        "Tense": "Pres",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "conflicts": [
+    1,
+    {
+      "lemma": "conflict",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "creating": [
+    3,
+    {
+      "lemma": "create",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Prog",
+        "Tense": "Pres",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "compassionate": [
+    3,
+    {
+      "lemma": "compassionate",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "lifelong": [
+    6,
+    {
+      "lemma": "lifelong",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "accumulation": [
+    1,
+    {
+      "lemma": "accumulation",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "apply": [
+    1,
+    {
+      "lemma": "apply",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "discernment": [
+    1,
+    {
+      "lemma": "discernment",
+      "pos": "adverb",
+      "morph": {}
+    }
+  ],
+  "deep": [
+    1,
+    {
+      "lemma": "deep",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "condition": [
+    1,
+    {
+      "lemma": "condition",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "value": [
+    11,
+    {
+      "lemma": "value",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "solitude": [
+    1,
+    {
+      "lemma": "solitude",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "reflection": [
+    1,
+    {
+      "lemma": "reflection",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "introspection": [
+    1,
+    {
+      "lemma": "introspection",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "quiet": [
+    1,
+    {
+      "lemma": "quiet",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "contemplation": [
+    1,
+    {
+      "lemma": "contemplation",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "inner": [
+    5,
+    {
+      "lemma": "inner",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "selves": [
+    2,
+    {
+      "lemma": "self",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "clarify": [
+    1,
+    {
+      "lemma": "clarify",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "thoughts": [
+    3,
+    {
+      "lemma": "thought",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "gain": [
+    1,
+    {
+      "lemma": "gain",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "forgiveness": [
+    4,
+    {
+      "lemma": "forgiveness",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "transformative": [
+    4,
+    {
+      "lemma": "transformative",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "allows": [
+    1,
+    {
+      "lemma": "allow",
+      "pos": "verb",
+      "morph": {
+        "Number": "Sing",
+        "Person": "3",
+        "Tense": "Pres",
+        "VerbForm": "Fin"
+      }
+    }
+  ],
+  "release": [
+    1,
+    {
+      "lemma": "release",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "resentment": [
+    3,
+    {
+      "lemma": "resentment",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "heal": [
+    2,
+    {
+      "lemma": "heal",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "hurts": [
+    1,
+    {
+      "lemma": "hurt",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "move": [
+    1,
+    {
+      "lemma": "move",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "forward": [
+    2,
+    {
+      "lemma": "forward",
+      "pos": "adverb",
+      "morph": {}
+    }
+  ],
+  "greater": [
+    1,
+    {
+      "lemma": "great",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Cmp"
+      }
+    }
+  ],
+  "peace": [
+    5,
+    {
+      "lemma": "peace",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "clarity": [
+    1,
+    {
+      "lemma": "clarity",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "gratitude": [
+    5,
+    {
+      "lemma": "gratitude",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "taking": [
+    3,
+    {
+      "lemma": "take",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Prog",
+        "Tense": "Pres",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "appreciate": [
+    4,
+    {
+      "lemma": "appreciate",
+      "pos": "verb",
+      "morph": {
+        "Tense": "Pres",
+        "VerbForm": "Fin"
+      }
+    }
+  ],
+  "significantly": [
+    2,
+    {
+      "lemma": "significantly",
+      "pos": "adverb",
+      "morph": {}
+    }
+  ],
+  "improve": [
+    2,
+    {
+      "lemma": "improve",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "overall": [
+    3,
+    {
+      "lemma": "overall",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "well-being": [
+    6,
+    {
+      "lemma": "well",
+      "pos": "adverb",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "foster": [
+    3,
+    {
+      "lemma": "foster",
+      "pos": "proper noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "contentment": [
+    3,
+    {
+      "lemma": "contentment",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "excellence": [
+    1,
+    {
+      "lemma": "excellence",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "worthy": [
+    1,
+    {
+      "lemma": "worthy",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "at": [
+    3,
+    {
+      "lemma": "at",
+      "pos": "adposition",
+      "morph": {}
+    }
+  ],
+  "expense": [
+    2,
+    {
+      "lemma": "expense",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "best": [
+    2,
+    {
+      "lemma": "well",
+      "pos": "adverb",
+      "morph": {
+        "Degree": "Sup"
+      }
+    }
+  ],
+  "remember": [
+    1,
+    {
+      "lemma": "remember",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "perfection": [
+    1,
+    {
+      "lemma": "perfection",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "unattainable": [
+    1,
+    {
+      "lemma": "unattainable",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "success": [
+    1,
+    {
+      "lemma": "success",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "destination": [
+    1,
+    {
+      "lemma": "destination",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "diversity": [
+    2,
+    {
+      "lemma": "diversity",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "enrich": [
+    1,
+    {
+      "lemma": "enrich",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "broaden": [
+    1,
+    {
+      "lemma": "broaden",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Perf",
+        "Tense": "Past",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "embracing": [
+    1,
+    {
+      "lemma": "embrace",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Prog",
+        "Tense": "Pres",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "cultures": [
+    3,
+    {
+      "lemma": "culture",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "backgrounds": [
+    1,
+    {
+      "lemma": "background",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "viewpoints": [
+    1,
+    {
+      "lemma": "viewpoint",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "assumptions": [
+    2,
+    {
+      "lemma": "assumption",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "vibrant": [
+    1,
+    {
+      "lemma": "vibrant",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "inclusive": [
+    1,
+    {
+      "lemma": "inclusive",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "analyze": [
+    1,
+    {
+      "lemma": "analyze",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "information": [
+    1,
+    {
+      "lemma": "information",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "objectively": [
+    1,
+    {
+      "lemma": "objectively",
+      "pos": "adverb",
+      "morph": {}
+    }
+  ],
+  "identify": [
+    1,
+    {
+      "lemma": "identify",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "well-reasoned": [
+    1,
+    {
+      "lemma": "well",
+      "pos": "adverb",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "judgments": [
+    1,
+    {
+      "lemma": "judgment",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "navigating": [
+    3,
+    {
+      "lemma": "navigate",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Prog",
+        "Tense": "Pres",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "complexities": [
+    3,
+    {
+      "lemma": "complexity",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "modern": [
+    1,
+    {
+      "lemma": "modern",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "generate": [
+    1,
+    {
+      "lemma": "generate",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "ideas": [
+    2,
+    {
+      "lemma": "idea",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "innovatively": [
+    1,
+    {
+      "lemma": "innovatively",
+      "pos": "adverb",
+      "morph": {}
+    }
+  ],
+  "nurture": [
+    4,
+    {
+      "lemma": "nurture",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "imagination": [
+    2,
+    {
+      "lemma": "imagination",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "yourself": [
+    5,
+    {
+      "lemma": "yourself",
+      "pos": "pronoun",
+      "morph": {
+        "Case": "Acc",
+        "Person": "2",
+        "PronType": "Prs",
+        "Reflex": "Yes"
+      }
+    }
+  ],
+  "endless": [
+    3,
+    {
+      "lemma": "endless",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "possibilities": [
+    4,
+    {
+      "lemma": "possibility",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "mind": [
+    3,
+    {
+      "lemma": "mind",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "community": [
+    5,
+    {
+      "lemma": "community",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "belonging": [
+    3,
+    {
+      "lemma": "belong",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Prog",
+        "Tense": "Pres",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "support": [
+    5,
+    {
+      "lemma": "support",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "working": [
+    1,
+    {
+      "lemma": "work",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Prog",
+        "Tense": "Pres",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "resilient": [
+    1,
+    {
+      "lemma": "resilient",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "bounce": [
+    1,
+    {
+      "lemma": "bounce",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "back": [
+    2,
+    {
+      "lemma": "back",
+      "pos": "adverb",
+      "morph": {}
+    }
+  ],
+  "adversity": [
+    2,
+    {
+      "lemma": "adversity",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "persevere": [
+    1,
+    {
+      "lemma": "persevere",
+      "pos": "proper noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "face": [
+    4,
+    {
+      "lemma": "face",
+      "pos": "verb",
+      "morph": {
+        "Tense": "Pres",
+        "VerbForm": "Fin"
+      }
+    }
+  ],
+  "achieving": [
+    1,
+    {
+      "lemma": "achieve",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Prog",
+        "Tense": "Pres",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "goals": [
+    2,
+    {
+      "lemma": "goal",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "living": [
+    2,
+    {
+      "lemma": "live",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Prog",
+        "Tense": "Pres",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "love": [
+    3,
+    {
+      "lemma": "love",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "wounds": [
+    1,
+    {
+      "lemma": "wound",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "divides": [
+    1,
+    {
+      "lemma": "divide",
+      "pos": "verb",
+      "morph": {
+        "Number": "Sing",
+        "Person": "3",
+        "Tense": "Pres",
+        "VerbForm": "Fin"
+      }
+    }
+  ],
+  "inspire": [
+    2,
+    {
+      "lemma": "inspire",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "forms": [
+    1,
+    {
+      "lemma": "form",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "let": [
+    5,
+    {
+      "lemma": "let",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "guide": [
+    2,
+    {
+      "lemma": "guide",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "you": [
+    17,
+    {
+      "lemma": "you",
+      "pos": "pronoun",
+      "morph": {
+        "Person": "2",
+        "PronType": "Prs"
+      }
+    }
+  ],
+  "motivate": [
+    1,
+    {
+      "lemma": "motivate",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "alleviate": [
+    2,
+    {
+      "lemma": "alleviate",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "suffering": [
+    2,
+    {
+      "lemma": "suffer",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Prog",
+        "Tense": "Pres",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "practice": [
+    4,
+    {
+      "lemma": "practice",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "difference": [
+    2,
+    {
+      "lemma": "difference",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "those": [
+    2,
+    {
+      "lemma": "those",
+      "pos": "pronoun",
+      "morph": {
+        "Number": "Plur",
+        "PronType": "Dem"
+      }
+    }
+  ],
+  "around": [
+    2,
+    {
+      "lemma": "around",
+      "pos": "adverb",
+      "morph": {}
+    }
+  ],
+  "self-care": [
+    1,
+    {
+      "lemma": "self",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "mental": [
+    4,
+    {
+      "lemma": "mental",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "emotional": [
+    1,
+    {
+      "lemma": "emotional",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "maintaining": [
+    2,
+    {
+      "lemma": "maintain",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Prog",
+        "Tense": "Pres",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "health": [
+    3,
+    {
+      "lemma": "health",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "quality": [
+    1,
+    {
+      "lemma": "quality",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "hope": [
+    3,
+    {
+      "lemma": "hope",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "enduring": [
+    1,
+    {
+      "lemma": "endure",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Prog",
+        "Tense": "Pres",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "sustain": [
+    3,
+    {
+      "lemma": "sustain",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "difficult": [
+    1,
+    {
+      "lemma": "difficult",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "times": [
+    1,
+    {
+      "lemma": "time",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "keep": [
+    1,
+    {
+      "lemma": "keep",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "fighting": [
+    1,
+    {
+      "lemma": "fight",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Prog",
+        "Tense": "Pres",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "remind": [
+    1,
+    {
+      "lemma": "remind",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "even": [
+    3,
+    {
+      "lemma": "even",
+      "pos": "adverb",
+      "morph": {}
+    }
+  ],
+  "darkest": [
+    1,
+    {
+      "lemma": "darkest",
+      "pos": "adverb",
+      "morph": {
+        "Degree": "Sup"
+      }
+    }
+  ],
+  "there": [
+    2,
+    {
+      "lemma": "there",
+      "pos": "pronoun",
+      "morph": {}
+    }
+  ],
+  "always": [
+    6,
+    {
+      "lemma": "always",
+      "pos": "adverb",
+      "morph": {}
+    }
+  ],
+  "possibility": [
+    2,
+    {
+      "lemma": "possibility",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "light": [
+    1,
+    {
+      "lemma": "light",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "integrity": [
+    5,
+    {
+      "lemma": "integrity",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "trust": [
+    3,
+    {
+      "lemma": "trust",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "respect": [
+    3,
+    {
+      "lemma": "respect",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "values": [
+    2,
+    {
+      "lemma": "value",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "right": [
+    1,
+    {
+      "lemma": "right",
+      "pos": "interjection",
+      "morph": {}
+    }
+  ],
+  "learning": [
+    6,
+    {
+      "lemma": "learn",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Prog",
+        "Tense": "Pres",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "constantly": [
+    1,
+    {
+      "lemma": "constantly",
+      "pos": "adverb",
+      "morph": {}
+    }
+  ],
+  "changing": [
+    2,
+    {
+      "lemma": "change",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Prog",
+        "Tense": "Pres",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "commit": [
+    1,
+    {
+      "lemma": "commit",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "continuous": [
+    1,
+    {
+      "lemma": "continuous",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "order": [
+    2,
+    {
+      "lemma": "order",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "stay": [
+    1,
+    {
+      "lemma": "stay",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "relevant": [
+    1,
+    {
+      "lemma": "relevant",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "engaged": [
+    1,
+    {
+      "lemma": "engage",
+      "pos": "verb",
+      "morph": {
+        "Tense": "Past",
+        "VerbForm": "Fin"
+      }
+    }
+  ],
+  "fulfilled": [
+    1,
+    {
+      "lemma": "fulfil",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Perf",
+        "Tense": "Past",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "kindness": [
+    4,
+    {
+      "lemma": "kindness",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "contagious": [
+    1,
+    {
+      "lemma": "contagious",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "acts": [
+    1,
+    {
+      "lemma": "act",
+      "pos": "verb",
+      "morph": {
+        "Number": "Sing",
+        "Person": "3",
+        "Tense": "Pres",
+        "VerbForm": "Fin"
+      }
+    }
+  ],
+  "ripple": [
+    1,
+    {
+      "lemma": "ripple",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "effect": [
+    1,
+    {
+      "lemma": "effect",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "inspiring": [
+    1,
+    {
+      "lemma": "inspire",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Prog",
+        "Tense": "Pres",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "pay": [
+    2,
+    {
+      "lemma": "pay",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "positive": [
+    6,
+    {
+      "lemma": "positive",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "humans": [
+    1,
+    {
+      "lemma": "human",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "creatures": [
+    1,
+    {
+      "lemma": "creature",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "thrive": [
+    3,
+    {
+      "lemma": "thrive",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "system": [
+    2,
+    {
+      "lemma": "system",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "thick": [
+    2,
+    {
+      "lemma": "thick",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "thin": [
+    2,
+    {
+      "lemma": "thin",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "never-ending": [
+    1,
+    {
+      "lemma": "never",
+      "pos": "adverb",
+      "morph": {}
+    }
+  ],
+  "leads": [
+    1,
+    {
+      "lemma": "lead",
+      "pos": "verb",
+      "morph": {
+        "Number": "Sing",
+        "Person": "3",
+        "Tense": "Pres",
+        "VerbForm": "Fin"
+      }
+    }
+  ],
+  "ever": [
+    1,
+    {
+      "lemma": "ever",
+      "pos": "adverb",
+      "morph": {}
+    }
+  ],
+  "understandings": [
+    1,
+    {
+      "lemma": "understanding",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "joy": [
+    3,
+    {
+      "lemma": "joy",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "cultivate": [
+    6,
+    {
+      "lemma": "cultivate",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "curiosity": [
+    3,
+    {
+      "lemma": "curiosity",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "never": [
+    8,
+    {
+      "lemma": "never",
+      "pos": "adverb",
+      "morph": {}
+    }
+  ],
+  "stop": [
+    4,
+    {
+      "lemma": "stop",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "exploring": [
+    1,
+    {
+      "lemma": "explore",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Prog",
+        "Tense": "Pres",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "balance": [
+    1,
+    {
+      "lemma": "balance",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "chaos": [
+    1,
+    {
+      "lemma": "chaos",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "delicate": [
+    1,
+    {
+      "lemma": "delicate",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "negotiation": [
+    1,
+    {
+      "lemma": "negotiation",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "need": [
+    3,
+    {
+      "lemma": "need",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "structure": [
+    1,
+    {
+      "lemma": "structure",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "freedom": [
+    1,
+    {
+      "lemma": "freedom",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "equilibrium": [
+    1,
+    {
+      "lemma": "equilibrium",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "grace": [
+    1,
+    {
+      "lemma": "grace",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "noble": [
+    1,
+    {
+      "lemma": "noble",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "honesty": [
+    1,
+    {
+      "lemma": "honesty",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "relentless": [
+    2,
+    {
+      "lemma": "relentless",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "everything": [
+    6,
+    {
+      "lemma": "everything",
+      "pos": "pronoun",
+      "morph": {
+        "Number": "Sing",
+        "PronType": "Ind"
+      }
+    }
+  ],
+  "afraid": [
+    1,
+    {
+      "lemma": "afraid",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "revise": [
+    1,
+    {
+      "lemma": "revise",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "evidence": [
+    1,
+    {
+      "lemma": "evidence",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "acceptance": [
+    2,
+    {
+      "lemma": "acceptance",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "impermanence": [
+    1,
+    {
+      "lemma": "impermanence",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "key": [
+    2,
+    {
+      "lemma": "key",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "changes": [
+    1,
+    {
+      "lemma": "change",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "fades": [
+    1,
+    {
+      "lemma": "fade",
+      "pos": "verb",
+      "morph": {
+        "Number": "Sing",
+        "Person": "3",
+        "Tense": "Pres",
+        "VerbForm": "Fin"
+      }
+    }
+  ],
+  "eventually": [
+    1,
+    {
+      "lemma": "eventually",
+      "pos": "adverb",
+      "morph": {}
+    }
+  ],
+  "end": [
+    1,
+    {
+      "lemma": "end",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "solace": [
+    1,
+    {
+      "lemma": "solace",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "endings": [
+    1,
+    {
+      "lemma": "ending",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "beginnings": [
+    1,
+    {
+      "lemma": "beginning",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "celebration": [
+    2,
+    {
+      "lemma": "celebration",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "testament": [
+    4,
+    {
+      "lemma": "testament",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "richness": [
+    2,
+    {
+      "lemma": "richness",
+      "pos": "proper noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "differences": [
+    1,
+    {
+      "lemma": "difference",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "where": [
+    3,
+    {
+      "lemma": "where",
+      "pos": "subordinating conjunction",
+      "morph": {}
+    }
+  ],
+  "everyone": [
+    3,
+    {
+      "lemma": "everyone",
+      "pos": "pronoun",
+      "morph": {
+        "Number": "Sing",
+        "PronType": "Ind"
+      }
+    }
+  ],
+  "feels": [
+    1,
+    {
+      "lemma": "feel",
+      "pos": "verb",
+      "morph": {
+        "Number": "Sing",
+        "Person": "3",
+        "Tense": "Pres",
+        "VerbForm": "Fin"
+      }
+    }
+  ],
+  "valued": [
+    1,
+    {
+      "lemma": "value",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Perf",
+        "Tense": "Past",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "respected": [
+    1,
+    {
+      "lemma": "respect",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Perf",
+        "Tense": "Past",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "empowered": [
+    1,
+    {
+      "lemma": "empower",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Perf",
+        "Tense": "Past",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "cultivation": [
+    4,
+    {
+      "lemma": "cultivation",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "step": [
+    1,
+    {
+      "lemma": "step",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "shoes": [
+    1,
+    {
+      "lemma": "shoe",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "act": [
+    4,
+    {
+      "lemma": "act",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "genuine": [
+    1,
+    {
+      "lemma": "genuine",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "mindfulness": [
+    2,
+    {
+      "lemma": "mindfulness",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "pathway": [
+    2,
+    {
+      "lemma": "pathway",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "way": [
+    3,
+    {
+      "lemma": "way",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "fully": [
+    2,
+    {
+      "lemma": "fully",
+      "pos": "adverb",
+      "morph": {}
+    }
+  ],
+  "engage": [
+    1,
+    {
+      "lemma": "engage",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "here": [
+    1,
+    {
+      "lemma": "here",
+      "pos": "adverb",
+      "morph": {
+        "PronType": "Dem"
+      }
+    }
+  ],
+  "now": [
+    1,
+    {
+      "lemma": "now",
+      "pos": "adverb",
+      "morph": {}
+    }
+  ],
+  "judgment": [
+    2,
+    {
+      "lemma": "judgment",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "distraction": [
+    1,
+    {
+      "lemma": "distraction",
+      "pos": "proper noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "breathe": [
+    1,
+    {
+      "lemma": "breathe",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "deeply": [
+    1,
+    {
+      "lemma": "deeply",
+      "pos": "adverb",
+      "morph": {}
+    }
+  ],
+  "savor": [
+    1,
+    {
+      "lemma": "savor",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "appreciation": [
+    2,
+    {
+      "lemma": "appreciation",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "discovery": [
+    1,
+    {
+      "lemma": "discovery",
+      "pos": "proper noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "soul": [
+    1,
+    {
+      "lemma": "soul",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "lens": [
+    1,
+    {
+      "lemma": "len",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "immerse": [
+    1,
+    {
+      "lemma": "immerse",
+      "pos": "adverb",
+      "morph": {}
+    }
+  ],
+  "perceptions": [
+    1,
+    {
+      "lemma": "perception",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "realms": [
+    1,
+    {
+      "lemma": "realm",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "emotion": [
+    1,
+    {
+      "lemma": "emotion",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "look": [
+    1,
+    {
+      "lemma": "look",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "stars": [
+    1,
+    {
+      "lemma": "star",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "ponder": [
+    1,
+    {
+      "lemma": "ponder",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "lose": [
+    1,
+    {
+      "lemma": "lose",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "immensity": [
+    1,
+    {
+      "lemma": "immensity",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "embodiment": [
+    1,
+    {
+      "lemma": "embodiment",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "courage": [
+    1,
+    {
+      "lemma": "courage",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "absence": [
+    1,
+    {
+      "lemma": "absence",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "fear": [
+    2,
+    {
+      "lemma": "fear",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "willingness": [
+    2,
+    {
+      "lemma": "willingness",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "stand": [
+    1,
+    {
+      "lemma": "stand",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "up": [
+    2,
+    {
+      "lemma": "up",
+      "pos": "adverb",
+      "morph": {}
+    }
+  ],
+  "what": [
+    5,
+    {
+      "lemma": "what",
+      "pos": "pronoun",
+      "morph": {}
+    }
+  ],
+  "believe": [
+    3,
+    {
+      "lemma": "believe",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "pursuing": [
+    1,
+    {
+      "lemma": "pursue",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Prog",
+        "Tense": "Pres",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "dreams": [
+    1,
+    {
+      "lemma": "dream",
+      "pos": "verb",
+      "morph": {
+        "Number": "Sing",
+        "Person": "3",
+        "Tense": "Pres",
+        "VerbForm": "Fin"
+      }
+    }
+  ],
+  "recognition": [
+    2,
+    {
+      "lemma": "recognition",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "sustainable": [
+    1,
+    {
+      "lemma": "sustainable",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "web": [
+    1,
+    {
+      "lemma": "web",
+      "pos": "proper noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "entire": [
+    1,
+    {
+      "lemma": "entire",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "planet": [
+    2,
+    {
+      "lemma": "planet",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "harmony": [
+    1,
+    {
+      "lemma": "harmony",
+      "pos": "proper noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "self-discovery": [
+    1,
+    {
+      "lemma": "self",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "go": [
+    2,
+    {
+      "lemma": "go",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "blessings": [
+    2,
+    {
+      "lemma": "blessing",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "surrounds": [
+    1,
+    {
+      "lemma": "surround",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "fullest": [
+    1,
+    {
+      "lemma": "full",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Sup"
+      }
+    }
+  ],
+  "personal": [
+    2,
+    {
+      "lemma": "personal",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "fulfillment": [
+    1,
+    {
+      "lemma": "fulfillment",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "introspect": [
+    1,
+    {
+      "lemma": "introspect",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "who": [
+    2,
+    {
+      "lemma": "who",
+      "pos": "pronoun",
+      "morph": {}
+    }
+  ],
+  "capable": [
+    1,
+    {
+      "lemma": "capable",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "assigning": [
+    1,
+    {
+      "lemma": "assign",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Prog",
+        "Tense": "Pres",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "significance": [
+    1,
+    {
+      "lemma": "significance",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "experiences": [
+    1,
+    {
+      "lemma": "experience",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "set": [
+    1,
+    {
+      "lemma": "set",
+      "pos": "verb",
+      "morph": {
+        "Tense": "Past",
+        "VerbForm": "Fin"
+      }
+    }
+  ],
+  "aligned": [
+    1,
+    {
+      "lemma": "align",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Perf",
+        "Tense": "Past",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "deepest": [
+    1,
+    {
+      "lemma": "deep",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Sup"
+      }
+    }
+  ],
+  "sign": [
+    1,
+    {
+      "lemma": "sign",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "humility": [
+    1,
+    {
+      "lemma": "humility",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "acknowledge": [
+    1,
+    {
+      "lemma": "acknowledge",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "don't": [
+    1,
+    {
+      "lemma": "do",
+      "pos": "verb",
+      "morph": {
+        "Mood": "Ind",
+        "Tense": "Pres",
+        "VerbForm": "Fin"
+      }
+    }
+  ],
+  "know": [
+    1,
+    {
+      "lemma": "know",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "open": [
+    3,
+    {
+      "lemma": "open",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "inevitable": [
+    1,
+    {
+      "lemma": "inevitable",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "develop": [
+    2,
+    {
+      "lemma": "develop",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "coping": [
+    1,
+    {
+      "lemma": "cope",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Prog",
+        "Tense": "Pres",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "give": [
+    1,
+    {
+      "lemma": "give",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "self-compassion": [
+    1,
+    {
+      "lemma": "self",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "self-acceptance": [
+    1,
+    {
+      "lemma": "self",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "healing": [
+    1,
+    {
+      "lemma": "healing",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "treat": [
+    1,
+    {
+      "lemma": "treat",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "especially": [
+    1,
+    {
+      "lemma": "especially",
+      "pos": "adverb",
+      "morph": {}
+    }
+  ],
+  "struggling": [
+    1,
+    {
+      "lemma": "struggle",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Prog",
+        "Tense": "Pres",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "made": [
+    1,
+    {
+      "lemma": "make",
+      "pos": "verb",
+      "morph": {
+        "Tense": "Past",
+        "VerbForm": "Fin"
+      }
+    }
+  ],
+  "outlook": [
+    1,
+    {
+      "lemma": "outlook",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "persevering": [
+    1,
+    {
+      "lemma": "persevere",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Prog",
+        "Tense": "Pres",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "belief": [
+    1,
+    {
+      "lemma": "belief",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "attention": [
+    1,
+    {
+      "lemma": "attention",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "sensations": [
+    1,
+    {
+      "lemma": "sensation",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "uncertainty": [
+    1,
+    {
+      "lemma": "uncertainty",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "accept": [
+    1,
+    {
+      "lemma": "accept",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "can't": [
+    1,
+    {
+      "lemma": "can",
+      "pos": "auxiliary",
+      "morph": {
+        "VerbType": "Mod"
+      }
+    }
+  ],
+  "control": [
+    1,
+    {
+      "lemma": "control",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "resources": [
+    2,
+    {
+      "lemma": "resource",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "handle": [
+    1,
+    {
+      "lemma": "handle",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "whatever": [
+    1,
+    {
+      "lemma": "whatever",
+      "pos": "pronoun",
+      "morph": {}
+    }
+  ],
+  "so": [
+    1,
+    {
+      "lemma": "so",
+      "pos": "adverb",
+      "morph": {}
+    }
+  ],
+  "armed": [
+    1,
+    {
+      "lemma": "arm",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Perf",
+        "Tense": "Past",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "driven": [
+    1,
+    {
+      "lemma": "drive",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Perf",
+        "Tense": "Past",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "guided": [
+    1,
+    {
+      "lemma": "guide",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Perf",
+        "Tense": "Past",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "path": [
+    1,
+    {
+      "lemma": "path",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "minds": [
+    1,
+    {
+      "lemma": "mind",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "text": [
+    1,
+    {
+      "lemma": "text",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "fraction": [
+    1,
+    {
+      "lemma": "fraction",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "evolving": [
+    1,
+    {
+      "lemma": "evolve",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Prog",
+        "Tense": "Pres",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "searching": [
+    1,
+    {
+      "lemma": "search",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Prog",
+        "Tense": "Pres",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "questioning": [
+    1,
+    {
+      "lemma": "question",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Prog",
+        "Tense": "Pres",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "capacity": [
+    1,
+    {
+      "lemma": "capacity",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "adaptation": [
+    1,
+    {
+      "lemma": "adaptation",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "remarkable": [
+    1,
+    {
+      "lemma": "remarkable",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "harshest": [
+    1,
+    {
+      "lemma": "harsh",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Sup"
+      }
+    }
+  ],
+  "environments": [
+    1,
+    {
+      "lemma": "environment",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "overcome": [
+    2,
+    {
+      "lemma": "overcome",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "seemingly": [
+    1,
+    {
+      "lemma": "seemingly",
+      "pos": "adverb",
+      "morph": {}
+    }
+  ],
+  "insurmountable": [
+    1,
+    {
+      "lemma": "insurmountable",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "circumstances": [
+    1,
+    {
+      "lemma": "circumstance",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "innovation": [
+    2,
+    {
+      "lemma": "innovation",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "progress": [
+    1,
+    {
+      "lemma": "progress",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "continually": [
+    1,
+    {
+      "lemma": "continually",
+      "pos": "adverb",
+      "morph": {}
+    }
+  ],
+  "technologies": [
+    1,
+    {
+      "lemma": "technology",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "approaches": [
+    1,
+    {
+      "lemma": "approach",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "solving": [
+    1,
+    {
+      "lemma": "solve",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Prog",
+        "Tense": "Pres",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "requires": [
+    3,
+    {
+      "lemma": "require",
+      "pos": "verb",
+      "morph": {
+        "Number": "Sing",
+        "Person": "3",
+        "Tense": "Pres",
+        "VerbForm": "Fin"
+      }
+    }
+  ],
+  "risk-taking": [
+    1,
+    {
+      "lemma": "risk",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "status": [
+    1,
+    {
+      "lemma": "status",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "quo": [
+    1,
+    {
+      "lemma": "quo",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "skills": [
+    1,
+    {
+      "lemma": "skill",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "far": [
+    1,
+    {
+      "lemma": "far",
+      "pos": "adverb",
+      "morph": {}
+    }
+  ],
+  "alone": [
+    1,
+    {
+      "lemma": "alone",
+      "pos": "adverb",
+      "morph": {}
+    }
+  ],
+  "shared": [
+    1,
+    {
+      "lemma": "share",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Perf",
+        "Tense": "Past",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "vision": [
+    1,
+    {
+      "lemma": "vision",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "decision-making": [
+    2,
+    {
+      "lemma": "decision",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "decisions": [
+    1,
+    {
+      "lemma": "decision",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "beneficial": [
+    1,
+    {
+      "lemma": "beneficial",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "immeasurable": [
+    1,
+    {
+      "lemma": "immeasurable",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "beings": [
+    1,
+    {
+      "lemma": "being",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "smallest": [
+    1,
+    {
+      "lemma": "small",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Sup"
+      }
+    }
+  ],
+  "largest": [
+    1,
+    {
+      "lemma": "large",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Sup"
+      }
+    }
+  ],
+  "mountain": [
+    1,
+    {
+      "lemma": "mountain",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "invest": [
+    1,
+    {
+      "lemma": "invest",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "educators": [
+    1,
+    {
+      "lemma": "educator",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "civic": [
+    1,
+    {
+      "lemma": "civic",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "engagement": [
+    1,
+    {
+      "lemma": "engagement",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "participate": [
+    1,
+    {
+      "lemma": "participate",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "democracy": [
+    1,
+    {
+      "lemma": "democracy",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "informed": [
+    1,
+    {
+      "lemma": "inform",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Perf",
+        "Tense": "Past",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "voice": [
+    1,
+    {
+      "lemma": "voice",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "heard": [
+    1,
+    {
+      "lemma": "hear",
+      "pos": "verb",
+      "morph": {
+        "Tense": "Past",
+        "VerbForm": "Fin"
+      }
+    }
+  ],
+  "bridges": [
+    1,
+    {
+      "lemma": "bridge",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "nations": [
+    1,
+    {
+      "lemma": "nation",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "diverse": [
+    1,
+    {
+      "lemma": "diverse",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "tolerance": [
+    1,
+    {
+      "lemma": "tolerance",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "moral": [
+    1,
+    {
+      "lemma": "moral",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "imperative": [
+    1,
+    {
+      "lemma": "imperative",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "equal": [
+    1,
+    {
+      "lemma": "equal",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "opportunities": [
+    1,
+    {
+      "lemma": "opportunity",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "treated": [
+    1,
+    {
+      "lemma": "treat",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Perf",
+        "Tense": "Past",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "dignity": [
+    1,
+    {
+      "lemma": "dignity",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "fight": [
+    1,
+    {
+      "lemma": "fight",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "equality": [
+    1,
+    {
+      "lemma": "equality",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "injustice": [
+    1,
+    {
+      "lemma": "injustice",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "global": [
+    2,
+    {
+      "lemma": "global",
+      "pos": "proper noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "citizenship": [
+    1,
+    {
+      "lemma": "citizenship",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "care": [
+    2,
+    {
+      "lemma": "care",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "prosperity": [
+    1,
+    {
+      "lemma": "prosperity",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "citizen": [
+    1,
+    {
+      "lemma": "citizen",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "locally": [
+    1,
+    {
+      "lemma": "locally",
+      "pos": "adverb",
+      "morph": {}
+    }
+  ],
+  "globally": [
+    1,
+    {
+      "lemma": "globally",
+      "pos": "adverb",
+      "morph": {}
+    }
+  ],
+  "thriving": [
+    1,
+    {
+      "lemma": "thrive",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Prog",
+        "Tense": "Pres",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "choices": [
+    1,
+    {
+      "lemma": "choice",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "worthwhile": [
+    1,
+    {
+      "lemma": "worthwhile",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "contributing": [
+    1,
+    {
+      "lemma": "contribute",
+      "pos": "verb",
+      "morph": {
+        "Aspect": "Prog",
+        "Tense": "Pres",
+        "VerbForm": "Part"
+      }
+    }
+  ],
+  "attitude": [
+    1,
+    {
+      "lemma": "attitude",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "focus": [
+    2,
+    {
+      "lemma": "focus",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "simplicity": [
+    1,
+    {
+      "lemma": "simplicity",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "overlooked": [
+    1,
+    {
+      "lemma": "overlook",
+      "pos": "verb",
+      "morph": {
+        "Tense": "Past",
+        "VerbForm": "Fin"
+      }
+    }
+  ],
+  "simplify": [
+    1,
+    {
+      "lemma": "simplify",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "matters": [
+    1,
+    {
+      "lemma": "matter",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "legacy": [
+    2,
+    {
+      "lemma": "legacy",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "reminder": [
+    1,
+    {
+      "lemma": "reminder",
+      "pos": "noun",
+      "morph": {
+        "Number": "Sing"
+      }
+    }
+  ],
+  "extend": [
+    1,
+    {
+      "lemma": "extend",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "beyond": [
+    1,
+    {
+      "lemma": "beyond",
+      "pos": "adposition",
+      "morph": {}
+    }
+  ],
+  "leave": [
+    1,
+    {
+      "lemma": "leave",
+      "pos": "verb",
+      "morph": {
+        "VerbForm": "Inf"
+      }
+    }
+  ],
+  "proud": [
+    1,
+    {
+      "lemma": "proud",
+      "pos": "adjective",
+      "morph": {
+        "Degree": "Pos"
+      }
+    }
+  ],
+  "drives": [
+    1,
+    {
+      "lemma": "drive",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
+      }
+    }
+  ],
+  "difficulties": [
+    1,
+    {
+      "lemma": "difficulty",
+      "pos": "noun",
+      "morph": {
+        "Number": "Plur"
       }
     }
   ]

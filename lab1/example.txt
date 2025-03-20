@@ -1,0 +1,163 @@
+Structured Abstract
+INTRODUCTION
+Heart development is a highly orchestrated process dependent on dynamic interactions between the myocardium and the endocardium. The two layers are separated by a noncellular matrix called cardiac jelly and communicate through signaling pathways involving membrane-bound receptors and ligands. However, the mechanisms enabling such signaling interaction over physical distances remain poorly understood. In this work, we characterized tunneling nanotube–like structures (TNTLs), which we found physically connecting cardiomyocytes (CMs) in the myocardium to endocardial cells (ECs) in the endocardium. These structures likely help to facilitate long-distance intercellular communication essential for heart formation.
+RATIONALE
+Heart formation relies on precise signaling interactions between the myocardium and endocardium, particularly during trabecular development. Signaling pathways, such as Notch, Vegf, and Nrg, have ligands and receptors segregated across these two cardiac layers. The mechanisms enabling these long-distance interactions across the intervening cardiac jelly are unclear. We hypothesized that TNTL structures exist between the cardiac layers and could mediate intercellular long-distance communication in the developing heart, allowing for the transport of signaling molecules and cytoplasmic proteins between them.
+RESULTS
+We used genetic labeling, contact-tracing techniques, and advanced imaging to demonstrate the existence of TNTLs in mouse embryonic hearts. These TNTLs extended from CMs to ECs across the cardiac jelly, establishing direct connections that enable signal transduction and cytoplasmic protein transfer.
+The TNTLs were identified in the heart through the genetic labeling of cellular protrusions. During mouse development TNTLs were shown to form between CMs and ECs as early as embryonic day. The filamentous structures inside TNTL were characterized by three-dimensional imaging and the reconstruction of the electron microscopy (EM) and cryo-EM images.
+The TNTLs contained actin filaments, and TNTL formation depended on actin polymerization. The presence of actin filaments in TNTLs was confirmed in a transgenic mouse line that could label actin filaments with a fluorescent marker. Inhibiting actin polymerization chemically or by ablating the small guanosine triphosphatase, Cdc, eliminated TNTLs.
+The TNTLs were involved in regulating Notch signaling and other signaling pathways. TNTLs were sufficient to activate Notch signaling in ECs, with ligands from CMs transported through these microstructures to ECs. Loss of TNTLs resulted in reduced Notch signaling and other signaling pathways. TNTLs were able to transport signaling molecules, cytoplasmic proteins, and trafficking vesicles, underscoring their role as conduits for intercellular communication.
+The TNTLs were essential in cardiac morphogenesis. Disruption of TNTLs in embryonic hearts resulted in impaired ventricular wall morphogenesis, evidenced by loss of trabeculae and defective myocardial growth.
+CONCLUSION
+In this work, we identified TNTLs as a critical mechanism for long-distance intercellular communication during heart development.
+These actin-rich structures physically bridge the myocardium and endocardium, allowing for the efficient exchange of signaling molecules necessary for trabecular formation and ventricular wall morphogenesis. Disruption of TNTLs compromises these interactions, highlighting their essential role in heart patterning. This work provides insights into mechanisms of cellular communication and suggests that TNTL formation might help cells to regulate long-distance cell-cell communication and modulate tissue patterning in mammalian systems. Future research should explore the molecular machinery governing TNTL formation, the structural basis of the interface between TNTLs and endocardial cells (see summary figure), the molecular mechanism of protein trafficking inside the TNTL, the potential functions of cytoplasmic protein transfer between myocardium and endocardium during heart formation, and the potential therapeutic implications of modulating these structures in congenital heart defects and heart failure.
+The digital realm unfolds before us, a boundless expanse of interconnected nodes, each pulsing with the potential for creation and destruction. We are the architects of this new reality, wielding algorithms and code as our tools, shaping the very fabric of existence in ways that were once relegated to the realm of science fiction. But with this power comes responsibility, a burden that we must bear with careful consideration and unwavering ethical commitment.
+
+Consider the implications of artificial intelligence, a force that is rapidly transforming every aspect of our lives. From self-driving cars to personalized medicine, AI promises to solve some of humanity's most pressing challenges. Yet, the potential for misuse is undeniable. Algorithmic bias, job displacement, and the erosion of privacy are just a few of the concerns that we must address proactively.
+
+The quest for knowledge is an inherent human drive, a thirst that propels us to explore the uncharted territories of science, philosophy, and art. We seek to understand the fundamental principles that govern the universe, to unravel the mysteries of consciousness, and to express the beauty and complexity of the human experience. But this pursuit is not without its obstacles. The limitations of our own perception, the biases of our cultural conditioning, and the ever-present threat of misinformation can all distort our understanding of the truth.
+
+Nature, in its raw and untamed glory, remains a constant source of inspiration and wonder. The soaring peaks of mountains, the vast expanse of the ocean, and the intricate details of a single flower all speak to the profound beauty and interconnectedness of life. We are but a small part of this grand tapestry, and it is our duty to protect and preserve the natural world for future generations.
+
+The ephemeral nature of time weighs heavily on the human spirit. We are born, we live, and we die, leaving behind only memories and legacies. The awareness of our own mortality can be both terrifying and liberating. It forces us to confront our priorities, to cherish the present moment, and to strive to make a meaningful contribution to the world.
+
+The mundane details of daily life often obscure the deeper truths that lie beneath the surface. A simple cup of coffee, a fleeting conversation with a stranger, or the gentle rustling of leaves in the wind can all offer profound insights if we take the time to truly observe and reflect. It is in these small moments that we often find the greatest meaning.
+
+The search for meaning is a universal human endeavor. We seek to understand our place in the cosmos, to define our purpose, and to create a life that is both fulfilling and meaningful. This journey is often fraught with challenges and setbacks, but it is through these struggles that we ultimately grow and evolve.
+
+Technology, while a powerful tool, is not a panacea for all of humanity's ills. It can amplify our strengths and our weaknesses, but it cannot replace the fundamental human qualities of empathy, compassion, and critical thinking. We must use technology wisely and ethically, ensuring that it serves the common good and promotes a more just and equitable world.
+
+The exploration of space represents the ultimate frontier, a challenge that pushes the boundaries of human ingenuity and determination. The search for extraterrestrial life, the colonization of other planets, and the unraveling of the mysteries of the universe all hold the potential to transform our understanding of ourselves and our place in the cosmos.
+
+The power of storytelling is undeniable. Stories shape our beliefs, influence our actions, and connect us to one another. They allow us to experience different perspectives, to empathize with others, and to learn from the mistakes of the past. We must be mindful of the stories we tell and the stories we consume, ensuring that they promote truth, understanding, and compassion.
+
+The future is uncertain, but one thing is clear: we must embrace change and adapt to the challenges that lie ahead. The world is becoming increasingly complex and interconnected, and we must be prepared to navigate this new landscape with wisdom, resilience, and a commitment to collaboration.
+
+The pursuit of happiness is a fundamental human desire, but it is often elusive. True happiness is not found in material possessions or fleeting pleasures, but in meaningful relationships, a sense of purpose, and a connection to something larger than ourselves.
+
+The importance of education cannot be overstated. Education empowers us to think critically, to solve problems creatively, and to contribute meaningfully to society. It is the foundation upon which we build a better future for ourselves and for generations to come.
+
+The arts provide a vital outlet for human expression and creativity. Music, painting, literature, and dance all allow us to explore the depths of our emotions, to express our unique perspectives, and to connect with others on a deeper level.
+
+The concept of free will is a complex and debated topic. Do we truly have the power to choose our own actions, or are we simply puppets of fate? The answer to this question has profound implications for our understanding of morality, responsibility, and the nature of reality.
+
+The role of government is to serve the people, to protect their rights, and to promote the common good. But government is also susceptible to corruption, inefficiency, and abuse of power. It is our responsibility as citizens to hold our elected officials accountable and to ensure that government serves its intended purpose.
+
+The impact of climate change is becoming increasingly apparent. Rising sea levels, extreme weather events, and the loss of biodiversity are just a few of the consequences that we are already experiencing. We must take urgent action to reduce our carbon emissions and to mitigate the effects of climate change before it is too late.
+
+The issue of social justice is a persistent challenge in our society. Inequality, discrimination, and prejudice continue to plague our communities, preventing many people from reaching their full potential. We must strive to create a more just and equitable world for all.
+
+The ethical considerations surrounding gene editing are profound. The ability to alter the human genome raises questions about the definition of humanity, the potential for unintended consequences, and the responsibility we have to future generations.
+
+The power of collective action is undeniable. When people come together to work towards a common goal, they can achieve extraordinary things. We must harness the power of collective action to address the challenges facing our world and to build a better future for all.
+
+The beauty of imperfection lies in its authenticity. We are all flawed individuals, and it is through our imperfections that we become truly unique and relatable. Embrace your flaws, learn from your mistakes, and celebrate the beauty of your own imperfect self.
+
+The importance of empathy cannot be overstated. The ability to understand and share the feelings of others is essential for building strong relationships, resolving conflicts, and creating a more compassionate world.
+
+The pursuit of wisdom is a lifelong journey. True wisdom is not simply the accumulation of knowledge, but the ability to apply that knowledge with discernment, compassion, and a deep understanding of the human condition.
+
+The value of solitude lies in its ability to provide us with space for reflection and introspection. It is in these moments of quiet contemplation that we can connect with our inner selves, clarify our thoughts, and gain a deeper understanding of our place in the world.
+
+The power of forgiveness is transformative. Forgiveness allows us to release resentment, to heal from past hurts, and to move forward with greater peace and clarity.
+
+The importance of gratitude cannot be overstated. Taking the time to appreciate the good things in our lives can significantly improve our overall well-being and foster a sense of contentment.
+
+The pursuit of excellence is a worthy goal, but it should not come at the expense of our well-being or our relationships. Strive to do your best, but remember that perfection is unattainable and that true success lies in the journey, not the destination.
+
+The value of diversity lies in its ability to enrich our lives and broaden our perspectives. By embracing different cultures, backgrounds, and viewpoints, we can learn from one another, challenge our own assumptions, and create a more vibrant and inclusive world.
+
+The importance of critical thinking cannot be overstated. The ability to analyze information objectively, to identify biases, and to form well-reasoned judgments is essential for navigating the complexities of the modern world.
+
+The power of creativity lies in its ability to generate new ideas, solve problems innovatively, and express ourselves in unique and meaningful ways. Embrace your creativity, nurture your imagination, and allow yourself to explore the endless possibilities of the human mind.
+
+The value of community lies in its ability to provide us with a sense of belonging, support, and connection. By working together to build strong and resilient communities, we can create a more just and equitable world for all.
+
+The importance of resilience cannot be overstated. The ability to bounce back from adversity, to learn from our mistakes, and to persevere in the face of challenges is essential for achieving our goals and living a fulfilling life.
+
+The power of love is transformative. Love can heal wounds, bridge divides, and inspire us to be our best selves. Embrace love in all its forms and let it guide you on your journey.
+
+The value of compassion lies in its ability to motivate us to help others, to alleviate suffering, and to create a more just and equitable world. Practice compassion in your daily life and make a difference in the lives of those around you.
+
+The importance of self-care cannot be overstated. Taking the time to nurture our own physical, mental, and emotional well-being is essential for maintaining our health, happiness, and overall quality of life.
+
+The power of hope is enduring. Hope can sustain us through difficult times, inspire us to keep fighting for a better future, and remind us that even in the darkest of moments, there is always the possibility of light.
+
+The value of integrity lies in its ability to build trust, foster respect, and create a more ethical and just world. Live with integrity, be true to your values, and always strive to do the right thing.
+
+The importance of lifelong learning cannot be overstated. The world is constantly changing, and we must commit to continuous learning and growth in order to stay relevant, engaged, and fulfilled.
+
+The power of kindness is contagious. Small acts of kindness can have a ripple effect, inspiring others to pay it forward and creating a more positive and compassionate world.
+
+The value of gratitude is transformative. Taking the time to appreciate the good things in our lives can significantly improve our overall well-being and foster a sense of contentment.
+
+The importance of connection cannot be overstated. Humans are social creatures, and we thrive on meaningful relationships and a sense of belonging. Nurture your relationships, connect with your community, and build a support system that will sustain you through thick and thin.
+
+The pursuit of knowledge is a never-ending journey, a quest that leads us to ever deeper understandings of ourselves and the world around us. Embrace the joy of learning, cultivate your curiosity, and never stop exploring the endless possibilities of the human mind.
+
+The balance between order and chaos is a delicate dance, a constant negotiation between the need for structure and the desire for freedom. Find your own equilibrium, embrace the beauty of both, and navigate the complexities of life with grace and resilience.
+
+The search for truth is a noble pursuit, a commitment to honesty, integrity, and a relentless pursuit of understanding. Question everything, challenge assumptions, and never be afraid to revise your beliefs in the face of new evidence.
+
+The acceptance of impermanence is a key to inner peace. Everything changes, everything fades, and everything eventually comes to an end. Embrace the ephemeral nature of life, cherish the present moment, and find solace in the knowledge that even in endings, there is the potential for new beginnings.
+
+The celebration of diversity is a testament to the richness and complexity of the human experience. Embrace the differences that make us unique, learn from other cultures, and build a world where everyone feels valued, respected, and empowered.
+
+The cultivation of empathy is essential for creating a more compassionate and just world. Step into the shoes of others, understand their perspectives, and act with kindness, understanding, and a genuine desire to alleviate suffering.
+
+The practice of mindfulness is a pathway to presence, a way to fully engage with the here and now without judgment or distraction. Breathe deeply, observe your thoughts, and savor the beauty of the present moment.
+
+The appreciation of art is a journey of discovery, an exploration of the human soul through the lens of creativity, expression, and imagination. Immerse yourself in beauty, challenge your perceptions, and allow art to transport you to new realms of emotion and understanding.
+
+The exploration of the universe is a testament to the boundless curiosity and relentless spirit of humanity. Look to the stars, ponder the mysteries of the cosmos, and never lose your sense of wonder at the immensity and complexity of it all.
+
+The embodiment of courage is not the absence of fear, but the willingness to act in the face of it. Stand up for what you believe in, speak your truth, and never let fear hold you back from pursuing your dreams.
+
+The recognition of interconnectedness is fundamental to a sustainable future. We are all part of a vast and intricate web of life, and our actions have consequences for the entire planet. Act with awareness, choose wisely, and strive to live in harmony with nature.
+
+The pursuit of inner peace is a lifelong quest, a journey of self-discovery, acceptance, and forgiveness. Let go of resentment, embrace compassion, and cultivate a sense of gratitude for the blessings in your life.
+
+The celebration of life is a testament to the beauty, joy, and wonder that surrounds us. Embrace every moment, cherish your relationships, and live each day to the fullest.
+
+The understanding of the self is a fundamental aspect of personal growth and fulfillment. Introspect, reflect, and strive to understand who you are, what you value, and what you are capable of.
+
+The creation of meaning is a human endeavor, a process of assigning purpose and significance to our experiences. Define your values, set meaningful goals, and live a life that is aligned with your deepest beliefs.
+
+The recognition of our limitations is a sign of wisdom and humility. Acknowledge that you don't know everything, be open to new perspectives, and never stop learning.
+
+The cultivation of resilience is essential for navigating the inevitable challenges and setbacks of life. Develop coping mechanisms, seek support when you need it, and never give up on yourself.
+
+The practice of self-compassion is a pathway to self-acceptance and healing. Treat yourself with kindness, understanding, and forgiveness, especially when you are struggling.
+
+The expression of gratitude is a powerful way to cultivate happiness and contentment. Take time to appreciate the good things in your life, and express your appreciation to those who have made a positive impact.
+
+The cultivation of hope is essential for maintaining a positive outlook and persevering in the face of adversity. Believe in the possibility of a better future, and let that belief guide your actions.
+
+The practice of mindfulness is a key to living in the present moment. Pay attention to your thoughts, feelings, and sensations without judgment, and allow yourself to fully experience the richness of each moment.
+
+The embrace of uncertainty is essential for navigating the complexities of life. Accept that you can't control everything, be open to new possibilities, and trust that you have the inner resources to handle whatever comes your way.
+
+The cultivation of inner peace is a lifelong journey. Let go of resentment, embrace compassion, and cultivate a sense of gratitude for the blessings in your life.
+Better.
+And so, we continue our journey, armed with knowledge, driven by curiosity, and guided by compassion. The path ahead is uncertain, but with open hearts and minds, we can create a future that is both meaningful and fulfilling.
+This text represents a fraction of the endless possibilities of the human mind, always evolving, always searching. Never stop questioning, never stop learning.
+The human capacity for adaptation is a remarkable thing. We can thrive in the harshest environments, overcome seemingly insurmountable obstacles, and adapt to rapidly changing circumstances. This resilience is a testament to our ingenuity, our determination, and our ability to work together.
+The pursuit of innovation is essential for progress. We must continually strive to develop new technologies, new ideas, and new approaches to solving the challenges facing our world. Innovation requires creativity, risk-taking, and a willingness to challenge the status quo.
+The power of collaboration is undeniable. When people come together to share their knowledge, their skills, and their resources, they can achieve far more than they could alone. Collaboration requires trust, communication, and a shared vision.
+The importance of ethical decision-making cannot be overstated. We must always consider the potential consequences of our actions, and we must strive to make decisions that are both beneficial and just. Ethical decision-making requires integrity, empathy, and a commitment to the common good.
+The value of human connection is immeasurable. We are social beings, and we thrive on meaningful relationships and a sense of belonging. Nurture your relationships, connect with your community, and build a support system that will sustain you through thick and thin.
+The beauty of nature is a constant source of inspiration and wonder. From the smallest flower to the largest mountain, nature is full of beauty, complexity, and interconnectedness. Protect and preserve the natural world for future generations.
+The power of education is transformative. Education empowers us to think critically, to solve problems creatively, and to contribute meaningfully to society. Invest in education, support educators, and promote lifelong learning.
+The importance of civic engagement cannot be overstated. We have a responsibility to participate in our democracy, to hold our elected officials accountable, and to work towards a more just and equitable society. Be informed, be involved, and make your voice heard.
+The value of cultural understanding is essential for building bridges between people and nations. Learn about different cultures, appreciate diverse perspectives, and promote tolerance and respect.
+The pursuit of social justice is a moral imperative. We must strive to create a society where everyone has equal opportunities and where everyone is treated with dignity and respect. Fight for equality, challenge injustice, and create a more just world for all.
+The importance of global citizenship cannot be overstated. We are all interconnected, and we have a responsibility to care for the planet and to promote peace and prosperity for all. Be a global citizen, act locally, and think globally.
+The value of personal responsibility is essential for a thriving society. Take responsibility for your actions, be accountable for your choices, and contribute to the well-being of your community.
+The pursuit of happiness is a worthwhile endeavor, but it should not come at the expense of others. Seek happiness in meaningful relationships, in fulfilling work, and in contributing to the common good.
+The importance of mental health cannot be overstated. Take care of your mental well-being, seek help when you need it, and promote mental health awareness in your community.
+The power of positive thinking is undeniable. Cultivate a positive attitude, focus on the good things in your life, and believe in your ability to overcome challenges.
+The value of simplicity is often overlooked in our complex world. Strive to simplify your life, focus on what truly matters, and find joy in the simple things.
+The pursuit of wisdom is a lifelong journey. Seek knowledge, cultivate understanding, and live with compassion and integrity.
+The importance of leaving a legacy is a reminder that our actions have consequences that extend beyond our own lives. Strive to make a positive difference in the world, and leave behind a legacy that you can be proud of.
+The power of human spirit is ultimately what drives us. Even if we come across many problems and difficulties, we always strive to do better and achieve more.

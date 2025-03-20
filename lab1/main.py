@@ -1,3 +1,4 @@
+import re
 import tkinter as tk
 from collections import Counter
 from tkinter import filedialog
@@ -7,6 +8,7 @@ import spacy
 import os
 import json
 from idlelib.tooltip import Hovertip
+from striprtf.striprtf import rtf_to_text
 
 nlp = spacy.load('en_core_web_sm')
 
@@ -36,6 +38,14 @@ def validate_numeric_input(input):
     return re.match(pattern, input) is not None
 
 
+def get_lemma(word):
+    doc = nlp(word)
+    lemma = None
+    for token in doc:
+        lemma = token.lemma_
+    return lemma
+
+
 def get_morphological_info(word):
     doc = nlp(word)
     morphological_info = None
@@ -45,8 +55,8 @@ def get_morphological_info(word):
             'pos': pos_tag_translations[token.pos_],
             'morph': token.morph.to_dict()
         }
-
-    return morphological_info
+        return morphological_info # Exit after the first token
+    return {'lemma': word, 'pos': 'unknown', 'morph': None} # Handle unrecognized words
 
 
 def beautiful(data: dict):
@@ -59,11 +69,11 @@ class MyApp:
         self.db = db
         self.show = db
         self.root = root
-        self.columns = ("Word", "Morphologic Info", "Occurrences")
+        self.columns = ("Word", "Lexeme", "Morphologic Info", "Occurrences")
         self.root.title("Text Analyzer")
         self.root.geometry("1600x1600")
         style = ttk.Style()
-        style.theme_use("clam")
+        # style.theme_use("clam")
         style.configure("Treeview", rowheight=40)
 
         self.apply_button = None
@@ -95,6 +105,15 @@ class MyApp:
         word_entry.pack(side="left")
         Hovertip(word_entry, "In this entry you can put a word or a part of a word, \n\
         and only rows where the word matches your input will be shown in the table below. \n\
+        You can leave this field empty, then no filtering will be performed.")
+
+        self.lexeme_var = tk.StringVar()
+        lexeme_label = tk.Label(container, text="Lexeme:")
+        lexeme_label.pack(side="left")
+        lexeme_entry = tk.Entry(container, textvariable=self.lexeme_var)
+        lexeme_entry.pack(side="left")
+        Hovertip(lexeme_entry, "In this entry you can put a lexeme or a part of a lexeme, \n\
+        and only rows where the lexeme matches your input will be shown in the table below. \n\
         You can leave this field empty, then no filtering will be performed.")
 
         self.info_var = tk.StringVar()
@@ -130,6 +149,7 @@ class MyApp:
         You can leave this field empty, then no filtering will be performed.")
 
         self.word_var.trace_add("write", self.on_entry_change)
+        self.lexeme_var.trace_add("write", self.on_entry_change)
         self.info_var.trace_add("write", self.on_entry_change)
         self.occurences_lower_var.trace_add("write", self.on_entry_change)
         self.occurences_higher_var.trace_add("write", self.on_entry_change)
@@ -142,24 +162,27 @@ class MyApp:
         The third row shows number of occurences of this word in analyzed texts.")
 
         for col in self.columns:
-            self.tree.heading(col, text=col)
+            self.tree.heading(col, text=col, command=lambda c=col: self.sortby(self.tree, c, 0))
             self.tree.column(col, width=500)
 
         self.tree.pack(side="left")
-        self.edit_button = ttk.Button(root, text="Edit Selected", command=self.edit_selected)
+        self.edit_button = ttk.Button(root, text="Edit Selected", command=self.edit_selected, width=20)
         Hovertip(self.edit_button, "Before pressing this button, choose a row from the table above. Pressing this button will allow you to change\n\
                  morphological information for the word, if it is incorrect or not full.")
-        self.edit_button.pack(pady=30)
+        self.edit_button.pack(pady=10)
 
-        self.edit_button = ttk.Button(root, text="Delete Selected", command=self.delete_selected)
-        self.edit_button.pack(pady=30)
+        self.edit_button = ttk.Button(root, text="Delete Selected", command=self.delete_selected, width=20)
+        Hovertip(self.edit_button, "Delete selected element. \n.")
+        self.edit_button.pack(pady=10)
 
-        self.edit_button = ttk.Button(root, text="Import Selected", command=self.import_selected)
-        self.edit_button.pack(pady=30)
+        self.edit_button = ttk.Button(root, text="Import Selected", command=self.import_selected, width=20)
+        Hovertip(self.edit_button, "Import selectde word to a choisen file if word already exists\n\
+                         dialog will pop up.")
+        self.edit_button.pack(pady=10)
 
         self.edit_entries = []
         for col in ("Word", "Morphologic Info"):
-            entry = ttk.Entry(root)
+            entry = ttk.Entry(root, width=50)
             entry.pack()
             if col == "Word":
                 entry["state"] = "disabled"
@@ -171,11 +194,35 @@ class MyApp:
         for item in self.tree.get_children():
             self.tree.delete(item)
 
-        for word, info in self.show.items():
-            self.tree.insert("", "end", values=(word, beautiful(info[1]), info[0]))
+        self.populate_tree()
 
-    def on_entry_change(self):
+        if len(self.db) == 0:
+            messagebox.showinfo("Your first time", "Congratulations on the first time using our application.\n\
+        This application will help you analyze natural-language texts,\n\
+        If you're not familiar with application, check out tooltips that appear\n\
+        when you hover on different parts of the application.")
+
+    def sortby(self, tree, col, descending):
+        data = [(tree.set(child, col), child) for child in tree.get_children('')]
+        data.sort(reverse=descending)
+
+        for index, item in enumerate(data):
+            tree.move(item[1], '', index)
+
+        tree.heading(col, command=lambda col=col: self.sortby(tree, col, int(not descending)))
+
+
+    def populate_tree(self):
+        # Sort the words alphabetically
+        sorted_words = sorted(self.show.keys())
+
+        for word in sorted_words:
+            info = self.show[word]
+            self.tree.insert("", "end", values=(word, get_lemma(word), beautiful(info[1]), info[0]))
+
+    def on_entry_change(self, *args):
         word_filter = self.word_var.get()
+        lexeme_filter = self.lexeme_var.get()
         info_filter = self.info_var.get()
         low_occ = self.occurences_lower_var.get()
         low_occ = None if low_occ == "" else int(low_occ)
@@ -184,7 +231,9 @@ class MyApp:
 
         to_show = {}
         for key, value in self.db.items():
+            lemma = get_lemma(key)
             check_word_filter = word_filter in key
+            check_lexeme_filter = lexeme_filter in lemma
             check_info_filter = info_filter in beautiful(value[1])
             check_low_occ_filter = True
             if low_occ is not None:
@@ -193,7 +242,7 @@ class MyApp:
             if high_occ is not None:
                 check_high_occ_filter = value[0] <= high_occ
 
-            if check_word_filter and check_info_filter and check_low_occ_filter and check_high_occ_filter:
+            if check_word_filter and check_lexeme_filter and check_info_filter and check_low_occ_filter and check_high_occ_filter:
                 to_show[key] = value
 
         self.show = to_show
@@ -201,8 +250,7 @@ class MyApp:
         for item in self.tree.get_children():
             self.tree.delete(item)
 
-        for word, info in self.show.items():
-            self.tree.insert("", "end", values=(word, beautiful(info[1]), info[0]))
+        self.populate_tree()
 
     def edit_selected(self):
         selected_item = self.tree.selection()
@@ -213,7 +261,7 @@ class MyApp:
 
         values = self.tree.item(selected_item, 'values')
         word = values[0]
-        morph_info_str = values[1]
+        morph_info_str = values[2]
 
         self.edit_entries[0]["state"] = "normal"
         self.edit_entries[0].delete(0, tk.END)
@@ -300,7 +348,6 @@ class MyApp:
 
     def apply_changes(self, selected_item, original_word):
         new_morph_info_str = self.edit_entries[1].get()
-        new_values = [entry.get() for entry in self.edit_entries]
 
         if original_word in self.db:
             occurrences = self.db[original_word][0]
@@ -327,9 +374,7 @@ class MyApp:
                 messagebox.showerror("Error", f"Error parsing morphological info: {e}")
                 return
 
-            print([occurrences, new_morph_info])
-            print(self.tree.item(selected_item, "values"))
-            self.tree.item(selected_item, values=new_values)
+            self.tree.item(selected_item, values=(original_word, get_lemma(original_word), new_morph_info_str, occurrences))
         else:
             messagebox.showinfo("Info", "Word not found in the database.")
 
@@ -347,20 +392,31 @@ class MyApp:
 
     def analyze_file(self):
         path = self.file_path.get()
-        with open(path) as f:
-            text = f.read().replace("\n", " ").lower()
+        if not (path.endswith(".txt") or path.endswith(".rtf")):
+            messagebox.showerror("Error", "File type not supported.")
+            return
+
+        if path.endswith(".rtf"):
+            with open(path) as f:
+                rtf_content = f.read()
+                text = rtf_to_text(rtf_content).replace("\n", " ").lower()
+        elif path.endswith(".txt"):
+            with open(path) as f:
+                text = f.read().replace("\n", " ").lower()
         tokens = text.split(" ")
 
         counter = Counter(tokens)
-
         occurrences_map = dict(counter.items())
 
         if "" in occurrences_map:
             occurrences_map.pop("")
 
         for word, occurrences in occurrences_map.items():
-            word = word.strip(".").strip(",").strip('"').strip("'").strip("`").strip(":").strip("?").strip("!")
+            word = word.strip(".").strip(",").strip('"').strip("'").strip("`").strip(":").strip("?").strip("!").strip(
+                '(').strip(')').strip('[').strip(']').strip('{').strip('}').strip('@').strip('#').strip('№').strip(
+                '$').strip(';').strip('<').strip('>').strip('/').strip('*').strip('%').strip('^').strip('&').strip('*')
             if word in self.db:
+
                 self.db[word][0] += occurrences
             else:
                 self.db[word] = [occurrences, get_morphological_info(word)]
@@ -370,8 +426,7 @@ class MyApp:
         for item in self.tree.get_children():
             self.tree.delete(item)
 
-        for word, info in self.show.items():
-            self.tree.insert("", "end", values=(word, beautiful(info[1]), info[0]))
+        self.populate_tree()
 
 
 if __name__ == "__main__":
