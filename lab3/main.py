@@ -1,41 +1,36 @@
-# --- START OF FILE manager_session.py ---
-
 import io
 import os
 import json
 import spacy
 import tkinter as tk
-from bs4 import BeautifulSoup  # Для парсинга HTML
+from bs4 import BeautifulSoup
 from PIL import Image, ImageTk
 from idlelib.tooltip import Hovertip
 from tkinter import ttk, messagebox, filedialog, scrolledtext
 
-# Попытка импорта рендереров SVG
 SVG_RENDERER = None
 try:
     import cairosvg
 
     SVG_RENDERER = 'cairosvg'
-    print("Найден рендерер SVG: cairosvg")
+    print("Found SVG renderer: cairosvg")
 except ImportError:
     try:
         from svglib.svglib import svg2rlg
         from reportlab.graphics import renderPM
 
         SVG_RENDERER = 'svglib'
-        print("Найден рендерер SVG: svglib/reportlab")
+        print("Found SVG renderer: svglib/reportlab")
     except ImportError:
-        print("--- ПРЕДУПРЕЖДЕНИЕ: Рендерер SVG (cairosvg или svglib) не найден. ---")
-        print("Деревья зависимостей не будут отображаться.")
-        print("Рекомендуется установить: pip install cairosvg")
+        print("--- WARNING: SVG renderer (cairosvg or svglib) not found. ---")
+        print("Dependency trees will not be displayed.")
+        print("Recommended installation: pip install cairosvg")
         print("-" * 60)
 
-# Импорт утилит (убедитесь, что utils.py существует)
 try:
     from utils import POS_TAG_TRANSLATIONS, beautiful_morph, clean_token
 except ImportError:
-    print("Ошибка: Не найден файл utils.py. Пожалуйста, создайте его.")
-    # Предоставим заглушки, если utils.py нет
+    print("Error: utils.py not found. Please create it.")
     POS_TAG_TRANSLATIONS = {}
 
 
@@ -46,67 +41,55 @@ except ImportError:
     def clean_token(t):
         return t.strip()
 
-# --- Глобальные переменные и константы ---
 SPACY_MODEL_NAME = 'en_core_web_sm'
-NLP = None  # Глобальный объект модели spaCy
+NLP = None
 
 
-# --- Основной класс приложения ---
 class SessionAnalysisApp:
     def __init__(self, root):
         self.root = root
         self.root.title("HTML Text Analyzer (Session)")
         self.root.geometry("1500x1600")
 
-        # --- Сеансовые данные ---
         self.current_html_path = ""
-        self.original_text = ""  # Текст, извлеченный из HTML
-        self.analyzed_doc = None  # Результат обработки spaCy (объект Doc)
-        self.analysis_overrides = {}  # Словарь для хранения ручных правок {token_index: {field: new_value}}
-        self.tree_token_map = {}  # Словарь для связи iid Treeview с индексом токена
+        self.original_text = ""
+        self.analyzed_doc = None
+        self.analysis_overrides = {}
+        self.tree_token_map = {}
 
-        # --- Загрузка модели spaCy ---
         self._load_spacy_model()
-
-        # --- Стили ttk ---
         self._setup_styles()
-
-        # --- Создание основного интерфейса ---
         self._create_widgets()
-
-        # --- Обработчик закрытия окна ---
         self.root.protocol("WM_DELETE_WINDOW", self.on_closing)
 
     @staticmethod
     def _load_spacy_model():
-        """Загружает модель spaCy один раз при старте."""
         global NLP
         if NLP is None:
-            print(f"Загрузка модели spaCy '{SPACY_MODEL_NAME}'...")
+            print(f"Loading spaCy model '{SPACY_MODEL_NAME}'...")
             try:
                 NLP = spacy.load(SPACY_MODEL_NAME)
-                print("Модель spaCy успешно загружена.")
+                print("spaCy model loaded successfully.")
             except OSError:
                 messagebox.showerror(
-                    "Ошибка spaCy",
-                    f"Модель '{SPACY_MODEL_NAME}' не найдена.\n"
-                    f"Анализ текста не будет работать.\n"
-                    f"Скачайте модель: python -m spacy download {SPACY_MODEL_NAME}"
+                    "spaCy Error",
+                    f"Model '{SPACY_MODEL_NAME}' not found.\n"
+                    f"Text analysis will not work.\n"
+                    f"Download the model: python -m spacy download {SPACY_MODEL_NAME}"
                 )
-                print(f"!!! Ошибка: Модель '{SPACY_MODEL_NAME}' не найдена. Установите её.")
+                print(f"!!! Error: Model '{SPACY_MODEL_NAME}' not found. Please install it.")
             except Exception as e:
-                messagebox.showerror("Ошибка spaCy", f"Не удалось загрузить модель spaCy:\n{e}")
-                print(f"!!! Ошибка загрузки spaCy: {e}")
+                messagebox.showerror("spaCy Error", f"Could not load spaCy model:\n{e}")
+                print(f"!!! spaCy loading error: {e}")
 
     @staticmethod
     def _setup_styles():
-        """Настройка стилей ttk."""
         style = ttk.Style()
         try:
             style.theme_use("clam")
         except tk.TclError:
             style.theme_use("default")
-        style.configure("Treeview", rowheight=30, font=('TkDefaultFont', 10))  # Используем 30
+        style.configure("Treeview", rowheight=30, font=('TkDefaultFont', 10))
         style.configure("Treeview.Heading", font=('TkDefaultFont', 11, 'bold'))
         style.configure("TLabel", font=('TkDefaultFont', 10))
         style.configure("TButton", font=('TkDefaultFont', 10), padding=5)
@@ -114,9 +97,6 @@ class SessionAnalysisApp:
         style.configure("TLabelframe.Label", font=('TkDefaultFont', 10, 'bold'))
 
     def _create_widgets(self):
-        """Создает все виджеты интерфейса."""
-
-        # --- Фрейм 1: Загрузка файла и управление текстом ---
         file_frame = ttk.LabelFrame(self.root, text="Input Text", padding="10")
         file_frame.pack(padx=10, pady=(10, 5), fill="x")
         btn_load = ttk.Button(file_frame, text="Load HTML File", command=self.load_html_file)
@@ -129,9 +109,8 @@ class SessionAnalysisApp:
         btn_analyze.pack(side="left", padx=5)
         Hovertip(btn_analyze, "Perform linguistic analysis (POS tagging, dependency parsing) on the text below.")
 
-        # --- Фрейм 2: Редактирование текста ---
         text_frame = ttk.LabelFrame(self.root, text="Text Content (Editable)", padding="10")
-        text_frame.pack(padx=10, pady=5, fill="x", expand=False)  # expand=False
+        text_frame.pack(padx=10, pady=5, fill="x", expand=False)
         self.text_edit_widget = scrolledtext.ScrolledText(text_frame, wrap=tk.WORD, height=10,
                                                           font=('TkDefaultFont', 10),
                                                           undo=True)
@@ -141,9 +120,8 @@ class SessionAnalysisApp:
         btn_reanalyze.pack(side="bottom", pady=(5, 0))
         Hovertip(btn_reanalyze, "Re-run analysis on modified text. This resets manual overrides.")
 
-        # --- Фрейм 3: Таблица Результатов анализа ---
         results_frame = ttk.LabelFrame(self.root, text="Analysis Results (Editable)", padding="10")
-        results_frame.pack(padx=10, pady=5, fill="both", expand=True)  # Таблица занимает основное место
+        results_frame.pack(padx=10, pady=5, fill="both", expand=True)
 
         cols = ("ID", "Token", "Lemma", "POS", "Morphology", "Dependency")
         self.analysis_tree = ttk.Treeview(results_frame, columns=cols, show="headings", height=15)
@@ -161,7 +139,6 @@ class SessionAnalysisApp:
         Hovertip(self.analysis_tree, "Linguistic analysis results.\nDouble-click a row to edit. Use buttons below.")
         self.analysis_tree.bind("<Double-1>", self.open_wordform_edit_window)
 
-        # --- Фрейм 4: Кнопки управления под таблицей ---
         analysis_buttons_frame = ttk.Frame(self.root, padding=(10, 5, 10, 10))
         analysis_buttons_frame.pack(fill="x", side="bottom")
 
@@ -179,15 +156,13 @@ class SessionAnalysisApp:
         btn_show_tree.pack(side="left", padx=5)
         Hovertip(btn_show_tree, "Show the dependency parse tree in a new window.")
 
-    # --- Методы Обработчики ---
-
     def load_html_file(self):
         filepath = filedialog.askopenfilename(
             title="Select HTML File",
             filetypes=[("HTML files", "*.htm *.html"), ("All files", "*.*")]
         )
         if not filepath: return
-        print(f"Загрузка HTML: {filepath}")
+        print(f"Loading HTML: {filepath}")
         try:
             with open(filepath, 'r', encoding='utf-8', errors='ignore') as f:
                 soup = BeautifulSoup(f, 'html.parser')
@@ -199,7 +174,7 @@ class SessionAnalysisApp:
             else:
                 self.original_text = extracted_text
                 self.current_html_path = filepath
-                print(f"Извлечено символов: {len(self.original_text)}")
+                print(f"Extracted characters: {len(self.original_text)}")
             self.text_edit_widget.delete('1.0', tk.END)
             self.text_edit_widget.insert('1.0', self.original_text)
             self.text_edit_widget.edit_reset()
@@ -226,23 +201,23 @@ class SessionAnalysisApp:
             return
         self.original_text = text_to_analyze
         self.analysis_overrides = {}
-        print("Начало анализа текста...")
+        print("Starting text analysis...")
         self.root.config(cursor="watch")
         self.root.update_idletasks()
         try:
             self.analyzed_doc = NLP(self.original_text)
-            print(f"Анализ завершен. Токенов: {len(self.analyzed_doc)}")
+            print(f"Analysis complete. Tokens: {len(self.analyzed_doc)}")
             self._populate_analysis_table()
         except Exception as e:
             messagebox.showerror("Analysis Error", f"Error during analysis:\n{e}")
-            print(f"!!! Ошибка анализа spaCy: {e}")
+            print(f"!!! spaCy analysis error: {e}")
             self.analyzed_doc = None
             self.analysis_tree.delete(*self.analysis_tree.get_children())
         finally:
             self.root.config(cursor="")
 
     def reanalyze_edited_text(self):
-        print("Переанализ текста из редактора...")
+        print("Re-analyzing text from editor...")
         self.analyze_text()
 
     def _populate_analysis_table(self):
@@ -265,62 +240,79 @@ class SessionAnalysisApp:
             values = (i, wordform, lemma, pos_tag, morph_str, dep_rel)
             self.analysis_tree.insert("", "end", values=values, iid=iid)
             visible_token_count += 1
-        print(f"Таблица анализа заполнена. Отображено токенов: {visible_token_count}")
+        print(f"Analysis table populated. Displayed tokens: {visible_token_count}")
 
     def _render_dependency_tree(self, target_label_widget, sentence_index=0):
         global SVG_RENDERER
         target_label_widget.image_tk = None
-        if not self.analyzed_doc or not SVG_RENDERER:
-            message = "Analysis needed or SVG renderer missing."
-            target_label_widget.config(image="", text=message)
-            print(message)
+        if not self.analyzed_doc:
+            message = "Analysis needed."
+            target_label_widget.config(image="", text=message);
+            print(message);
             return False
+        if not SVG_RENDERER:
+            message = "SVG renderer missing."
+            target_label_widget.config(image="", text=message);
+            print(message);
+            return False
+
         sentences = list(self.analyzed_doc.sents)
         if not sentences or sentence_index < 0 or sentence_index >= len(sentences):
             message = f"Sentence index {sentence_index} out of bounds (0-{len(sentences) - 1})."
-            target_label_widget.config(image="", text=message)
-            print(message)
+            target_label_widget.config(image="", text=message);
+            print(message);
             return False
+
         sentence_to_render = sentences[sentence_index]
-        print(f"Рендеринг дерева для предложения {sentence_index}...")
-        svg_options = {"compact": False, "font": "Arial", "bg": "#fafafa", "color": "#000000", "word_spacing": 15,
-                       "arrow_spacing": 20}
-        render_dpi = 120
+        print(f"Rendering tree for sentence {sentence_index}...")
+
+        svg_options = {
+            "compact": False,
+            "font": "Arial",
+            "bg": "#fafafa",
+            "color": "#000000",
+            "word_spacing": 45,
+            "arrow_spacing": 20
+        }
+        render_dpi = 100
+
         try:
             svg_code = spacy.displacy.render(sentence_to_render, style="dep", jupyter=False, options=svg_options)
             png_bytes = None
+
             if SVG_RENDERER == 'cairosvg':
                 try:
                     png_bytes = cairosvg.svg2png(bytestring=svg_code.encode('utf-8'), dpi=render_dpi)
                 except Exception as e:
-                    print(f"Ошибка cairosvg: {e}")
+                    print(f"cairosvg error: {e}")
             elif SVG_RENDERER == 'svglib':
                 try:
                     drawing = svg2rlg(io.BytesIO(svg_code.encode('utf-8')))
                     if drawing:
-                        png_bytes_io = io.BytesIO()
-                        renderPM.drawToFile(drawing, png_bytes_io, fmt="PNG")
+                        png_bytes_io = io.BytesIO();
+                        renderPM.drawToFile(drawing, png_bytes_io, fmt="PNG");
                         png_bytes = png_bytes_io.getvalue()
                     else:
-                        print("svglib не смог создать drawing.")
+                        print("svglib failed to create drawing.")
                 except Exception as e:
-                    print(f"Ошибка svglib/reportlab: {e}")
+                    print(f"svglib/reportlab error: {e}")
+
             if png_bytes:
                 img = Image.open(io.BytesIO(png_bytes))
                 image_tk = ImageTk.PhotoImage(img)
-                target_label_widget.image_tk = image_tk  # Сохраняем ссылку
+                target_label_widget.image_tk = image_tk
                 target_label_widget.config(image=image_tk, text="")
-                print("Дерево зависимостей отрендерено.")
+                print("Dependency tree rendered.")
                 return True
             else:
                 message = "Failed to convert SVG to PNG."
-                target_label_widget.config(image="", text=message)
+                target_label_widget.config(image="", text=message);
                 print(message)
                 return False
         except Exception as e:
             message = f"Error rendering tree:\n{e}"
-            target_label_widget.config(image="", text=message)
-            print(f"Ошибка при рендеринге дерева: {e}")
+            target_label_widget.config(image="", text=message);
+            print(f"Error during tree rendering: {e}")
             return False
 
     def show_dependency_tree_window(self):
@@ -376,15 +368,15 @@ class SessionAnalysisApp:
             return
         success = self._render_dependency_tree(target_label, sent_index)
         if success:
-            target_canvas.update_idletasks()  # Даем время обновиться
+            target_canvas.update_idletasks()
             scroll_bbox = target_canvas.bbox("all")
             if scroll_bbox:
                 target_canvas.configure(scrollregion=scroll_bbox)
-                print(f"Scrollregion обновлен: {scroll_bbox}")
+                print(f"Scrollregion updated: {scroll_bbox}")
             else:
-                print("Не удалось получить bbox.")
+                print("Could not get bbox.")
             target_canvas.xview_moveto(0)
-            target_canvas.yview_moveto(0)  # Сброс прокрутки
+            target_canvas.yview_moveto(0)
 
     def get_selected_item_details(self):
         selected_items = self.analysis_tree.selection()
@@ -402,39 +394,50 @@ class SessionAnalysisApp:
         selected_iid, token_index = self.get_selected_item_details()
         if selected_iid is None: return
         if not self.analyzed_doc or token_index >= len(self.analyzed_doc):
-            messagebox.showerror("Error", "Analysis data missing.")
+            messagebox.showerror("Error", "Analysis data is missing or index is out of bounds.")
             return
 
-        # --- ИЗМЕНЕНИЕ: Проверяем видимость окна перед grab_set ---
-        # Создаем окно, но пока не делаем grab_set
+        token = self.analyzed_doc[token_index]
+        current_override = self.analysis_overrides.get(token_index, {})
+        print(f"DEBUG: Opening edit window for token {token_index}. Current overrides: {current_override}")
+
+        current_data = {
+            "wordform": token.text,
+            "lemma": str(current_override.get("lemma", token.lemma_)),
+            "pos": str(current_override.get("pos", POS_TAG_TRANSLATIONS.get(token.pos_, token.pos_))),
+            "morph": str(current_override.get("morph", beautiful_morph(token.morph.to_dict()))),
+            "dep": str(current_override.get("dep", token.dep_))
+        }
+        print(f"DEBUG: Data for edit window: {current_data}")
+
         popup = tk.Toplevel(self.root)
-        popup.title(f"Edit Token {token_index} ('{self.analyzed_doc[token_index].text}')")
+        popup.title(f"Edit Token {token_index} ('{current_data['wordform']}')")
         popup.transient(self.root)
         popup.resizable(False, False)
 
-        # ... (остальной код создания виджетов окна редактирования как раньше) ...
-        token = self.analyzed_doc[token_index]
-        current_override = self.analysis_overrides.get(token_index, {})
-        current_data = {"wordform": token.text, "lemma": current_override.get("lemma", token.lemma_),
-                        "pos": current_override.get("pos", POS_TAG_TRANSLATIONS.get(token.pos_, token.pos_)),
-                        "morph": current_override.get("morph", beautiful_morph(token.morph.to_dict())),
-                        "dep": current_override.get("dep", token.dep_)}
         form_frame = ttk.Frame(popup, padding="15")
         form_frame.pack(expand=True, fill="both")
+
+        ttk.Label(form_frame, text="Original Token:").grid(row=0, column=0, padx=5, pady=8, sticky="w")
+        orig_token_label = ttk.Label(form_frame, text=current_data["wordform"], relief="sunken", padding=3, anchor="w")
+        orig_token_label.grid(row=0, column=1, padx=5, pady=8, sticky="ew")
+
         entries = {}
         fields_to_edit = ['lemma', 'pos', 'morph', 'dep']
         labels = {'lemma': 'Lemma:', 'pos': 'POS Tag:', 'morph': 'Morphology:', 'dep': 'Dependency:'}
-        ttk.Label(form_frame, text="Original Token:").grid(row=0, column=0, padx=5, pady=8, sticky="w")
-        ttk.Label(form_frame, text=current_data["wordform"], relief="sunken", padding=3).grid(row=0, column=1, padx=5,
-                                                                                              pady=8, sticky="ew")
+
         for i, field in enumerate(fields_to_edit):
-            ttk.Label(form_frame, text=labels[field]).grid(row=i + 1, column=0, padx=5, pady=8, sticky="w")
-            var = tk.StringVar(
-                value=current_data[field])
+            print(f"DEBUG: Creating widgets for field '{field}' at row {i + 1}")
+            lbl = ttk.Label(form_frame, text=labels[field])
+            lbl.grid(row=i + 1, column=0, padx=5, pady=8, sticky="w")
+            var = tk.StringVar(value=current_data[field])
             entry = ttk.Entry(form_frame, textvariable=var, width=50)
             entry.grid(row=i + 1, column=1, padx=5, pady=8, sticky="ew")
-        entries[field] = var
+            entries[field] = var
+            print(f"DEBUG: Widgets for '{field}' created and placed.")
+
         form_frame.columnconfigure(1, weight=1)
+
         button_frame = ttk.Frame(popup, padding=(10, 10, 10, 15))
         button_frame.pack(fill="x", side="bottom")
         save_button = ttk.Button(button_frame, text="Save Changes",
@@ -442,44 +445,35 @@ class SessionAnalysisApp:
         save_button.pack(side="right", padx=(10, 0))
         cancel_button = ttk.Button(button_frame, text="Cancel", command=popup.destroy)
         cancel_button.pack(side="right", padx=(0, 5))
-        popup.update_idletasks()
-        first_entry_widget = None
-        if fields_to_edit:
-            first_entry_widget = form_frame.grid_slaves(row=1, column=1)[0]
-        if first_entry_widget:
-            first_entry_widget.focus_set()
-        parent_x = self.root.winfo_x()
-        parent_y = self.root.winfo_y()
-        parent_w = self.root.winfo_width()
-        parent_h = self.root.winfo_height()
-        popup_w = popup.winfo_width()
-        popup_h = popup.winfo_height()
-        x = parent_x + (parent_w // 2) - (popup_w // 2)
-        y = parent_y + (parent_h // 2) - (popup_h // 2)
-        popup.geometry(f'+{x}+{y}')
 
-        # --- ИЗМЕНЕНИЕ: Вызываем grab_set ПОСЛЕ того, как окно стало видимым ---
-        # Даем Tkinter время отрисовать окно перед захватом
         popup.update_idletasks()
+        parent_x = self.root.winfo_x();
+        parent_y = self.root.winfo_y();
+        parent_w = self.root.winfo_width();
+        parent_h = self.root.winfo_height();
+        popup_w = popup.winfo_width();
+        popup_h = popup.winfo_height();
+        x = parent_x + (parent_w // 2) - (popup_w // 2);
+        y = parent_y + (parent_h // 2) - (popup_h // 2);
+        popup.geometry(f'+{x}+{y}')
+        first_entry_widget = form_frame.grid_slaves(row=1, column=1)
+        if first_entry_widget: first_entry_widget[0].focus_set()
         try:
-            # Проверяем, видимо ли окно перед захватом
             if popup.winfo_viewable():
-                popup.grab_set()
-                print("Grab set successfully.")
+                popup.grab_set(); print("DEBUG: Grab set.")
             else:
-                print("Warning: Popup window not viewable, grab_set skipped.")
+                print("DEBUG: Warning - Popup not viewable for grab_set.")
         except tk.TclError as e:
-            # Ловим ошибку на всякий случай, если проверка не сработала
-            print(f"Error during grab_set (window might not be ready): {e}")
-            # Можно просто продолжить без grab_set или показать ошибку
+            print(f"DEBUG: Error during grab_set: {e}")
 
     def save_wordform_edit(self, token_index, entries, popup_window):
-        print(f"Сохранение переопределений для токена {token_index}")
+        print(f"Saving overrides for token {token_index}")
         new_override = self.analysis_overrides.get(token_index, {}).copy()
         updated = False
         for field, var in entries.items():
             new_value = var.get().strip()
             original_token = self.analyzed_doc[token_index]
+            original_value = None
             if field == 'lemma':
                 original_value = original_token.lemma_
             elif field == 'pos':
@@ -490,34 +484,38 @@ class SessionAnalysisApp:
                 original_value = original_token.dep_
             else:
                 continue
+
             previous_value = self.analysis_overrides.get(token_index, {}).get(field, original_value)
             if new_value != previous_value:
-                if new_value == original_value:
+                if new_value == original_value or new_value == '':
                     if field in new_override:
                         del new_override[field]
                         updated = True
                 else:
                     new_override[field] = new_value
                     updated = True
+
         is_empty_override = not any(f != 'deleted' for f in new_override)
-        if is_empty_override or not new_override:
+        if is_empty_override:
             if token_index in self.analysis_overrides:
-                is_deleted = "deleted" in self.analysis_overrides[token_index]
-                if is_deleted and len(self.analysis_overrides[token_index]) == 1:
-                    del self.analysis_overrides[token_index]
-                elif is_deleted:
-                    self.analysis_overrides[token_index] = {"deleted": True}
+                if "deleted" in self.analysis_overrides[token_index]:
+                    if len(self.analysis_overrides[token_index]) > 1:
+                        self.analysis_overrides[token_index] = {"deleted": True}
+                        updated = True
+                    else:
+                        pass
                 else:
                     del self.analysis_overrides[token_index]
-                updated = True
+                    updated = True
         elif updated:
             self.analysis_overrides[token_index] = new_override
+
         popup_window.destroy()
         if updated:
-            print(f"Переопределения для токена {token_index} обновлены")
+            print(f"Overrides for token {token_index} updated.")
             self._update_treeview_row(token_index)
         else:
-            print(f"Изменений для токена {token_index} не внесено.")
+            print(f"No changes made for token {token_index}.")
 
     def ignore_selected_wordform(self):
         selected_iid, token_index = self.get_selected_item_details()
@@ -527,12 +525,10 @@ class SessionAnalysisApp:
         confirm = messagebox.askyesno("Confirm Ignore", f"Mark token {token_index} ('{token_text}') as ignored?",
                                       parent=self.root)
         if confirm:
-            print(f"Пометка токена {token_index} как удаленного.")
-            override = self.analysis_overrides.get(
-                token_index, {})
+            print(f"Marking token {token_index} as deleted.")
+            override = self.analysis_overrides.get(token_index, {})
             override["deleted"] = True
-            self.analysis_overrides[
-                token_index] = override
+            self.analysis_overrides[token_index] = override
             self._update_treeview_row(token_index)
 
     def export_selected_wordform(self):
@@ -544,15 +540,19 @@ class SessionAnalysisApp:
         token = self.analyzed_doc[token_index]
         override = self.analysis_overrides.get(token_index, {})
         if override.get("deleted", False):
-            messagebox.showinfo("Info", f"Token {token_index} ignored.")
+            messagebox.showinfo("Info", f"Token {token_index} is ignored, not exported.")
             return
-        export_entry_data = {"original_wordform": token.text, "lemma": override.get("lemma", token.lemma_),
-                             "pos": override.get("pos", POS_TAG_TRANSLATIONS.get(token.pos_, token.pos_)),
-                             "morph": override.get("morph", beautiful_morph(token.morph.to_dict())),
-                             "dep": override.get("dep", token.dep_),
-                             "source_doc": os.path.basename(
-                                 self.current_html_path) if self.current_html_path else "N/A"}
+        export_entry_data = {
+            "original_wordform": token.text,
+            "lemma": override.get("lemma", token.lemma_),
+            "pos": override.get("pos", POS_TAG_TRANSLATIONS.get(token.pos_, token.pos_)),
+            "morph": override.get("morph", beautiful_morph(token.morph.to_dict())),
+            "dep": override.get("dep", token.dep_),
+            "source_doc": os.path.basename(self.current_html_path) if self.current_html_path else "N/A"
+        }
         export_key = f"token_{token_index}"
+        export_data = {export_key: export_entry_data}
+
         file_path = filedialog.asksaveasfilename(defaultextension=".json", filetypes=[("JSON files", "*.json")],
                                                  title="Save Token Analysis As...",
                                                  initialfile=f"token_{token_index}_{clean_token(token.text)}.json")
@@ -568,86 +568,120 @@ class SessionAnalysisApp:
                 except (json.JSONDecodeError, IOError):
                     existing_data = {}
                 if export_key in existing_data:
-                    if not messagebox.askyesno("Overwrite?", f"Entry '{export_key}' exists. Overwrite?"): return
+                    if not messagebox.askyesno("Overwrite?",
+                                               f"Entry '{export_key}' already exists in the file. Overwrite?",
+                                               parent=self.root):
+                        return
             existing_data[export_key] = export_entry_data
             with open(file_path, 'w', encoding='utf-8') as f:
                 json.dump(existing_data, f, indent=4, ensure_ascii=False)
-            messagebox.showinfo("Success", f"Data for '{export_key}' saved.")
+            messagebox.showinfo("Success", f"Data for '{export_key}' saved to {os.path.basename(file_path)}.")
         except Exception as e:
             messagebox.showerror("Export Error", f"Could not save data:\n{e}")
 
     def import_wordform_overrides(self):
         if not self.analyzed_doc:
-            messagebox.showwarning("No Data", "Analyze text first.")
+            messagebox.showwarning("No Data", "Analyze text first before importing overrides.")
             return
         file_path = filedialog.askopenfilename(filetypes=[("JSON files", "*.json")],
                                                title="Select JSON File with Overrides")
         if not file_path:
             return
-        print(f"Импорт переопределений из: {file_path}")
+        print(f"Importing overrides from: {file_path}")
         imported_count = 0
         skipped_count = 0
+        error_count = 0
         try:
             with open(file_path, 'r', encoding='utf-8') as f:
                 data_to_import = json.load(f)
             if not isinstance(data_to_import, dict):
-                messagebox.showerror("Format Error", "JSON must be a dictionary.")
+                messagebox.showerror("Format Error", "JSON file must contain a dictionary.")
                 return
             num_entries = len(data_to_import)
             if num_entries == 0:
-                messagebox.showinfo("Info", "JSON file is empty.")
+                messagebox.showinfo("Info", "The selected JSON file is empty.")
                 return
-            if not messagebox.askyesno("Confirm Import", f"Found {num_entries} overrides. Apply to current session?",
-                                       parent=self.root): return
+            if not messagebox.askyesno("Confirm Import",
+                                       f"Found {num_entries} potential overrides in the file.\nApply them to the current session?",
+                                       parent=self.root):
+                return
+
             applied_indices = set()
             for key, override_data in data_to_import.items():
                 if not key.startswith("token_") or not isinstance(override_data, dict):
+                    print(f"Skipping invalid key or data format: {key}")
                     skipped_count += 1
                     continue
                 try:
                     token_index = int(key.split("_")[1])
                 except (IndexError, ValueError):
+                    print(f"Skipping invalid key format (cannot extract index): {key}")
                     skipped_count += 1
                     continue
                 if token_index < 0 or token_index >= len(self.analyzed_doc):
+                    print(f"Skipping out-of-bounds token index {token_index} from key {key}.")
                     skipped_count += 1
                     continue
-                current_override = self.analysis_overrides.get(token_index, {})
-                applied_change = False
+
+                current_override = self.analysis_overrides.get(token_index, {}).copy()
+                applied_change_for_token = False
                 for field, value in override_data.items():
                     if field in ["lemma", "pos", "morph", "dep", "deleted"]:
-                        current_override[field] = value
-                        applied_change = True
-                if applied_change:
+                        if value is not None:
+                            current_override[field] = str(value).strip()
+                            applied_change_for_token = True
+                        else:
+                            print(f"Warning: Skipping null value for field '{field}' in token {token_index}")
+
+                if applied_change_for_token:
                     self.analysis_overrides[token_index] = current_override
                     applied_indices.add(token_index)
                     imported_count += 1
                 else:
+                    print(f"Skipping entry {key}, no applicable override fields found.")
                     skipped_count += 1
-            print(f"Обновление {len(applied_indices)} строк в таблице...")
-            [self._update_treeview_row(index) for index in applied_indices]
-            print("Обновление таблицы завершено.")
-            summary = f"Import finished.\n\nApplied/Updated: {imported_count}\nSkipped: {skipped_count}"
+
+            print(f"Updating {len(applied_indices)} rows in the analysis table...")
+            for index in applied_indices:
+                self._update_treeview_row(index)
+            print("Table update complete.")
+
+            summary = f"Import finished.\n\nOverrides applied/updated: {imported_count}\nEntries skipped: {skipped_count}"
             messagebox.showinfo("Import Complete", summary)
             print(summary.replace('\n\n', ' // '))
+
+        except FileNotFoundError:
+            messagebox.showerror("File Error", f"File not found:\n{file_path}")
+        except json.JSONDecodeError as e:
+            messagebox.showerror("JSON Error", f"Error decoding JSON file:\n{e}")
         except Exception as e:
-            messagebox.showerror("Import Error", f"Error during import:\n{e}")
-            print(f"!!! Ошибка импорта: {e}")
+            messagebox.showerror("Import Error", f"An unexpected error occurred during import:\n{e}")
+            print(f"!!! Import error: {e}")
 
     def _update_treeview_row(self, token_index):
         iid = f"token_{token_index}"
         if not self.analysis_tree.exists(iid): return
         if not self.analyzed_doc or token_index >= len(self.analyzed_doc): return
+
         token = self.analyzed_doc[token_index]
         override = self.analysis_overrides.get(token_index, {})
+
         if override.get("deleted", False):
-            self.analysis_tree.delete(iid)
+            try:
+                self.analysis_tree.delete(iid)
+                print(f"Removed ignored token {token_index} from view.")
+            except tk.TclError:
+                print(f"Failed to remove item {iid} from treeview (might already be gone).")
             return
-        values = (token_index, override.get("wordform", token.text).replace("\n", " "),
-                  override.get("lemma", token.lemma_).replace("\n", " "),
-                  override.get("pos", POS_TAG_TRANSLATIONS.get(token.pos_, token.pos_)).replace("\n", " "),
-                  override.get("morph", beautiful_morph(token.morph.to_dict())).replace("\n", " "),
-                  override.get("dep", token.dep_).replace("\n", " "))
+
+        values = (
+            token_index,
+            token.text.replace("\n", " "),
+            override.get("lemma", token.lemma_).replace("\n", " "),
+            override.get("pos", POS_TAG_TRANSLATIONS.get(token.pos_, token.pos_)).replace("\n", " "),
+            override.get("morph", beautiful_morph(token.morph.to_dict())).replace("\n", " "),
+            override.get("dep", token.dep_).replace("\n", " ")
+        )
         try:
             self.analysis_tree.item(iid, values=values)
         except tk.TclError as e:
@@ -655,14 +689,11 @@ class SessionAnalysisApp:
 
     def on_closing(self):
         if messagebox.askokcancel("Quit", "Are you sure you want to quit?\nAll unsaved analysis data will be lost."):
-            print("Закрытие приложения.")
+            print("Closing application.")
             self.root.destroy()
 
 
-# --- Запуск приложения ---
 if __name__ == "__main__":
     root = tk.Tk()
     app = SessionAnalysisApp(root)
     root.mainloop()
-
-# --- END OF FILE manager_session.py ---
