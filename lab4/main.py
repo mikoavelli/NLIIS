@@ -1,5 +1,6 @@
 import io
 import os
+import nltk
 import json
 import spacy
 import tkinter as tk
@@ -7,6 +8,28 @@ from bs4 import BeautifulSoup
 from PIL import Image, ImageTk
 from idlelib.tooltip import Hovertip
 from tkinter import ttk, messagebox, filedialog, scrolledtext
+from nltk.corpus import wordnet as wn
+
+try:
+    wn.synsets('dog', pos=wn.NOUN)
+    print("WordNet data found.")
+except LookupError:
+    print("WordNet data not found. Attempting to download...")
+    try:
+        nltk.download('punkt')
+        nltk.download('averaged_perceptron_tagger')
+        nltk.download('wordnet', quiet=True)
+        nltk.download('omw-1.4', quiet=True)
+        wn.synsets('dog', pos=wn.NOUN)
+        print("WordNet data downloaded successfully.")
+    except Exception as e:
+        print(f"--- ERROR: Failed to download WordNet data: {e} ---")
+        print("Synonyms, Antonyms, and Definitions will not be available.")
+        print("Please run 'import nltk; nltk.download(\"wordnet\"); nltk.download(\"omw-1.4\")' manually in Python.")
+        messagebox.showwarning("WordNet Missing",
+                               "WordNet data not found or failed to download.\nSemantic features (Synonyms, Antonyms, Definitions) will be unavailable.\nSee console for details.")
+except Exception as e:
+    print(f"An unexpected error occurred while checking/loading WordNet: {e}")
 
 SVG_RENDERER = None
 try:
@@ -31,6 +54,20 @@ try:
     from utils import POS_TAG_TRANSLATIONS, beautiful_morph, clean_token
 except ImportError:
     print("Error: utils.py not found. Please create it.")
+    POS_TAG_TRANSLATIONS = {}
+
+
+    def beautiful_morph(d):
+        return str(d) if d else "None"
+
+
+    def clean_token(t):
+        return t.strip()
+
+try:
+    from utils import POS_TAG_TRANSLATIONS, beautiful_morph, clean_token
+except ImportError:
+    print("Error: utils.py not found. Using placeholder functions.")
     POS_TAG_TRANSLATIONS = {}
 
 
@@ -122,7 +159,6 @@ class SessionAnalysisApp:
 
         search_filter_frame = ttk.LabelFrame(self.root, text="Filter Analysis Results", padding="10")
         search_filter_frame.pack(padx=10, pady=5, fill="x")
-
         ttk.Label(search_filter_frame, text="Filter by:").pack(side="left", padx=(0, 5))
         self.search_filter_var = tk.StringVar()
         entry_filter = ttk.Entry(search_filter_frame, textvariable=self.search_filter_var, width=40)
@@ -130,11 +166,9 @@ class SessionAnalysisApp:
         Hovertip(entry_filter,
                  "Enter text to filter rows (searches Token, Lemma, POS, Morphology, Dependency). Case-insensitive.")
         entry_filter.bind("<Return>", self.filter_analysis_results)
-
         btn_filter = ttk.Button(search_filter_frame, text="Filter", command=self.filter_analysis_results)
         btn_filter.pack(side="left", padx=5)
         Hovertip(btn_filter, "Apply the filter to the analysis table.")
-
         btn_clear_filter = ttk.Button(search_filter_frame, text="Clear Filter", command=self.clear_filter)
         btn_clear_filter.pack(side="left", padx=5)
         Hovertip(btn_clear_filter, "Remove the filter and show all analyzed tokens.")
@@ -142,25 +176,28 @@ class SessionAnalysisApp:
         results_frame = ttk.LabelFrame(self.root, text="Analysis Results (Editable)", padding="10")
         results_frame.pack(padx=10, pady=5, fill="both", expand=True)
 
-        cols = ("ID", "Token", "Lemma", "POS", "Morphology", "Dependency")
+        cols = ("ID", "Token", "Lemma", "POS", "Morphology", "Dependency", "Synonyms", "Antonyms", "Definition")
         self.analysis_tree = ttk.Treeview(results_frame, columns=cols, show="headings", height=15)
-        col_widths = {"ID": 50, "Token": 120, "Lemma": 120, "POS": 100, "Morphology": 200, "Dependency": 100}
+        col_widths = {"ID": 40, "Token": 110, "Lemma": 110, "POS": 100, "Morphology": 180, "Dependency": 100,
+                      "Synonyms": 150, "Antonyms": 150, "Definition": 250}
+
         for col in cols:
             self.analysis_tree.heading(col, text=col, anchor='w')
             stretch = tk.NO if col == "ID" else tk.YES
             self.analysis_tree.column(col, width=col_widths[col], anchor='w', stretch=stretch)
+
         vsb = ttk.Scrollbar(results_frame, orient="vertical", command=self.analysis_tree.yview)
         hsb = ttk.Scrollbar(results_frame, orient="horizontal", command=self.analysis_tree.xview)
         self.analysis_tree.configure(yscrollcommand=vsb.set, xscrollcommand=hsb.set)
         vsb.pack(side="right", fill="y")
         hsb.pack(side="bottom", fill="x")
         self.analysis_tree.pack(side="top", fill="both", expand=True)
-        Hovertip(self.analysis_tree, "Linguistic analysis results.\nDouble-click a row to edit. Use buttons below.")
+        Hovertip(self.analysis_tree,
+                 "Linguistic analysis results.\nDouble-click a row to edit core fields. Semantic info from WordNet.")
         self.analysis_tree.bind("<Double-1>", self.open_wordform_edit_window)
 
         analysis_buttons_frame = ttk.Frame(self.root, padding=(10, 5, 10, 10))
         analysis_buttons_frame.pack(fill="x", side="bottom")
-
         btn_export = ttk.Button(analysis_buttons_frame, text="Export Selected", command=self.export_selected_wordform)
         btn_export.pack(side="left", padx=5)
         Hovertip(btn_export, "Export analysis of the selected token to JSON.")
@@ -192,14 +229,15 @@ class SessionAnalysisApp:
             try:
                 values = self.analysis_tree.item(iid, 'values')
                 match_found = False
-                for value in values[1:]:
-                    if query in str(value).lower():
+                for col_index in range(1, len(values)):
+                    value_str = str(values[col_index]).lower()
+                    if query in value_str:
                         match_found = True
                         break
                 if not match_found:
                     iids_to_remove.append(iid)
             except tk.TclError:
-                print(f"Warning: Could not get values for item {iid} during filtering (might be already deleted).")
+                print(f"Warning: Could not get values for item {iid} during filtering.")
                 continue
 
         if iids_to_remove:
@@ -280,26 +318,57 @@ class SessionAnalysisApp:
         self.analyze_text()
 
     def _populate_analysis_table(self):
+        """Populates the analysis table with data from spaCy doc and WordNet."""
         self.analysis_tree.delete(*self.analysis_tree.get_children())
         self.tree_token_map.clear()
         if not self.analyzed_doc: return
+
+        print("Populating analysis table (including WordNet lookup)...")
         visible_token_count = 0
+        wordnet_errors = 0
+
         for i, token in enumerate(self.analyzed_doc):
             cleaned = clean_token(token.text)
             if not cleaned or token.is_space: continue
+
             override = self.analysis_overrides.get(i, {})
             if override.get("deleted", False): continue
+
             wordform = override.get("wordform", token.text).replace("\n", " ")
             lemma = override.get("lemma", token.lemma_).replace("\n", " ")
             pos_tag = override.get("pos", POS_TAG_TRANSLATIONS.get(token.pos_, token.pos_)).replace("\n", " ")
             morph_str = override.get("morph", beautiful_morph(token.morph.to_dict())).replace("\n", " ")
             dep_rel = override.get("dep", token.dep_).replace("\n", " ")
+
+            wordnet_info = {"synonyms": "N/A", "antonyms": "N/A", "definition": "N/A"}
+            try:
+                lookup_lemma = override.get("lemma", token.lemma_)
+                original_spacy_pos = token.pos_
+                if original_spacy_pos in ['NOUN', 'VERB', 'ADJ', 'ADV']:
+                    wordnet_info = self._get_wordnet_info(lookup_lemma, original_spacy_pos)
+            except Exception as e:
+                if wordnet_errors == 0:
+                    print(
+                        f"Warning: WordNet lookup failed for '{lemma}' ({original_spacy_pos}). Error: {e}. Further errors suppressed.")
+                wordnet_errors += 1
+
             iid = f"token_{i}"
             self.tree_token_map[iid] = i
-            values = (i, wordform, lemma, pos_tag, morph_str, dep_rel)
+            values = (
+                i,
+                wordform,
+                lemma,
+                pos_tag,
+                morph_str,
+                dep_rel,
+                wordnet_info["synonyms"],
+                wordnet_info["antonyms"],
+                wordnet_info["definition"]
+            )
             self.analysis_tree.insert("", "end", values=values, iid=iid)
             visible_token_count += 1
-        print(f"Analysis table populated. Displayed tokens: {visible_token_count}")
+
+        print(f"Analysis table populated. Displayed tokens: {visible_token_count}. WordNet errors: {wordnet_errors}")
 
     def _render_dependency_tree(self, target_label_widget, sentence_index=0):
         global SVG_RENDERER
@@ -592,24 +661,41 @@ class SessionAnalysisApp:
             self._update_treeview_row(token_index)
 
     def export_selected_wordform(self):
+        """Exports analysis (including WordNet info) of the selected token to JSON."""
         selected_iid, token_index = self.get_selected_item_details()
         if selected_iid is None: return
         if not self.analyzed_doc or token_index >= len(self.analyzed_doc):
             messagebox.showerror("Error", "Analysis data missing.")
             return
+
         token = self.analyzed_doc[token_index]
         override = self.analysis_overrides.get(token_index, {})
+
         if override.get("deleted", False):
             messagebox.showinfo("Info", f"Token {token_index} is ignored, not exported.")
             return
+
+        wordnet_info = {"synonyms": "N/A", "antonyms": "N/A", "definition": "N/A"}
+        try:
+            lookup_lemma = override.get("lemma", token.lemma_)
+            original_spacy_pos = token.pos_
+            if original_spacy_pos in ['NOUN', 'VERB', 'ADJ', 'ADV']:
+                wordnet_info = self._get_wordnet_info(lookup_lemma, original_spacy_pos)
+        except Exception as e:
+            print(f"Warning: WordNet lookup failed during export for '{lookup_lemma}'. Error: {e}")
+
         export_entry_data = {
             "original_wordform": token.text,
             "lemma": override.get("lemma", token.lemma_),
             "pos": override.get("pos", POS_TAG_TRANSLATIONS.get(token.pos_, token.pos_)),
             "morph": override.get("morph", beautiful_morph(token.morph.to_dict())),
             "dep": override.get("dep", token.dep_),
+            "synonyms": wordnet_info["synonyms"],
+            "antonyms": wordnet_info["antonyms"],
+            "definition": wordnet_info["definition"],
             "source_doc": os.path.basename(self.current_html_path) if self.current_html_path else "N/A"
         }
+
         export_key = f"token_{token_index}"
         export_data = {export_key: export_entry_data}
 
@@ -719,6 +805,7 @@ class SessionAnalysisApp:
             print(f"!!! Import error: {e}")
 
     def _update_treeview_row(self, token_index):
+        """Updates a single row in the Treeview based on current data and overrides."""
         iid = f"token_{token_index}"
         if not self.analysis_tree.exists(iid): return
         if not self.analyzed_doc or token_index >= len(self.analyzed_doc): return
@@ -728,19 +815,33 @@ class SessionAnalysisApp:
 
         if override.get("deleted", False):
             try:
-                self.analysis_tree.delete(iid)
+                self.analysis_tree.delete(iid);
                 print(f"Removed ignored token {token_index} from view.")
             except tk.TclError:
-                print(f"Failed to remove item {iid} from treeview (might already be gone).")
+                pass
             return
 
+        # Get core data
+        wordform = token.text.replace("\n", " ")
+        lemma = override.get("lemma", token.lemma_).replace("\n", " ")
+        pos_tag = override.get("pos", POS_TAG_TRANSLATIONS.get(token.pos_, token.pos_)).replace("\n", " ")
+        morph_str = override.get("morph", beautiful_morph(token.morph.to_dict())).replace("\n", " ")
+        dep_rel = override.get("dep", token.dep_).replace("\n", " ")
+
+        # Re-fetch WordNet data for the updated row
+        wordnet_info = {"synonyms": "N/A", "antonyms": "N/A", "definition": "N/A"}
+        try:
+            lookup_lemma = override.get("lemma", token.lemma_)
+            original_spacy_pos = token.pos_
+            if original_spacy_pos in ['NOUN', 'VERB', 'ADJ', 'ADV']:
+                wordnet_info = self._get_wordnet_info(lookup_lemma, original_spacy_pos)
+        except Exception as e:
+            print(f"Warning: WordNet lookup failed during row update for '{lookup_lemma}'. Error: {e}")
+
+        # Prepare values tuple including WordNet data
         values = (
-            token_index,
-            token.text.replace("\n", " "),
-            override.get("lemma", token.lemma_).replace("\n", " "),
-            override.get("pos", POS_TAG_TRANSLATIONS.get(token.pos_, token.pos_)).replace("\n", " "),
-            override.get("morph", beautiful_morph(token.morph.to_dict())).replace("\n", " "),
-            override.get("dep", token.dep_).replace("\n", " ")
+            token_index, wordform, lemma, pos_tag, morph_str, dep_rel,
+            wordnet_info["synonyms"], wordnet_info["antonyms"], wordnet_info["definition"]
         )
         try:
             self.analysis_tree.item(iid, values=values)
@@ -751,6 +852,56 @@ class SessionAnalysisApp:
         if messagebox.askokcancel("Quit", "Are you sure you want to quit?\nAll unsaved analysis data will be lost."):
             print("Closing application.")
             self.root.destroy()
+
+    def _map_spacy_pos_to_wordnet(self, spacy_pos_tag):
+        """Maps spaCy POS tags to WordNet POS tags."""
+        if spacy_pos_tag.startswith('NOUN'):
+            return wn.NOUN
+        elif spacy_pos_tag.startswith('VERB'):
+            return wn.VERB
+        elif spacy_pos_tag.startswith('ADJ'):
+            return wn.ADJ
+        elif spacy_pos_tag.startswith('ADV'):
+            return wn.ADV
+        else:
+            return None
+
+    def _get_wordnet_info(self, lemma, spacy_pos_tag):
+        wn_pos = self._map_spacy_pos_to_wordnet(spacy_pos_tag)
+        if not wn_pos:
+            return {"synonyms": "N/A", "antonyms": "N/A", "definition": "N/A"}
+
+        synsets = wn.synsets(lemma, pos=wn_pos)
+        if not synsets:
+            return {"synonyms": "N/A", "antonyms": "N/A", "definition": "N/A"}
+
+        first_synset = synsets[0]
+
+        definition = first_synset.definition() or "N/A"
+
+        synonyms = set()
+        limit = 5
+        for lem in first_synset.lemmas():
+            syn_name = lem.name().replace('_', ' ')
+            if syn_name.lower() != lemma.lower():
+                synonyms.add(syn_name)
+            if len(synonyms) >= limit: break
+        synonyms_str = ", ".join(sorted(list(synonyms))) if synonyms else "N/A"
+
+        antonyms = set()
+        limit = 5
+        first_lemma_in_synset = first_synset.lemmas()[0] if first_synset.lemmas() else None
+        if first_lemma_in_synset:
+            for ant in first_lemma_in_synset.antonyms():
+                antonyms.add(ant.name().replace('_', ' '))
+                if len(antonyms) >= limit: break
+        antonyms_str = ", ".join(sorted(list(antonyms))) if antonyms else "N/A"
+
+        return {
+            "synonyms": synonyms_str,
+            "antonyms": antonyms_str,
+            "definition": definition
+        }
 
 
 if __name__ == "__main__":
