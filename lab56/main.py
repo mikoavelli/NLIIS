@@ -20,6 +20,7 @@ SPACY_MODEL_NAME = 'en_core_web_sm'
 NLP = spacy.load(SPACY_MODEL_NAME)
 OLLAMA_URL = 'http://localhost:11434/api/generate'
 MODEL_NAME = "llama3"
+RESPONSE_TIMEOUT = 120
 
 
 # noinspection PyTypeChecker,PyUnresolvedReferences,PyUnboundLocalVariable,PyShadowingNames,PyUnusedLocal,PyAttributeOutsideInit,PyPep8Naming,DuplicatedCode,SpellCheckingInspection
@@ -172,7 +173,8 @@ class SessionDialogAnalyzerApp:
 
     def _add_to_history(self, speaker, message):
         message = message.strip()
-        if not message: return
+        if not message:
+            return
 
         self.dialog_history.append((speaker, message))
 
@@ -209,7 +211,8 @@ class SessionDialogAnalyzerApp:
             filetypes=[("JSON files", "*.json"), ("All files", "*.*")],
             title="Save Dialog History As..."
         )
-        if not filepath: return
+        if not filepath:
+            return
         try:
             with open(filepath, 'w', encoding='utf-8') as f:
                 json.dump(self.dialog_history, f, indent=2, ensure_ascii=False)
@@ -220,29 +223,24 @@ class SessionDialogAnalyzerApp:
             print(f"Error exporting history: {e}")
 
     def import_history(self):
-        """Imports dialog history from a JSON file, replacing the current one."""
         filepath = filedialog.askopenfilename(
             filetypes=[("JSON files", "*.json"), ("All files", "*.*")],
             title="Select JSON File to Import Dialog History"
         )
         if not filepath:
-            print("Import cancelled by user.")
             return
-
-        print(f"Attempting to import history from: {filepath}")
 
         try:
             with open(filepath, 'r', encoding='utf-8') as f:
                 imported_data = json.load(f)
 
-            # Basic validation: should be a list of lists/tuples with 2 elements
             if not isinstance(imported_data, list) or \
-               not all(isinstance(item, (list, tuple)) and len(item) == 2 for item in imported_data):
-                messagebox.showerror("Format Error", "Invalid history format. Expected a list of [speaker, message] pairs.")
+                    not all(isinstance(item, (list, tuple)) and len(item) == 2 for item in imported_data):
+                messagebox.showerror("Format Error",
+                                     "Invalid history format. Expected a list of [speaker, message] pairs.")
                 return
 
-            if messagebox.askyesno("Confirm Import", "This will replace the current dialog history. Proceed?", parent=self.root):
-                # Clear current state
+            if messagebox.askyesno("Confirm Import", "This will replace the current dialog history. Proceed?"):
                 self.dialog_history = []
                 self.last_analyzed_doc = None
                 self.analysis_overrides = {}
@@ -251,47 +249,19 @@ class SessionDialogAnalyzerApp:
                 self.history_text.delete('1.0', tk.END)
                 self.analysis_tree.delete(*self.analysis_tree.get_children())
 
-                # Load imported history using the internal method
                 for speaker, message in imported_data:
                     speaker_clean = "user" if str(speaker).lower() == "user" else "system"
                     message_clean = str(message)
-                    self._add_to_history(speaker_clean, message_clean) # Adds to list and display
+                    self._add_to_history(speaker_clean, message_clean)
 
                 self.history_text.config(state='disabled')
                 messagebox.showinfo("Success", "Dialog history imported successfully.")
                 print(f"History imported from {filepath}")
 
-                # --- NEW: Analyze the last imported message if it's from the user ---
-                if self.dialog_history and self.dialog_history[-1][0] == "user":
-                    last_user_message = self.dialog_history[-1][1]
-                    print(f"Analyzing last imported user message: '{last_user_message}'")
-                    global NLP
-                    if NLP:
-                        try:
-                            # Perform analysis and store the Doc object
-                            self.last_analyzed_doc = NLP(last_user_message)
-                            # Populate the analysis table with the result
-                            self._populate_analysis_table()
-                            print("Analysis of last imported user message complete.")
-                        except Exception as e:
-                            print(f"Error analyzing last imported message: {e}")
-                            # Optionally show a warning, but don't halt execution
-                            # messagebox.showwarning("Analysis Warning", f"Could not analyze the last imported message:\n{e}")
-                    else:
-                         print("Skipping analysis of last imported message: spaCy model not loaded.")
-                else:
-                     # Clear analysis if the last message was from the system or history is empty
-                     self.last_analyzed_doc = None
-                     self.analysis_overrides = {}
-                     self.tree_token_map = {}
-                     self.analysis_tree.delete(*self.analysis_tree.get_children())
-                     print("Last imported message was from system or history is empty, cleared analysis table.")
-                # --- END OF NEW SECTION ---
-
         except FileNotFoundError:
-             messagebox.showerror("File Error", f"File not found:\n{filepath}")
+            messagebox.showerror("File Error", f"File not found:\n{filepath}")
         except json.JSONDecodeError as e:
-             messagebox.showerror("JSON Error", f"Error decoding JSON file:\n{e}")
+            messagebox.showerror("JSON Error", f"Error decoding JSON file:\n{e}")
         except Exception as e:
             messagebox.showerror("Import Error", f"An unexpected error occurred during import:\n{e}")
             print(f"Error importing history: {e}")
@@ -342,11 +312,11 @@ class SessionDialogAnalyzerApp:
             "prompt": prompt,
             "stream": False
         }
-
         print(f"APP: Sending prompt to Llama 3: '{prompt[:100]}...'")
 
         try:
-            response = requests.post(OLLAMA_URL, json=payload, timeout=60)
+            global RESPONSE_TIMEOUT
+            response = requests.post(OLLAMA_URL, json=payload, timeout=RESPONSE_TIMEOUT)
             response.raise_for_status()
             response_data = response.json()
             llama_response = response_data.get('response', '').strip()
@@ -358,7 +328,7 @@ class SessionDialogAnalyzerApp:
                 print(f"APP: Received Llama 3 response: '{llama_response[:100]}...'")
                 return llama_response
         except requests.exceptions.ConnectionError:
-            error_msg = "Error: Could not connect to the Llama 3 API. Is Ollama running at http://localhost:11434?"
+            error_msg = f"Error: Could not connect to the Llama 3 API. Is Ollama running at {OLLAMA_URL}?"
             print(f"APP: {error_msg}")
             return "Sorry, I'm having trouble connecting to my brain right now. Please ensure the backend service is running."
         except requests.exceptions.Timeout:
@@ -389,7 +359,8 @@ class SessionDialogAnalyzerApp:
     def _populate_analysis_table(self):
         self.analysis_tree.delete(*self.analysis_tree.get_children())
         self.tree_token_map.clear()
-        if not self.last_analyzed_doc: return
+        if not self.last_analyzed_doc:
+            return
 
         print("Populating analysis table for the last message (including WordNet)...")
         visible_token_count = 0
@@ -397,10 +368,12 @@ class SessionDialogAnalyzerApp:
 
         for i, token in enumerate(self.last_analyzed_doc):
             cleaned = clean_token(token.text)
-            if not cleaned or token.is_space: continue
+            if not cleaned or token.is_space:
+                continue
 
             override = self.analysis_overrides.get(i, {})
-            if override.get("deleted", False): continue
+            if override.get("deleted", False):
+                continue
 
             wordform = override.get("wordform", token.text).replace("\n", " ")
             lemma = override.get("lemma", token.lemma_).replace("\n", " ")
@@ -433,19 +406,25 @@ class SessionDialogAnalyzerApp:
 
     @staticmethod
     def _map_spacy_pos_to_wordnet(spacy_pos_tag):
-        if spacy_pos_tag in ['NOUN', 'PROPN']: return wn.NOUN
-        if spacy_pos_tag == 'VERB': return wn.VERB
-        if spacy_pos_tag == 'ADJ': return wn.ADJ
-        if spacy_pos_tag == 'ADV': return wn.ADV
+        if spacy_pos_tag in ['NOUN', 'PROPN']:
+            return wn.NOUN
+        if spacy_pos_tag == 'VERB':
+            return wn.VERB
+        if spacy_pos_tag == 'ADJ':
+            return wn.ADJ
+        if spacy_pos_tag == 'ADV':
+            return wn.ADV
         return None
 
     def _get_wordnet_info(self, lemma, spacy_pos_tag):
         wn_pos = self._map_spacy_pos_to_wordnet(spacy_pos_tag)
         results = {"synonyms": "N/A", "antonyms": "N/A", "definition": "N/A"}
-        if not wn_pos: return results
+        if not wn_pos:
+            return results
 
         synsets = wn.synsets(lemma, pos=wn_pos)
-        if not synsets: return results
+        if not synsets:
+            return results
 
         first_synset = synsets[0]
         results["definition"] = first_synset.definition() or "N/A"
@@ -454,8 +433,10 @@ class SessionDialogAnalyzerApp:
         limit = 5
         for lem in first_synset.lemmas():
             syn_name = lem.name().replace('_', ' ')
-            if syn_name.lower() != lemma.lower(): synonyms.add(syn_name)
-            if len(synonyms) >= limit: break
+            if syn_name.lower() != lemma.lower():
+                synonyms.add(syn_name)
+            if len(synonyms) >= limit:
+                break
         results["synonyms"] = ", ".join(sorted(list(synonyms))) if synonyms else "N/A"
 
         antonyms = set()
@@ -463,7 +444,8 @@ class SessionDialogAnalyzerApp:
         if first_lemma_in_synset:
             for ant in first_lemma_in_synset.antonyms():
                 antonyms.add(ant.name().replace('_', ' '))
-                if len(antonyms) >= limit: break
+                if len(antonyms) >= limit:
+                    break
         results["antonyms"] = ", ".join(sorted(list(antonyms))) if antonyms else "N/A"
 
         return results
@@ -597,7 +579,8 @@ class SessionDialogAnalyzerApp:
 
     def open_wordform_edit_window(self, event):
         selected_iid, token_index = self.get_selected_item_details()
-        if selected_iid is None: return
+        if selected_iid is None:
+            return
         if not self.last_analyzed_doc or token_index >= len(self.last_analyzed_doc):
             messagebox.showerror("Error", "Analysis data is missing or index is out of bounds for the last message.")
             return
@@ -733,7 +716,8 @@ class SessionDialogAnalyzerApp:
 
     def ignore_selected_wordform(self):
         selected_iid, token_index = self.get_selected_item_details()
-        if selected_iid is None: return
+        if selected_iid is None:
+            return
         token_text = ""
         if self.last_analyzed_doc and token_index < len(self.last_analyzed_doc):
             token_text = self.last_analyzed_doc[token_index].text
@@ -750,7 +734,8 @@ class SessionDialogAnalyzerApp:
 
     def export_selected_wordform(self):
         selected_iid, token_index = self.get_selected_item_details()
-        if selected_iid is None: return
+        if selected_iid is None:
+            return
         if not self.last_analyzed_doc or token_index >= len(self.last_analyzed_doc):
             messagebox.showerror("Error", "Analysis data missing for the last message.")
             return
@@ -788,7 +773,8 @@ class SessionDialogAnalyzerApp:
         file_path = filedialog.asksaveasfilename(defaultextension=".json", filetypes=[("JSON files", "*.json")],
                                                  title="Save Token Override Data As...",
                                                  initialfile=f"override_token_{token_index}_{clean_token(token.text)}.json")
-        if not file_path: return
+        if not file_path:
+            return
         existing_data = {}
         file_exists = os.path.exists(file_path)
         try:
@@ -796,12 +782,14 @@ class SessionDialogAnalyzerApp:
                 try:
                     with open(file_path, 'r', encoding='utf-8') as f:
                         existing_data = json.load(f)
-                    if not isinstance(existing_data, dict): existing_data = {}
+                    if not isinstance(existing_data, dict):
+                        existing_data = {}
                 except (json.JSONDecodeError, IOError):
                     existing_data = {}
                 if export_key in existing_data:
                     if not messagebox.askyesno("Overwrite?", f"Entry '{export_key}' already exists. Overwrite?",
-                                               parent=self.root): return
+                                               parent=self.root):
+                        return
             existing_data[export_key] = export_entry_data
             with open(file_path, 'w', encoding='utf-8') as f:
                 json.dump(existing_data, f, indent=4, ensure_ascii=False)
@@ -815,7 +803,8 @@ class SessionDialogAnalyzerApp:
             return
         file_path = filedialog.askopenfilename(filetypes=[("JSON files", "*.json")],
                                                title="Select JSON File with Overrides")
-        if not file_path: return
+        if not file_path:
+            return
 
         print(f"Importing overrides from: {file_path}")
         imported_count = 0
@@ -832,7 +821,8 @@ class SessionDialogAnalyzerApp:
                 return
             if not messagebox.askyesno("Confirm Import",
                                        f"Found {num_entries} potential overrides.\nApply them to the current analysis session?",
-                                       parent=self.root): return
+                                       parent=self.root):
+                return
 
             applied_indices = set()
             for key, override_data in data_to_import.items():
@@ -863,7 +853,8 @@ class SessionDialogAnalyzerApp:
                     skipped_count += 1
 
             print(f"Updating {len(applied_indices)} rows in the analysis table...")
-            for index in applied_indices: self._update_treeview_row(index)
+            for index in applied_indices:
+                self._update_treeview_row(index)
             print("Table update complete.")
             summary = f"Import finished.\n\nOverrides applied/updated: {imported_count}\nEntries skipped: {skipped_count}"
             messagebox.showinfo("Import Complete", summary)
