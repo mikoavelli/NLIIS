@@ -1,8 +1,9 @@
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
+import hashlib
+import pickle
 import spacy
 import re
-import pickle
 import os
 
 try:
@@ -13,79 +14,139 @@ except OSError:
     NLP = None
 
 
-def preprocess_text(text):
-    """
-    Function to clean and lemmatize text.
-    Removes stop words and punctuation.
-    """
-    if NLP is None or not text:
-        return text if text else ""
-
+def preprocess_text_content(text):
+    """Processes raw text content for search queries."""
+    if NLP is None or not text: return text if text else ""
     doc = NLP(text.lower())
-    # Return a string of lemmas for the vectorizer
     return " ".join([token.lemma_ for token in doc if not token.is_stop and not token.is_punct and not token.is_space])
 
 
+def preprocess_filepath(filepath):
+    """Processes a file for the vectorizer by reading its content."""
+    with open(filepath, 'r', encoding='utf-8', errors='ignore') as f:
+        content = f.read()
+    return preprocess_text_content(content)
+
+
 class VectorSearchEngine:
-    """
-    Class that encapsulates the vector search logic.
-    """
-
-    def __init__(self):
-        self.vectorizer = TfidfVectorizer(preprocessor=preprocess_text)
+    def __init__(self, cache_path="vector_index.pkl"):
+        self.cache_path = cache_path
+        self.vectorizer = TfidfVectorizer(preprocessor=preprocess_filepath)
         self.tfidf_matrix = None
-        self.doc_id_map = {}  # Dictionary to map matrix row index to document ID (file_id)
-        self.raw_documents = {}  # Store original texts for snippet generation
+        self.idx_to_filepath = {}
+        self.file_hashes = {}
+        self.file_metadata = {}
 
-    def build_index(self, documents):
-        """
-        Builds the TF-IDF matrix for a collection of documents.
-        'documents' is a list of dicts, e.g., [{'file_id': 1, 'text': '...'}, ...]
-        """
-        print("Engine: Building vector search index...")
-        if not documents:
-            print("Engine: No documents provided to build index.")
+    def _get_file_hash(self, filepath):
+        """Calculates the SHA256 hash of a file to detect changes."""
+        h = hashlib.sha256()
+        try:
+            with open(filepath, 'rb') as f:
+                while True:
+                    chunk = f.read(8192)
+                    if not chunk: break
+                    h.update(chunk)
+            return h.hexdigest()
+        except (IOError, OSError):
+            return None
+
+    def load_from_cache(self):
+        """Loads the engine's state from the cache file if it exists."""
+        if not os.path.exists(self.cache_path):
+            print("Engine: Cache not found. Starting with a fresh index.")
             return
+        try:
+            with open(self.cache_path, 'rb') as f:
+                state = pickle.load(f)
+                self.vectorizer = state['vectorizer']
+                self.tfidf_matrix = state['tfidf_matrix']
+                self.idx_to_filepath = state['idx_to_filepath']
+                self.file_hashes = state['file_hashes']
+                self.file_metadata = state['file_metadata']
+            print(f"Engine: Successfully loaded index for {len(self.file_hashes)} files from cache.")
+        except Exception as e:
+            print(f"Engine: Error loading from cache: {e}. A fresh index will be built.")
 
-        self.doc_id_map = {i: doc['file_id'] for i, doc in enumerate(documents)}
-        self.raw_documents = {doc['file_id']: doc['text'] for doc in documents}
+    def save_to_cache(self):
+        """Saves the current state of the index to the cache file."""
+        print(f"Engine: Saving index with {len(self.file_hashes)} files to cache...")
+        state = {
+            'vectorizer': self.vectorizer,
+            'tfidf_matrix': self.tfidf_matrix,
+            'idx_to_filepath': self.idx_to_filepath,
+            'file_hashes': self.file_hashes,
+            'file_metadata': self.file_metadata
+        }
+        try:
+            with open(self.cache_path, 'wb') as f:
+                pickle.dump(state, f)
+            print("Engine: Cache saved successfully.")
+        except Exception as e:
+            print(f"Engine: Error saving cache: {e}")
 
-        texts = [doc['text'] for doc in documents]
-        self.tfidf_matrix = self.vectorizer.fit_transform(texts)
-        print(f"Engine: Index built successfully. Vocabulary size: {len(self.vectorizer.get_feature_names_out())}")
+    def sync_index_with_filesystem(self, root_folder):
+        """
+        Scans a root folder, finds changes, and rebuilds the index if necessary.
+        Returns True if changes were detected, otherwise False.
+        """
+        print("Engine: Synchronizing index with file system...")
+        changed = False
+        current_files = set()
 
-    @staticmethod
-    def _generate_snippet(text, query_words, length=250):
-        """Private method to generate a snippet."""
-        match_pos = -1
-        # Search for lemmatized query words in the text
-        for word in query_words:
-            match = re.search(r'\b' + re.escape(word) + r'\b', text, re.IGNORECASE)
-            if match:
-                match_pos = match.start()
-                break
+        for dirpath, _, filenames in os.walk(root_folder):
+            for filename in filenames:
+                if filename.endswith(".txt"):
+                    filepath = os.path.join(dirpath, filename)
+                    current_files.add(filepath)
 
-        if match_pos == -1:
-            # If no word is found, just take the beginning of the text
-            return text[:length] + "..." if len(text) > length else text
+                    new_hash = self._get_file_hash(filepath)
+                    if not new_hash: continue
 
-        # Cut out a fragment of text around the found word
-        start = max(0, match_pos - length // 2)
-        end = min(len(text), match_pos + length // 2)
-        snippet = text[start:end]
+                    if filepath not in self.file_hashes or self.file_hashes[filepath] != new_hash:
+                        print(f"Engine: Detected change in file: {filepath}")
+                        self.file_hashes[filepath] = new_hash
+                        changed = True
 
-        # Add ellipses if the text was trimmed
-        if start > 0: snippet = "..." + snippet
-        if end < len(text): snippet = snippet + "..."
+        deleted_files = set(self.file_hashes.keys()) - current_files
+        if deleted_files:
+            for filepath in deleted_files:
+                print(f"Engine: Detected deletion of file: {filepath}")
+                del self.file_hashes[filepath]
+            changed = True
 
-        return snippet
+        if changed:
+            print("Engine: Rebuilding entire index due to file system changes...")
+            all_filepaths = sorted(list(self.file_hashes.keys()))
+            if not all_filepaths:
+                self.tfidf_matrix = None
+                self.idx_to_filepath = {}
+                self.file_metadata = {}
+                print("Engine: Index is now empty.")
+            else:
+                self.tfidf_matrix = self.vectorizer.fit_transform(all_filepaths)
+                self.idx_to_filepath = {i: path for i, path in enumerate(all_filepaths)}
+                self.file_metadata = {path: os.path.basename(path) for path in all_filepaths}
+
+            self.save_to_cache()
+
+        print("Engine: Synchronization complete.")
+        return changed
 
     def search(self, query, top_n=20):
-        if self.tfidf_matrix is None:
+        """Performs a search against the current index."""
+        if self.tfidf_matrix is None or self.tfidf_matrix.shape[0] == 0:
             return []
 
-        processed_query_words = preprocess_text(query).split()
-        query_vector = self.vectorizer.transform([query])
+        processed_query = preprocess_text_content(query)
+
+        original_preprocessor = self.vectorizer.preprocessor
+        self.vectorizer.preprocessor = lambda x: x
+
+        try:
+            query_vector = self.vectorizer.transform([processed_query])
+        finally:
+            self.vectorizer.preprocessor = original_preprocessor
+
         cosine_similarities = cosine_similarity(query_vector, self.tfidf_matrix).flatten()
         related_docs_indices = cosine_similarities.argsort()[:-top_n - 1:-1]
 
@@ -93,43 +154,36 @@ class VectorSearchEngine:
         for i in related_docs_indices:
             score = cosine_similarities[i]
             if score > 0.01:
-                doc_id = self.doc_id_map[i]
-                original_text = self.raw_documents.get(doc_id, "")
-                snippet = self._generate_snippet(original_text, processed_query_words)
-                results.append({'file_id': doc_id, 'score': score, 'snippet': snippet})
+                filepath = self.idx_to_filepath[i]
+                title = self.file_metadata.get(filepath, os.path.basename(filepath))
+                try:
+                    with open(filepath, 'r', encoding='utf-8', errors='ignore') as f:
+                        content = f.read()
+                    snippet = self._generate_snippet(content, processed_query.split())
+                except Exception:
+                    snippet = "[Could not read file content for snippet]"
 
+                results.append({'title': title, 'score': score, 'snippet': snippet, 'path': filepath})
         return results
 
-    def save_index(self, path):
-        """Saves the engine's state to a file using pickle."""
-        print(f"Engine: Saving index to {path}...")
-        try:
-            with open(path, 'wb') as f:
-                pickle.dump({
-                    'vectorizer': self.vectorizer,
-                    'tfidf_matrix': self.tfidf_matrix,
-                    'doc_id_map': self.doc_id_map,
-                    'raw_documents': self.raw_documents
-                }, f)
-            print("Engine: Index saved successfully.")
-        except Exception as e:
-            print(f"Engine: Error saving index: {e}")
+    @staticmethod
+    def _generate_snippet(text, query_words, length=250):
+        """Private method to generate a snippet."""
+        match_pos = -1
+        for word in query_words:
+            match = re.search(r'\b' + re.escape(word) + r'\b', text, re.IGNORECASE)
+            if match:
+                match_pos = match.start()
+                break
 
-    def load_index(self, path):
-        """Loads the engine's state from a file."""
-        if not os.path.exists(path):
-            return False
+        if match_pos == -1:
+            return text[:length] + "..." if len(text) > length else text
 
-        print(f"Engine: Attempting to load index from {path}...")
-        try:
-            with open(path, 'rb') as f:
-                data = pickle.load(f)
-                self.vectorizer = data['vectorizer']
-                self.tfidf_matrix = data['tfidf_matrix']
-                self.doc_id_map = data['doc_id_map']
-                self.raw_documents = data['raw_documents']
-            print("Engine: Index loaded successfully from cache.")
-            return True
-        except Exception as e:
-            print(f"Engine: Error loading index from cache: {e}. Index will be rebuilt.")
-            return False
+        start = max(0, match_pos - length // 2)
+        end = min(len(text), match_pos + length // 2)
+        snippet = text[start:end]
+
+        if start > 0: snippet = "..." + snippet
+        if end < len(text): snippet = snippet + "..."
+
+        return snippet
