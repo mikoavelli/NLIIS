@@ -1,4 +1,5 @@
 watchdog
+pyspellchecker
 spacy~=3.8.5
 striprtf~=0.0.29
 matplotlib~=3.10.1
