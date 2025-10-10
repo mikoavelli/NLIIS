@@ -48,7 +48,6 @@ class LanguageDetector:
 
         return distance
 
-
     def detect_by_ngram(self, filepath):
         """Detects language using the N-gram Out-Of-Place distance method."""
         if not self.profiles: return "Error: Profiles not loaded"

@@ -1,6 +1,4 @@
 .venv/
 .idea/
 __pycache__/
-corpus_root/
-training_corpus/
 *.pkl
