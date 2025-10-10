@@ -1,0 +1,5 @@
+corpus_root/
+training_corpus/
+
+*.csv
+*.json
