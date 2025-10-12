@@ -1,2 +1,3 @@
 corpus_root/
+benchmark_root/
 *.json
