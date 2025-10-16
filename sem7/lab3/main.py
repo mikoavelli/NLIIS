@@ -1,25 +1,23 @@
 import tkinter as tk
 from tkinter import ttk, messagebox
+from idlelib.tooltip import Hovertip
 import threading
 import os
 import subprocess
 import sys
-import queue
-from idlelib.tooltip import Hovertip
 
 from summarizer import DocumentSummarizer
 from watcher import FileSystemWatcher
 
 # --- Constants ---
 ROOT_DOCS_FOLDER = "corpus_root"
-CHECK_QUEUE_TIME = 2000
 
 
 class MainApp:
     def __init__(self, root):
         self.root = root
-        self.root.title("Automatic Document Summarization System")
-        self.root.geometry("1200x800")
+        self.root.title("Document Summarization System: Algorithmic vs. AI")
+        self.root.geometry("1400x800")
 
         self.setup_styles()
         self.setup_ui()
@@ -31,57 +29,40 @@ class MainApp:
 
         self.summarizer = None
         self.all_filepaths = []
-        self.event_queue = queue.Queue()
 
         self.root.after(100, self.initialize_system)
         self.root.protocol("WM_DELETE_WINDOW", self.on_closing)
 
     def initialize_system(self):
-        self.status_var.set("Building corpus statistics... This may take a moment.")
-        self.root.config(cursor="watch")
+        self.status_var.set("Building corpus statistics...")
+        self.root.config(cursor="watch") 
         self.root.update_idletasks()
-
         self.all_filepaths = self.get_all_filepaths()
-
         if not self.all_filepaths:
-            self.status_var.set(f"No .txt files found in '{ROOT_DOCS_FOLDER}'. Please add some files.")
-            self.root.config(cursor="")
-        else:
-            self.summarizer = DocumentSummarizer(self.all_filepaths)
-            self.populate_file_list()
-            self.status_var.set("System ready. Select a file to summarize.")
-
-        self.watcher = FileSystemWatcher(path=ROOT_DOCS_FOLDER, event_queue=self.event_queue)
-        self.thread = threading.Thread(target=self.watcher.run, daemon=True)
+            self.status_var.set(f"No .txt files found in '{ROOT_DOCS_FOLDER}'.") 
+            self.root.config(cursor="") 
+            return
+        self.summarizer = DocumentSummarizer(self.all_filepaths)
+        self.populate_file_list()
+        self.watcher = FileSystemWatcher(path=ROOT_DOCS_FOLDER, event_queue=None)
+        self.watcher.on_change_callback = self.on_filesystem_change
+        self.thread = threading.Thread(target=self.watcher.run, daemon=True) 
         self.thread.start()
+        self.root.config(cursor="") 
+        self.status_var.set("System ready.")
 
-        self.check_queue_for_updates()
+    def on_filesystem_change(self):
+        self.root.after(0, self.refresh_file_list)
 
-        self.root.config(cursor="")
-
-    def check_queue_for_updates(self):
-        """Checks the queue for messages from the watcher thread."""
-        try:
-            if self.event_queue.get_nowait() == "rescan_needed":
-                print("Main: Queue received 'rescan_needed' message.")
-                self.refresh_file_list()
-        except queue.Empty:
-            pass
-        finally:
-            self.root.after(CHECK_QUEUE_TIME, self.check_queue_for_updates)
-
-    @staticmethod
-    def get_all_filepaths():
+    def get_all_filepaths(self):
         filepaths = []
         for dirpath, _, filenames in os.walk(ROOT_DOCS_FOLDER):
             for filename in filenames:
-                if filename.endswith(".txt"):
-                    filepaths.append(os.path.join(dirpath, filename))
+                if filename.endswith(".txt"): filepaths.append(os.path.join(dirpath, filename))
         return sorted(filepaths)
 
-    @staticmethod
-    def setup_styles():
-        style = ttk.Style()
+    def setup_styles(self):
+        style = ttk.Style() 
         style.theme_use("clam")
         style.configure("Treeview", rowheight=25, font=('TkDefaultFont', 11))
         style.configure("Treeview.Heading", font=('TkDefaultFont', 11, 'bold'))
@@ -89,36 +70,60 @@ class MainApp:
     def setup_ui(self):
         paned_window = ttk.PanedWindow(self.root, orient=tk.HORIZONTAL)
         paned_window.pack(fill=tk.BOTH, expand=True, padx=10, pady=10)
-        left_frame = ttk.Frame(paned_window)
+
+        left_frame = ttk.Frame(paned_window, width=400)
         ttk.Label(left_frame, text="Document Corpus", font=('TkDefaultFont', 12, 'bold')).pack(pady=5)
-        tree_frame = ttk.Frame(left_frame)
+        tree_frame = ttk.Frame(left_frame) 
         tree_frame.pack(fill=tk.BOTH, expand=True)
         self.tree_files = ttk.Treeview(tree_frame, show="tree", columns=("filepath",))
-        self.tree_files.column("#0", width=300)
+        self.tree_files.column("#0", width=350) 
         self.tree_files.column("filepath", width=0, stretch=tk.NO)
         vsb = ttk.Scrollbar(tree_frame, orient="vertical", command=self.tree_files.yview)
-        self.tree_files.configure(yscrollcommand=vsb.set)
+        self.tree_files.configure(yscrollcommand=vsb.set) 
         vsb.pack(side=tk.RIGHT, fill=tk.Y)
         self.tree_files.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
-        Hovertip(self.tree_files,
-                 "Displays all .txt documents in 'corpus_root'.\nSelect a file to summarize.\nDouble-click to open it in your text editor.")
         paned_window.add(left_frame, weight=1)
-        right_frame = ttk.Frame(paned_window)
-        kw_frame = ttk.LabelFrame(right_frame, text="Keyword Summary (Generated by Ollama)", padding=10)
-        kw_frame.pack(fill=tk.BOTH, expand=True, pady=(0, 5))
-        self.kw_summary_text = tk.Text(kw_frame, wrap=tk.WORD, height=5, state="disabled")
-        self.kw_summary_text.pack(fill=tk.BOTH, expand=True)
-        Hovertip(self.kw_summary_text,
-                 "Keyword summary generated by the Ollama language model.\nThis lists the main topics and concepts from the text.")
-        classic_frame = ttk.LabelFrame(right_frame, text="Classic (Extractive) Summary", padding=10)
-        classic_frame.pack(fill=tk.BOTH, expand=True, pady=(5, 0))
-        self.classic_summary_text = tk.Text(classic_frame, wrap=tk.WORD, height=15, state="disabled")
-        self.classic_summary_text.pack(fill=tk.BOTH, expand=True)
-        Hovertip(self.classic_summary_text,
-                 "Classic extractive summary.\nThis is a collection of the most important sentences from the original document, preserving their original wording.")
-        paned_window.add(right_frame, weight=3)
+        Hovertip(self.tree_files,
+                 "List of .txt files found in the corpus.\nClick a file to generate summaries.\nDouble-click to open the file.",
+                 hover_delay=500)
+
+        right_panel = ttk.Frame(paned_window)
+
+        algo_frame = ttk.LabelFrame(right_panel, text="Algorithmic (Extractive) Method", padding=10)
+        algo_frame.pack(fill=tk.BOTH, expand=True, pady=(0, 5))
+
+        ttk.Label(algo_frame, text="Keywords:").pack(anchor='w')
+        self.algo_kw_text = tk.Text(algo_frame, wrap=tk.WORD, height=4, state="disabled")
+        self.algo_kw_text.pack(fill=tk.BOTH, expand=True, pady=(2, 5))
+        Hovertip(self.algo_kw_text, "Keywords extracted based on TF-IDF word weights.", hover_delay=500)
+
+        ttk.Label(algo_frame, text="Classic Summary:").pack(anchor='w')
+        self.algo_classic_text = tk.Text(algo_frame, wrap=tk.WORD, height=8, state="disabled")
+        self.algo_classic_text.pack(fill=tk.BOTH, expand=True, pady=(2, 0))
+        Hovertip(self.algo_classic_text, "Summary created by extracting the most important sentences from the text.",
+                 hover_delay=500)
+
+        ollama_frame = ttk.LabelFrame(right_panel, text="Ollama (Abstractive) Method", padding=10)
+        ollama_frame.pack(fill=tk.BOTH, expand=True, pady=(5, 0))
+
+        ttk.Label(ollama_frame, text="Keywords:").pack(anchor='w')
+        self.ollama_kw_text = tk.Text(ollama_frame, wrap=tk.WORD, height=4, state="disabled")
+        self.ollama_kw_text.pack(fill=tk.BOTH, expand=True, pady=(2, 5))
+        Hovertip(self.ollama_kw_text, "Keywords and key phrases generated by the Ollama AI model.", hover_delay=500)
+
+        ttk.Label(ollama_frame, text="Classic Summary:").pack(anchor='w')
+        self.ollama_classic_text = tk.Text(ollama_frame, wrap=tk.WORD, height=8, state="disabled")
+        self.ollama_classic_text.pack(fill=tk.BOTH, expand=True, pady=(2, 0))
+        Hovertip(self.ollama_classic_text, "A concise, human-like summary generated by the Ollama AI model.",
+                 hover_delay=500)
+
+        paned_window.add(right_panel, weight=3)
+
         self.status_var = tk.StringVar(value="Initializing...")
-        ttk.Label(self.root, textvariable=self.status_var, relief=tk.SUNKEN).pack(side=tk.BOTTOM, fill=tk.X)
+        status_bar = ttk.Label(self.root, textvariable=self.status_var, relief=tk.SUNKEN)
+        status_bar.pack(side=tk.BOTTOM, fill=tk.X)
+        Hovertip(status_bar, "Displays the current status of the application.", hover_delay=500)
+
         self.tree_files.bind("<<TreeviewSelect>>", self.on_file_select)
         self.tree_files.bind("<Double-1>", self.on_file_double_click)
 
@@ -138,27 +143,27 @@ class MainApp:
                 parent = paths[node_path]
 
     def refresh_file_list(self):
-        self.status_var.set("File system changed! Re-building corpus stats and reloading files...")
-        self.root.config(cursor="watch")
+        self.status_var.set("File system changed! Re-building corpus...") 
+        self.root.config(cursor="watch") 
         self.root.update_idletasks()
-        self.all_filepaths = self.get_all_filepaths()
+        self.all_filepaths = self.get_all_filepaths() 
         self.summarizer = DocumentSummarizer(self.all_filepaths)
-        self.populate_file_list()
-        self.root.config(cursor="")
-        self.status_var.set("System re-initialized. Select a file to summarize.")
+        self.populate_file_list() 
+        self.root.config(cursor="") 
+        self.status_var.set("System re-initialized.")
 
     def on_file_select(self, event):
-        selected_item = self.tree_files.selection()
+        selected_item = self.tree_files.selection() 
         if not selected_item: return
         filepath = self.tree_files.item(selected_item[0], "values")[0]
         if not filepath or not os.path.isfile(filepath): return
-        self._update_summary_display({'keywords': "Generating summary...", 'classic': "Generating summary..."})
+        self._update_summary_display(None, is_loading=True)
         self.status_var.set(f"Summarizing '{os.path.basename(filepath)}'...")
         self.root.config(cursor="watch")
         threading.Thread(target=self._run_summarization_thread, args=(filepath,), daemon=True).start()
 
     def on_file_double_click(self, event):
-        selected_item = self.tree_files.selection()
+        selected_item = self.tree_files.selection() 
         if not selected_item: return
         filepath = self.tree_files.item(selected_item[0], "values")[0]
         if not filepath or not os.path.isfile(filepath): return
@@ -173,23 +178,32 @@ class MainApp:
             messagebox.showerror("Error", f"Could not open file: {e}")
 
     def _run_summarization_thread(self, filepath):
-        summaries = self.summarizer.create_summaries(filepath)
-        self.root.after(0, self._update_summary_display, summaries)
+        all_summaries = self.summarizer.create_all_summaries(filepath)
+        self.root.after(0, self._update_summary_display, all_summaries)
 
-    def _update_summary_display(self, summaries):
-        self.kw_summary_text.config(state="normal")
-        self.kw_summary_text.delete("1.0", tk.END)
-        self.kw_summary_text.insert("1.0", summaries.get('keywords', ''))
-        self.kw_summary_text.config(state="disabled")
-        self.classic_summary_text.config(state="normal")
-        self.classic_summary_text.delete("1.0", tk.END)
-        self.classic_summary_text.insert("1.0", summaries.get('classic', ''))
-        self.classic_summary_text.config(state="disabled")
-        self.root.config(cursor="")
-        self.status_var.set("Summaries loaded. Select another file.")
+    def _update_summary_display(self, all_summaries, is_loading=False):
+        text_widgets = [self.algo_kw_text, self.algo_classic_text, self.ollama_kw_text, self.ollama_classic_text]
+        for widget in text_widgets:
+            widget.config(state="normal") 
+            widget.delete("1.0", tk.END)
+
+        if is_loading:
+            for widget in text_widgets: widget.insert("1.0", "Generating summary...")
+        elif all_summaries:
+            algo_summaries = all_summaries.get('algorithmic', {})
+            ollama_summaries = all_summaries.get('ollama', {})
+            self.algo_kw_text.insert("1.0", algo_summaries.get('keywords', 'N/A'))
+            self.algo_classic_text.insert("1.0", algo_summaries.get('classic', 'N/A'))
+            self.ollama_kw_text.insert("1.0", ollama_summaries.get('keywords', 'N/A'))
+            self.ollama_classic_text.insert("1.0", ollama_summaries.get('classic', 'N/A'))
+        else:
+            for widget in text_widgets: widget.insert("1.0", "An error occurred during summarization.")
+
+        for widget in text_widgets: widget.config(state="disabled")
+        self.root.config(cursor="") 
+        self.status_var.set("Summaries loaded.")
 
     def on_closing(self):
-        print("Application shutting down.")
         if hasattr(self, 'watcher'): self.watcher.stop()
         self.root.destroy()
 
