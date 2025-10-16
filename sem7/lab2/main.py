@@ -20,7 +20,7 @@ class MainApp:
     def __init__(self, root):
         self.root = root
         self.root.title("Automatic Language Recognition System")
-        self.root.geometry("1100x700")
+        self.root.geometry("1200x700")
 
         self.create_menu()
         self.setup_styles()
@@ -75,7 +75,7 @@ class MainApp:
         table_frame = ttk.Frame(main_frame)
         table_frame.pack(pady=10, fill="both", expand=True)
 
-        columns = ("File", "N-Gram Method", "Alphabet Method", "Neural Net Method")
+        columns = ("File", "N-Gram Method", "Alphabet Method", "Neural Net Method", "LLM (phi3)")
         self.tree_results = ttk.Treeview(table_frame, columns=columns, show="headings")
         self.tree_results.heading("File", text="File Path", anchor='w')
         self.tree_results.column("File", width=400, anchor='w')
@@ -85,6 +85,9 @@ class MainApp:
         self.tree_results.column("Alphabet Method", width=150, anchor='center')
         self.tree_results.heading("Neural Net Method", text="Neural Net Result", anchor='center')
         self.tree_results.column("Neural Net Method", width=150, anchor='center')
+        # --- NEW: Configure the LLM column ---
+        self.tree_results.heading("LLM (phi3)", text="LLM Result (phi3)", anchor='center')
+        self.tree_results.column("LLM (phi3)", width=150, anchor='center')
 
         vsb = ttk.Scrollbar(table_frame, orient="vertical", command=self.tree_results.yview)
         vsb.pack(side="right", fill="y")
@@ -99,7 +102,8 @@ class MainApp:
         stats_label.pack(anchor='w')
 
     def update_file_detections(self):
-        self.status_var.set("Scanning files and detecting languages...")
+        """Scans the root folder, runs all language detections, and updates statistics."""
+        self.status_var.set("Scanning files and detecting languages (this may take a moment with LLM)...")
         self.root.config(cursor="watch")
         self.root.update_idletasks()
 
@@ -118,12 +122,14 @@ class MainApp:
 
         start_time = time.time()
         for filepath in filepaths_to_scan:
+            # Run all four detections
             res_ngram = self.detector.detect_by_ngram(filepath)
             res_alpha = self.detector.detect_by_alphabet(filepath)
             res_nn = self.detector.detect_by_nn(filepath)
+            res_llm = self.detector.detect_by_llm(filepath)  # <-- NEW CALL
 
             display_path = os.path.relpath(filepath, '.')
-            values = (display_path, res_ngram.upper(), res_alpha.upper(), res_nn.upper())
+            values = (display_path, res_ngram.upper(), res_alpha.upper(), res_nn.upper(), res_llm.upper())  # <-- ADDED
             self.tree_results.insert("", "end", values=values, iid=filepath)
 
         end_time = time.time()
@@ -151,7 +157,6 @@ class MainApp:
     def on_item_double_click(self, event):
         selected_item = self.tree_results.selection()
         if not selected_item: return
-
         filepath = selected_item[0]
         try:
             webbrowser.open(f"file://{os.path.abspath(filepath)}")
@@ -159,6 +164,7 @@ class MainApp:
             messagebox.showerror("Error", f"Could not open file: {filepath}\n\n{e}")
 
     def update_summary_statistics(self):
+        """Calculates and displays summary statistics for all results."""
         all_items = self.tree_results.get_children()
         if not all_items:
             self.stats_label_var.set("No files to analyze.")
@@ -167,36 +173,37 @@ class MainApp:
         ngram_results = [self.tree_results.item(item, 'values')[1] for item in all_items]
         alpha_results = [self.tree_results.item(item, 'values')[2] for item in all_items]
         nn_results = [self.tree_results.item(item, 'values')[3] for item in all_items]
+        llm_results = [self.tree_results.item(item, 'values')[4] for item in all_items]  # <-- NEW
 
         ngram_counts = Counter(ngram_results)
         alpha_counts = Counter(alpha_results)
         nn_counts = Counter(nn_results)
+        llm_counts = Counter(llm_results)
 
         stats_text = (
             f"Total Files Analyzed: {len(all_items)}\n\n"
             f"N-Gram Method:      {', '.join(f'{lang}: {count}' for lang, count in ngram_counts.items())}\n"
             f"Alphabet Method:    {', '.join(f'{lang}: {count}' for lang, count in alpha_counts.items())}\n"
-            f"Neural Net Method:  {', '.join(f'{lang}: {count}' for lang, count in nn_counts.items())}"
+            f"Neural Net Method:  {', '.join(f'{lang}: {count}' for lang, count in nn_counts.items())}\n"
+            f"LLM (phi3) Method:  {', '.join(f'{lang}: {count}' for lang, count in llm_counts.items())}"  # <-- NEW
         )
         self.stats_label_var.set(stats_text)
 
     def export_results_to_csv(self):
+        """Saves the current results in the table to a CSV file."""
         all_items = self.tree_results.get_children()
         if not all_items:
             messagebox.showwarning("No Data", "There are no results in the table to export.")
             return
-
         filepath = filedialog.asksaveasfilename(
-            defaultextension=".csv",
-            filetypes=[("CSV files", "*.csv"), ("All files", "*.*")],
-            title="Save Results As..."
-        )
+            defaultextension=".csv", filetypes=[("CSV files", "*.csv"), ("All files", "*.*")],
+            title="Save Results As...")
         if not filepath: return
-
         try:
             with open(filepath, 'w', newline='', encoding='utf-8') as f:
                 writer = csv.writer(f)
-                writer.writerow(["File Path", "N-Gram Method", "Alphabet Method", "Neural Net Method"])
+                writer.writerow(
+                    ["File Path", "N-Gram Method", "Alphabet Method", "Neural Net Method", "LLM (phi3) Method"])
                 for item in all_items:
                     writer.writerow(self.tree_results.item(item, 'values'))
             messagebox.showinfo("Success", f"Results successfully exported to:\n{filepath}")
@@ -205,43 +212,18 @@ class MainApp:
 
     def show_help_dialog(self):
         """Displays a custom, well-formatted help/about window."""
-
         help_window = tk.Toplevel(self.root)
         help_window.title("About This Application")
         help_window.resizable(False, False)
-
-        help_text = """
-Automatic Language Recognition System
-Version 1.0
-
-This application automatically detects the language of HTML files
-located in the 'corpus_root' folder using three different methods.
-
-How to use:
-- Main Table: Shows all found .html files and the detected language by each method. The table updates automatically when files are changed.
-- Refresh Button: Manually trigger a rescan of the files.
-- Active Link: Double-click any row in the table to open the corresponding file in your default web browser.
-- Export: Use the 'File -> Export' menu or the button to save the current results to a CSV file.
-- Statistics: The panel at the bottom shows a summary of how many files were identified for each language.
-        """
-
+        help_text = "..."
         main_frame = ttk.Frame(help_window, padding="15")
         main_frame.pack(expand=True, fill="both")
-
-        help_label = ttk.Label(
-            main_frame,
-            text=help_text.strip(),
-            wraplength=550,
-            justify=tk.LEFT
-        )
+        help_label = ttk.Label(main_frame, text=help_text.strip(), wraplength=550, justify=tk.LEFT)
         help_label.pack(pady=(0, 15))
-
         ok_button = ttk.Button(main_frame, text="OK", command=help_window.destroy)
         ok_button.pack()
-
         help_window.transient(self.root)
         help_window.grab_set()
-
         self.root.wait_window(help_window)
 
     def on_closing(self):
