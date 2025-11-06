@@ -5,13 +5,12 @@ import seaborn as sns
 from nltk.translate.bleu_score import sentence_bleu, SmoothingFunction
 import threading
 import sys
+import re
 
-# --- Configuration ---
 OLLAMA_API_URL = "http://localhost:11434/api/generate"
 MODELS_TO_TEST = ['llama3.1:8b', 'llama3.2:1b']
+WORD_TRANSLATION_MODEL = 'llama3.1:8b'
 
-# --- Test Data ---
-# Domain: Computer Science (article excerpt)
 SOURCE_TEXT_EN = (
     "Machine learning is a method of data analysis that automates analytical model building. "
     "It is a branch of artificial intelligence based on the idea that systems can learn from data, "
@@ -20,8 +19,6 @@ SOURCE_TEXT_EN = (
     "in order to look for patterns in data and make better decisions in the future based on the examples that we provide."
 )
 
-# Reference translation (human-made or from a high-quality system for comparison)
-# This is the only part that remains in Russian, as it's part of the data.
 REFERENCE_TRANSLATION_RU = (
     "Машинное обучение — это метод анализа данных, который автоматизирует построение аналитических моделей. "
     "Это раздел искусственного интеллекта, основанный на идее, что системы могут учиться на данных, "
@@ -45,7 +42,7 @@ class Benchmark:
             "bleu_scores": {},
             "translations": {}
         }
-        # Chencherry smoothing function for BLEU, important for sentence-level scores
+
         self.smoothing_function = SmoothingFunction().method4
 
     def _translate_text(self, text, model_name, source_lang="English", target_lang="Russian"):
@@ -61,9 +58,7 @@ class Benchmark:
             response = requests.post(self.api_url, json=payload, timeout=300)
             response.raise_for_status()
             return response.json().get("response", "").strip()
-        except requests.exceptions.RequestException as e:
-            print(f"\n[ERROR] Could not connect to Ollama for model {model_name}: {e}")
-            print("Please ensure Ollama is running and the model is available ('ollama run model_name').")
+        except requests.exceptions.RequestException:
             return None
 
     def _calculate_bleu(self, reference, candidate):
@@ -73,30 +68,30 @@ class Benchmark:
         return sentence_bleu(reference_tokens, candidate_tokens, smoothing_function=self.smoothing_function)
 
     @staticmethod
-    def _show_spinner(stop_event):
+    def _show_spinner(stop_event, message="Processing..."):
         """Displays a simple spinner in the console during long operations."""
         spinner = ['-', '\\', '|', '/']
         i = 0
         while not stop_event.is_set():
-            sys.stdout.write(f'\r{spinner[i % len(spinner)]} Translating... ')
+            sys.stdout.write(f'\r{spinner[i % len(spinner)]} {message} ')
             sys.stdout.flush()
             time.sleep(0.1)
             i += 1
-        sys.stdout.write('\r' + ' ' * 20 + '\r')
+        sys.stdout.write('\r' + ' ' * (len(message) + 5) + '\r')
         sys.stdout.flush()
 
     def run(self, source_text, reference_text):
-        """Executes the full benchmark suite."""
+        """Executes the full benchmark suite with updated performance metrics."""
         print("=" * 50 + "\n STARTING BENCHMARK ANALYSIS \n" + "=" * 50)
 
-        component_timings = {}
-        total_start_time = time.perf_counter()
+        performance_timings = {}
 
         for model in self.models:
-            print(f"\n--- Testing model: {model} ---")
+            print(f"\n--- Testing Full Text Translation: {model} ---")
 
             stop_spinner = threading.Event()
-            spinner_thread = threading.Thread(target=self._show_spinner, args=(stop_spinner,))
+            spinner_thread = threading.Thread(target=self._show_spinner,
+                                              args=(stop_spinner, f"Translating with {model}..."))
             spinner_thread.start()
 
             start_time = time.perf_counter()
@@ -107,34 +102,46 @@ class Benchmark:
             spinner_thread.join()
 
             if translation is None:
-                print(f"Skipping model {model} due to an error.")
+                print(f"\n[ERROR] Could not get translation from {model}. Skipping.")
                 continue
 
             duration = end_time - start_time
-            component_timings[f"Translation ({model})"] = duration
+            performance_timings[f"Full Text ({model})"] = duration
             self.results["translations"][model] = translation
 
             print(f"Translation finished in: {duration:.2f} seconds.")
-            print(f"Generated Translation:\n---\n{translation}\n---")
 
-            bleu_start_time = time.perf_counter()
             bleu_score = self._calculate_bleu(reference_text, translation)
-            bleu_end_time = time.perf_counter()
-            component_timings[f"BLEU Calculation ({model})"] = bleu_end_time - bleu_start_time
-
             self.results["bleu_scores"][model] = bleu_score
-            print(f"BLEU Score: {bleu_score:.4f} (calculation took {(bleu_end_time - bleu_start_time):.4f} sec.)")
+            print(f"BLEU Score: {bleu_score:.4f}")
 
-        total_end_time = time.perf_counter()
-        component_timings["Total Time"] = total_end_time - total_start_time
-        self.results["timings"] = component_timings
+        print(f"\n--- Testing Word-by-Word Translation ({WORD_TRANSLATION_MODEL}) ---")
+        unique_words = sorted(list(set(re.findall(r'\b\w+\b', source_text.lower()))))
+        print(f"Found {len(unique_words)} unique words to translate.")
+
+        stop_spinner = threading.Event()
+        spinner_thread = threading.Thread(target=self._show_spinner, args=(stop_spinner, "Translating words..."))
+        spinner_thread.start()
+
+        start_time_words = time.perf_counter()
+        for word in unique_words:
+            self._translate_text(word, WORD_TRANSLATION_MODEL)
+        end_time_words = time.perf_counter()
+
+        stop_spinner.set()
+        spinner_thread.join()
+
+        word_duration = end_time_words - start_time_words
+        performance_timings[f"Word-by-Word ({len(unique_words)} words)"] = word_duration
+        print(f"Finished in: {word_duration:.2f} seconds.")
+
+        self.results["timings"] = performance_timings
 
         print("\n--- Final Results ---")
-        for model_name, timing in self.results["timings"].items():
-            if 'Translation' in model_name:
-                print(f"Translation Time ({model_name.split('(')[1].split(')')[0]}): {timing:.2f} sec.")
+        for component, timing in self.results["timings"].items():
+            print(f"Performance ({component}): {timing:.2f} sec.")
         for model_name, score in self.results["bleu_scores"].items():
-            print(f"BLEU Score ({model_name}): {score:.4f}")
+            print(f"Quality BLEU Score ({model_name}): {score:.4f}")
 
     def plot_results(self):
         """Generates and displays plots visualizing the benchmark results."""
@@ -144,29 +151,38 @@ class Benchmark:
 
         sns.set_theme(style="whitegrid")
 
-        # --- Plot 1: Component Execution Time ---
-        plt.figure(figsize=(12, 6))
+        plt.figure(figsize=(10, 6))
 
         timings_data = self.results["timings"]
-        palette = sns.color_palette("viridis", len(timings_data))
 
-        ax1 = sns.barplot(x=list(timings_data.keys()), y=list(timings_data.values()), palette=palette)
-        ax1.set_title('Performance: Component Execution Time', fontsize=16)
+        ax1 = sns.barplot(
+            x=list(timings_data.keys()),
+            y=list(timings_data.values()),
+            hue=list(timings_data.keys()),
+            palette="viridis",
+            legend=False
+        )
+        ax1.set_title('Performance: Translation Time', fontsize=16)
         ax1.set_ylabel('Time (seconds)', fontsize=12)
-        ax1.set_xlabel('Component', fontsize=12)
+        ax1.set_xlabel('Benchmark Component', fontsize=12)
 
         for container in ax1.containers:
             ax1.bar_label(container, fmt='%.2f s')
 
-        plt.xticks(rotation=15, ha="right")
+        plt.xticks(rotation=10, ha="right")
         plt.tight_layout()
 
-        # --- Plot 2: BLEU Score Comparison ---
         plt.figure(figsize=(10, 6))
 
         bleu_data = self.results["bleu_scores"]
 
-        ax2 = sns.barplot(x=list(bleu_data.keys()), y=list(bleu_data.values()), palette="plasma")
+        ax2 = sns.barplot(
+            x=list(bleu_data.keys()),
+            y=list(bleu_data.values()),
+            hue=list(bleu_data.keys()),
+            palette="plasma",
+            legend=False
+        )
         ax2.set_title('Translation Quality: BLEU Score Comparison', fontsize=16)
         ax2.set_ylabel('BLEU Score (Higher is Better)', fontsize=12)
         ax2.set_xlabel('Model', fontsize=12)

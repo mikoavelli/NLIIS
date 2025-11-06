@@ -2,7 +2,6 @@ import tkinter as tk
 import threading
 import cairosvg
 import spacy
-import io
 
 from tkinter import ttk, messagebox, filedialog, scrolledtext
 from queue import Queue
@@ -10,7 +9,6 @@ from queue import Queue
 from translator import OllamaTranslator
 from analyzer import TextAnalyzer
 
-# --- Optional SVG Rendering Dependencies ---
 SVG_RENDERER = 'cairosvg'
 
 
@@ -48,10 +46,10 @@ class MachineTranslationApp:
 
         controls_frame = ttk.LabelFrame(io_frame, text="Translation Parameters")
         controls_frame.pack(fill=tk.X, pady=(0, 10))
-
-        self.direction_var = tk.StringVar(value="en_ru")
         ttk.Radiobutton(controls_frame, text="English -> Russian", variable=self.direction_var, value="en_ru").pack(
             side=tk.LEFT, padx=10, pady=5)
+        self.direction_var = tk.StringVar(value="en_ru")
+
         ttk.Radiobutton(controls_frame, text="Russian -> English", variable=self.direction_var, value="ru_en").pack(
             side=tk.LEFT, padx=10, pady=5)
 
@@ -96,7 +94,12 @@ class MachineTranslationApp:
         analysis_tab = ttk.Frame(notebook)
         notebook.add(analysis_tab, text="Detailed Analysis")
 
-        ttk.Button(analysis_tab, text="Show Dependency Tree", command=self.show_dependency_tree_window).pack(pady=5)
+        analysis_controls_frame = ttk.Frame(analysis_tab)
+        analysis_controls_frame.pack(fill=tk.X, pady=5)
+        ttk.Button(analysis_controls_frame, text="Show Dependency Tree", command=self.show_dependency_tree_window).pack(
+            side=tk.LEFT)
+        ttk.Button(analysis_controls_frame, text="Correct Selected Translation",
+                   command=self.open_correction_window).pack(side=tk.LEFT, padx=10)
 
         cols_analysis = ("ID", "Token", "Translation", "Lemma", "Part of Speech", "Morphology")
         self.analysis_tree = ttk.Treeview(analysis_tab, columns=cols_analysis, show="headings")
@@ -119,6 +122,130 @@ class MachineTranslationApp:
         self.status_label.pack(side=tk.LEFT)
         self.progress_bar = ttk.Progressbar(status_bar_frame, orient='horizontal', mode='determinate')
         self.progress_bar.pack(side=tk.RIGHT, fill=tk.X, expand=True, padx=10)
+
+    def open_correction_window(self):
+        selected_items = self.analysis_tree.selection()
+        if not selected_items:
+            messagebox.showwarning("No Selection",
+                                   "Please select a token in the 'Detailed Analysis' table to correct its translation.")
+            return
+
+        selected_item = selected_items[0]
+        item_values = self.analysis_tree.item(selected_item, 'values')
+
+        token = item_values[1]
+        current_translation = item_values[2]
+
+        popup = tk.Toplevel(self.root)
+        popup.title("Correct Translation")
+        popup.transient(self.root)
+        popup.grab_set()
+
+        ttk.Label(popup, text="Original Token:").grid(row=0, column=0, padx=10, pady=10, sticky="w")
+        ttk.Label(popup, text=token, font=('TkDefaultFont', 10, 'bold')).grid(row=0, column=1, padx=10, pady=10,
+                                                                              sticky="w")
+
+        ttk.Label(popup, text="Translation:").grid(row=1, column=0, padx=10, pady=5, sticky="w")
+        translation_var = tk.StringVar(value=current_translation)
+        translation_entry = ttk.Entry(popup, textvariable=translation_var, width=40)
+        translation_entry.grid(row=1, column=1, padx=10, pady=5, sticky="ew")
+        translation_entry.focus()
+
+        def on_save():
+            new_translation = translation_var.get().strip()
+            if not new_translation or new_translation == '-':
+                messagebox.showerror("Error", "Translation cannot be empty.", parent=popup)
+                return
+
+            self.translator.save_correction(token, new_translation)
+            self.analysis_tree.set(selected_item, "Translation", new_translation)
+
+            messagebox.showinfo("Saved", f"Correction for '{token}' saved successfully.", parent=self.root)
+            popup.destroy()
+
+        save_button = ttk.Button(popup, text="Save Correction", command=on_save)
+        save_button.grid(row=2, column=0, columnspan=2, pady=10)
+        popup.bind("<Return>", lambda event: on_save())
+
+    def show_dependency_tree_window(self):
+        if not self.analyzed_doc:
+            messagebox.showwarning("No Analysis", "Please analyze some text first.")
+            return
+        if not SVG_RENDERER:
+            messagebox.showerror("Error", "SVG rendering library not found (cairosvg or svglib).")
+            return
+
+        sentences = list(self.analyzed_doc.sents)
+        if not sentences:
+            messagebox.showinfo("Info", "No sentences found in the text.")
+            return
+
+        popup = tk.Toplevel(self.root)
+        popup.title("Dependency Parse Tree")
+        popup.geometry("900x600")
+
+        control_frame = ttk.Frame(popup)
+        control_frame.pack(fill=tk.X, padx=10, pady=5)
+
+        ttk.Label(control_frame, text="Select Sentence (index):").pack(side=tk.LEFT)
+
+        self.sent_index_var = tk.IntVar(value=0)
+        sentence_spinbox = ttk.Spinbox(
+            control_frame,
+            from_=0,
+            to=len(sentences) - 1,
+            textvariable=self.sent_index_var,
+            width=5,
+            wrap=True
+        )
+        sentence_spinbox.pack(side=tk.LEFT, padx=5)
+
+        canvas_frame = ttk.Frame(popup, relief=tk.SUNKEN, borderwidth=1)
+        canvas_frame.pack(fill=tk.BOTH, expand=True, padx=10, pady=10)
+
+        canvas = tk.Canvas(canvas_frame, bg='white')
+        v_scroll = ttk.Scrollbar(canvas_frame, orient=tk.VERTICAL, command=canvas.yview)
+        h_scroll = ttk.Scrollbar(canvas_frame, orient=tk.HORIZONTAL, command=canvas.xview)
+        canvas.configure(yscrollcommand=v_scroll.set, xscrollcommand=h_scroll.set)
+
+        v_scroll.pack(side=tk.RIGHT, fill=tk.Y)
+        h_scroll.pack(side=tk.BOTTOM, fill=tk.X)
+        canvas.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+
+        image_label = ttk.Label(canvas, background='white')
+        canvas.create_window((0, 0), window=image_label, anchor="nw")
+
+        def _update_tree():
+            try:
+                sent_index = self.sent_index_var.get()
+                if not (0 <= sent_index < len(sentences)):
+                    raise ValueError("Index out of range")
+            except (tk.TclError, ValueError):
+                messagebox.showerror("Invalid Input", "Please enter a valid sentence index.", parent=popup)
+                return
+
+            try:
+                sentence_to_render = sentences[sent_index]
+                svg_code = spacy.displacy.render(sentence_to_render, style="dep", jupyter=False)
+                png_bytes = cairosvg.svg2png(bytestring=svg_code.encode('utf-8'),
+                                             dpi=120)
+
+                if png_bytes:
+                    image = tk.PhotoImage(data=png_bytes)
+                    image_label.config(image=image)
+                    image_label.image = image
+
+                    canvas.update_idletasks()
+                    canvas.config(scrollregion=canvas.bbox("all"))
+
+            except Exception as e:
+                image_label.config(image=None, text=f"Error rendering tree: {e}")
+                print(f"Error rendering dependency tree: {e}")
+
+        update_button = ttk.Button(control_frame, text="Update Tree", command=_update_tree)
+        update_button.pack(side=tk.LEFT, padx=5)
+
+        _update_tree()
 
     def start_translation_task(self):
         source_text = self.source_text.get('1.0', tk.END).strip()
@@ -180,13 +307,8 @@ class MachineTranslationApp:
         q.put(("progress", 25))
         translation2 = self.translator.translate(source_text, 'llama3.2:1b', source_lang_full, target_lang_full)
         q.put(("translation2", translation2))
-
-        q.put(("word_counts", {
-            "source": len(source_text.split()),
-            "target1": len(translation1.split()),
-            "target2": len(translation2.split())
-        }))
-
+        q.put(("word_counts", {"source": len(source_text.split()), "target1": len(translation1.split()),
+                               "target2": len(translation2.split())}))
         q.put(("status", "Performing linguistic analysis..."))
         q.put(("progress", 40))
 
@@ -197,7 +319,7 @@ class MachineTranslationApp:
             return
 
         self.analyzed_doc = nlp(source_text)
-        from utils import clean_token  # Import locally for thread safety if needed
+        from utils import clean_token
         tokens = [clean_token(t.text.lower()) for t in self.analyzed_doc if t.is_alpha]
         unique_tokens = sorted(list(set(tokens)))
 
@@ -241,39 +363,9 @@ class MachineTranslationApp:
         self.frequency_tree.delete(*self.frequency_tree.get_children())
         self.analyzed_doc = None
 
-    def show_dependency_tree_window(self):
-        if not self.analyzed_doc:
-            messagebox.showwarning("No Analysis", "Please analyze some text first.")
-            return
-
-        popup = tk.Toplevel(self.root)
-        popup.title("Dependency Parse Tree")
-        popup.geometry("900x600")
-
-        sentences = list(self.analyzed_doc.sents)
-        if not sentences:
-            messagebox.showinfo("Info", "No sentences found in the text.", parent=popup)
-            popup.destroy()
-            return
-
-        tree_label = ttk.Label(popup, background="white")
-        tree_label.pack(fill=tk.BOTH, expand=True)
-
-        try:
-            svg_code = spacy.displacy.render(sentences[0], style="dep", jupyter=False)
-            png_bytes = cairosvg.svg2png(bytestring=svg_code.encode('utf-8'))
-
-            if png_bytes:
-                img = tk.PhotoImage(data=png_bytes)
-                tree_label.config(image=img)
-                tree_label.image = img
-        except Exception as e:
-            tree_label.config(text=f"Error rendering tree: {e}")
-
     def save_report(self):
         filepath = filedialog.asksaveasfilename(defaultextension=".txt", filetypes=[("Text Files", "*.txt")])
         if not filepath: return
-
         try:
             with open(filepath, 'w', encoding='utf-8') as f:
                 f.write("=" * 80 + "\nMACHINE TRANSLATION REPORT\n" + "=" * 80 + "\n\n")
@@ -281,12 +373,10 @@ class MachineTranslationApp:
                 f.write("--- TRANSLATION (llama3.1:8b) ---\n" + self.target_text1.get('1.0', tk.END).strip() + "\n\n")
                 f.write("--- TRANSLATION (llama3.2:1b) ---\n" + self.target_text2.get('1.0', tk.END).strip() + "\n\n")
                 f.write("=" * 80 + "\nWORD FREQUENCY LIST\n" + "=" * 80 + "\n\n")
-
                 header = "{:<20} | {:<20} | {:<10} | {:<20} | {}\n".format(
                     *[self.frequency_tree.heading(c)["text"] for c in self.frequency_tree["columns"]])
                 f.write(header)
                 f.write("-" * (len(header) + 5) + "\n")
-
                 for item_id in self.frequency_tree.get_children():
                     values = self.frequency_tree.item(item_id, 'values')
                     f.write("{:<20} | {:<20} | {:<10} | {:<20} | {}\n".format(*values))
