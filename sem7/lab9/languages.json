@@ -1,0 +1,120 @@
+{
+  "en": {
+    "model_path": "model_en",
+    "ui": {
+      "title": "Speech Recognition System",
+      "start_button": "Start Listening",
+      "stop_button": "Stop",
+      "log_label": "Event and Command Log",
+      "recognized_text_label": "Recognized Text",
+      "commands_label": "Available Voice Commands",
+      "lang_label": "Language:",
+      "lang_changed_title": "Language Changed",
+      "lang_changed_msg": "Language has been set to English. Please restart the application to apply changes.",
+      "show_commands_button": "Show Commands",
+      "commands_window_title": "Available Commands",
+      "status": {
+        "idle": [
+          "Status: Idle",
+          "blue"
+        ],
+        "listening": [
+          "Status: Listening...",
+          "orange"
+        ],
+        "speak": [
+          "Status: Speak now...",
+          "orange"
+        ]
+      }
+    },
+    "commands": {
+      "SHOW_AUTHOR": "who is the author",
+      "READ_FIRST_LINE": "read the first line",
+      "SHOW_THEME": "what is the theme",
+      "CLEAR_LOG": "clear the log",
+      "SHOW_TIME": "show current time",
+      "OPEN_MONITORING": "open monitoring tool",
+      "CLOSE_APP": "close yourself"
+    },
+    "messages": {
+      "author_title": "Author",
+      "author_content": "The author of this piece is William Shakespeare.",
+      "first_line_title": "First Line",
+      "first_line_content": "The first line is:\n'Shall I compare thee to a summer's day?'",
+      "theme_title": "Theme",
+      "theme_content": "The central theme is the eternal beauty of the beloved, preserved through the power of poetry.",
+      "time_title": "Current Time",
+      "time_content": "The current date and time is:\n{}",
+      "log_cleared": "Log cleared.",
+      "listening_started": "Starting microphone listener via pyalsaaudio...",
+      "listening_stopped": "Listening stopped by user.",
+      "command_detected": "Command detected: '{}'",
+      "action_launch_btop": "ACTION: Attempting to launch 'btop' in gnome-terminal.",
+      "action_closing": "ACTION: Closing application as commanded.",
+      "error_btop": "Could not open monitoring tool. Please ensure 'gnome-terminal' and 'btop' are installed.",
+      "error_no_models": "No Vosk models found. Please create directories like 'model_en', 'model_ru' etc.",
+      "error_model_load": "Failed to load Vosk model: {}",
+      "error_alsa": "ALSA Error: {}"
+    }
+  },
+  "ru": {
+    "model_path": "model_ru",
+    "ui": {
+      "title": "Система Распознавания Речи",
+      "start_button": "Начать прослушивание",
+      "stop_button": "Остановить",
+      "log_label": "Лог событий и команд",
+      "recognized_text_label": "Распознанный текст",
+      "commands_label": "Доступные голосовые команды",
+      "lang_label": "Язык:",
+      "lang_changed_title": "Язык изменен",
+      "lang_changed_msg": "Язык был изменен на русский. Пожалуйста, перезапустите приложение.",
+      "show_commands_button": "Показать команды",
+      "commands_window_title": "Доступные команды",
+      "status": {
+        "idle": [
+          "Статус: Ожидание",
+          "blue"
+        ],
+        "listening": [
+          "Статус: Слушаю...",
+          "orange"
+        ],
+        "speak": [
+          "Статус: Говорите...",
+          "orange"
+        ]
+      }
+    },
+    "commands": {
+      "SHOW_AUTHOR": "кто автор",
+      "READ_FIRST_LINE": "прочитай первую строчку",
+      "SHOW_THEME": "какая тема",
+      "CLEAR_LOG": "очисти лог",
+      "SHOW_TIME": "текущее время",
+      "OPEN_MONITORING": "открой мониторинг",
+      "CLOSE_APP": "закройся"
+    },
+    "messages": {
+      "author_title": "Автор",
+      "author_content": "Автор этого произведения - Уильям Шекспир.",
+      "first_line_title": "Первая строка",
+      "first_line_content": "Первая строка:\n'Shall I compare thee to a summer's day?'",
+      "theme_title": "Тема",
+      "theme_content": "Центральная тема - вечная красота возлюбленной, сохраненная силой поэзии.",
+      "time_title": "Текущее время",
+      "time_content": "Текущие дата и время:\n{}",
+      "log_cleared": "Лог очищен.",
+      "listening_started": "Запускаю прослушивание микрофона через pyalsaaudio...",
+      "listening_stopped": "Прослушивание остановлено пользователем.",
+      "command_detected": "Обнаружена команда: '{}'",
+      "action_launch_btop": "ДЕЙСТВИЕ: Пытаюсь запустить 'btop' в gnome-terminal.",
+      "action_closing": "ДЕЙСТВИЕ: Закрываю приложение по команде.",
+      "error_btop": "Не удалось открыть утилиту мониторинга. Убедитесь, что 'gnome-terminal' и 'btop' установлены.",
+      "error_no_models": "Модели Vosk не найдены. Пожалуйста, создайте директории вида 'model_en', 'model_ru' и т.д.",
+      "error_model_load": "Не удалось загрузить модель Vosk: {}",
+      "error_alsa": "Ошибка ALSA: {}"
+    }
+  }
+}
