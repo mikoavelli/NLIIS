@@ -1,129 +1,49 @@
+# main.py
 import tkinter as tk
 from tkinter import ttk, scrolledtext, messagebox
 import threading
 import queue
-import os
 import json
-import datetime
-import subprocess
+
+from command_processor import CommandProcessor
+from config import (
+    CONFIG, CURRENT_LANG, AVAILABLE_LANGS, MODELS_FOUND,
+    VOSK_RATE, ALSA_CHANNELS, ALSA_FORMAT, ALSA_PERIOD_SIZE, ALSA_DEVICE,
+    COLOR_PARTIAL_TEXT, COLOR_FINAL_TEXT, LANGUAGE_CHOICE_FILE
+)
 
 import alsaaudio
 import vosk
 
-MODEL_PATH = "model"
-VOSK_RATE = 16000
-ALSA_CHANNELS = 1
-ALSA_FORMAT = alsaaudio.PCM_FORMAT_S16_LE
-ALSA_PERIOD_SIZE = 1024
-ALSA_DEVICE = 'default'
-
-STATUS_IDLE = ("Status: Idle", "blue")
-STATUS_LISTENING = ("Status: Listening...", "orange")
-STATUS_SPEAK = ("Status: Speak now...", "orange")
-STATUS_RECOGNIZING = ("Status: Recognizing (offline)...", "green")
-COLOR_PARTIAL_TEXT = "gray"
-COLOR_FINAL_TEXT = "black"
-
-
-class CommandProcessor:
-    """Handles the logic for recognizing and executing voice commands."""
-
-    def __init__(self, logger_func, log_clear_func, close_func):
-        self._log = logger_func
-        self._clear_log_widget = log_clear_func
-        self._close_app = close_func
-
-        self.command_map = {
-            "who is the author": self.show_author,
-            "read the first line": self.read_first_line,
-            "what is the theme": self.show_theme,
-            "clear the log": self.clear_log,
-            "show current time": self.show_current_time,
-            "open monitoring tool": self.open_monitoring_tool,
-            "close yourself": self.close_application
-        }
-
-    def execute_if_found(self, text, executed_commands):
-        """
-        Checks text for a command and executes it if it hasn't been executed in this utterance.
-        """
-        for command_phrase, action_func in self.command_map.items():
-            if command_phrase in text and command_phrase not in executed_commands:
-                self._log(f"Command detected: '{command_phrase}'")
-                action_func()
-                executed_commands.add(command_phrase)
-                break
-
-    def show_author(self):
-        author = "William Shakespeare"
-        self._log(f"RESULT: The author of this work is {author}.")
-        messagebox.showinfo("Author", f"The author of this piece is {author}.")
-
-    def read_first_line(self):
-        line = "Shall I compare thee to a summer's day?"
-        self._log(f"RESULT: The first line is: '{line}'")
-        messagebox.showinfo("First Line", f"The first line is:\n'{line}'")
-
-    def show_theme(self):
-        theme = "The central theme is the eternal beauty of the beloved, preserved through the power of poetry."
-        self._log("RESULT: Displayed the main theme.")
-        messagebox.showinfo("Theme", theme)
-
-    def clear_log(self):
-        self._clear_log_widget()
-        self._log("Log cleared.")
-
-    def show_current_time(self):
-        now = datetime.datetime.now()
-        formatted_time = now.strftime("%Y-%m-%d %H:%M:%S")
-        self._log(f"RESULT: Displaying current time: {formatted_time}")
-        messagebox.showinfo("Current Time", f"The current date and time is:\n{formatted_time}")
-
-    def open_monitoring_tool(self):
-        self._log("ACTION: Attempting to launch 'btop' in gnome-terminal.")
-        try:
-            command = ["gnome-terminal", "--", "btop"]
-            subprocess.Popen(command)
-        except FileNotFoundError:
-            error_msg = "Could not open monitoring tool. Please ensure 'gnome-terminal' and 'btop' are installed."
-            self._log(f"ERROR: {error_msg}")
-            messagebox.showerror("Error", error_msg)
-        except Exception as e:
-            error_msg = f"An unexpected error occurred: {e}"
-            self._log(f"ERROR: {error_msg}")
-            messagebox.showerror("Error", error_msg)
-
-    def close_application(self):
-        self._log("ACTION: Closing application as commanded.")
-        self._close_app()
-
 
 class SpeechRecognitionApp:
-    def __init__(self, _root):
-        self.root = _root
-        self.root.title("Speech Recognition System")
-        self.root.geometry("950x900")
+    def __init__(self, root):
+        self.root = root
 
-        if not os.path.exists(MODEL_PATH):
-            messagebox.showerror("Error", f"Vosk model not found. Ensure the '{MODEL_PATH}' directory exists.")
+        if not MODELS_FOUND:
+            self.root.withdraw()
+            messagebox.showerror("Fatal Error", CONFIG['messages']['error_no_models'])
             self.root.destroy()
             return
 
+        self.root.title(CONFIG['ui']['title'])
+        self.root.geometry("950x950")
+
         try:
-            self.model = vosk.Model(MODEL_PATH)
+            model_path = CONFIG['model_path']
+            self.model = vosk.Model(model_path)
         except Exception as e:
-            messagebox.showerror("Model Load Error", f"Failed to load Vosk model: {e}")
+            messagebox.showerror("Model Load Error", CONFIG['messages']['error_model_load'].format(e))
             self.root.destroy()
             return
 
         self.is_listening = False
         self.listening_thread = None
         self.gui_queue = queue.Queue()
+        self.commands_win = None
 
         self.command_processor = CommandProcessor(
-            self.log_message,
-            self.clear_log_widget,
-            self.on_closing
+            self.log_message, self.clear_log_widget, self.on_closing, CONFIG
         )
 
         self.setup_styles()
@@ -146,48 +66,96 @@ class SpeechRecognitionApp:
 
         control_frame = ttk.Frame(main_frame)
         control_frame.pack(fill=tk.X, pady=(0, 10))
-        control_frame.columnconfigure(1, weight=1)
+        control_frame.columnconfigure(3, weight=1)
 
-        self.listen_button = ttk.Button(control_frame, text="Start Listening", command=self.start_listening)
-        self.listen_button.grid(row=0, column=0, padx=(0, 10))
-        self.stop_button = ttk.Button(control_frame, text="Stop", command=self.stop_listening, state="disabled")
-        self.stop_button.grid(row=0, column=1, padx=(0, 10))
-        self.status_label = ttk.Label(control_frame, text=STATUS_IDLE[0], style="Status.TLabel",
-                                      foreground=STATUS_IDLE[1])
-        self.status_label.grid(row=0, column=2, sticky="e", padx=(10, 0))
+        ttk.Label(control_frame, text=CONFIG['ui']['lang_label']).grid(row=0, column=0, sticky="w", padx=(0, 5))
+        self.lang_combo = ttk.Combobox(control_frame, values=AVAILABLE_LANGS, state="readonly")
+        self.lang_combo.set(CURRENT_LANG)
+        self.lang_combo.grid(row=0, column=1, sticky="w", padx=(0, 20))
+        self.lang_combo.bind("<<ComboboxSelected>>", self.on_language_change)
+
+        self.commands_button = ttk.Button(
+            control_frame,
+            text=CONFIG['ui']['show_commands_button'],
+            command=self.show_commands_window
+        )
+        self.commands_button.grid(row=0, column=2, sticky="w", padx=(0, 20))
+
+        status_text, status_color = CONFIG['ui']['status']['idle']
+        self.status_label = ttk.Label(control_frame, text=status_text, style="Status.TLabel", foreground=status_color)
+        self.status_label.grid(row=0, column=3, sticky="e", padx=(10, 0))
+
+        button_frame = ttk.Frame(main_frame)
+        button_frame.pack(fill=tk.X, pady=(5, 10))
+        self.listen_button = ttk.Button(button_frame, text=CONFIG['ui']['start_button'], command=self.start_listening)
+        self.listen_button.pack(side=tk.LEFT, expand=True, fill=tk.X, padx=(0, 5))
+        self.stop_button = ttk.Button(button_frame, text=CONFIG['ui']['stop_button'], command=self.stop_listening,
+                                      state="disabled")
+        self.stop_button.pack(side=tk.LEFT, expand=True, fill=tk.X, padx=(5, 0))
 
         display_frame = ttk.Frame(main_frame)
         display_frame.pack(fill=tk.BOTH, expand=True)
-        display_frame.rowconfigure(0, weight=1)
+        display_frame.rowconfigure(0, weight=2)
         display_frame.rowconfigure(1, weight=3)
-
-        log_frame = ttk.LabelFrame(display_frame, text="Event and Command Log", padding="10")
+        log_frame = ttk.LabelFrame(display_frame, text=CONFIG['ui']['log_label'], padding="10")
         log_frame.grid(row=0, column=0, sticky="nsew", pady=(0, 10))
         self.log_text = scrolledtext.ScrolledText(log_frame, wrap=tk.WORD, state="disabled", font=('TkDefaultFont', 10))
         self.log_text.pack(fill=tk.BOTH, expand=True)
-
-        recognized_frame = ttk.LabelFrame(display_frame, text="Recognized Text", padding="10")
+        recognized_frame = ttk.LabelFrame(display_frame, text=CONFIG['ui']['recognized_text_label'], padding="10")
         recognized_frame.grid(row=1, column=0, sticky="nsew")
         self.recognized_text = scrolledtext.ScrolledText(recognized_frame, wrap=tk.WORD, state="disabled",
                                                          font=('TkDefaultFont', 12))
         self.recognized_text.pack(fill=tk.BOTH, expand=True)
 
-        commands_frame = ttk.LabelFrame(main_frame, text="Available Voice Commands", padding="10")
+        commands_frame = ttk.LabelFrame(main_frame, text=CONFIG['ui']['commands_label'], padding="10")
         commands_frame.pack(fill=tk.X, pady=(10, 0))
-        command_list = "\n".join([f"- {cmd}" for cmd in self.command_processor.command_map.keys()])
-        ttk.Label(commands_frame, text=command_list, justify=tk.LEFT).pack(anchor="w")
+        command_list_preview = "\n".join(
+            [f"- {phrase}" for phrase in list(self.command_processor.command_phrases.values())[:3]]) + "\n..."
+        ttk.Label(commands_frame, text=command_list_preview, justify=tk.LEFT).pack(anchor="w")
+
+    def show_commands_window(self):
+        """Creates a non-blocking Toplevel window to display all commands."""
+        if self.commands_win is not None and self.commands_win.winfo_exists():
+            self.commands_win.lift()
+            return
+
+        self.commands_win = tk.Toplevel(self.root)
+        self.commands_win.title(CONFIG['ui']['commands_window_title'])
+        self.commands_win.resizable(False, False)
+
+        phrases = self.command_processor.command_phrases.values()
+        command_text = "\n".join([f"- {phrase}" for phrase in phrases])
+
+        frame = ttk.Frame(self.commands_win, padding="15")
+        frame.pack(expand=True, fill="both")
+
+        label = ttk.Label(frame, text=command_text, justify=tk.LEFT, font=('TkDefaultFont', 11))
+        label.pack()
+
+    def on_language_change(self, event):
+        selected_lang = self.lang_combo.get()
+        with open(LANGUAGE_CHOICE_FILE, 'w') as f:
+            f.write(selected_lang)
+        self.listen_button.config(state="disabled")
+        self.stop_button.config(state="disabled")
+
+        from config import ALL_LANG_DATA
+        messagebox.showinfo(
+            ALL_LANG_DATA[selected_lang]['ui']['lang_changed_title'],
+            ALL_LANG_DATA[selected_lang]['ui']['lang_changed_msg']
+        )
 
     def start_listening(self):
         self.is_listening = True
         self.update_ui_for_listening()
-        self.log_message("Starting microphone listener via pyalsaaudio...")
+        self.log_message(CONFIG['messages']['listening_started'])
         self.listening_thread = threading.Thread(target=self._listen_loop, daemon=True)
         self.listening_thread.start()
 
     def stop_listening(self):
         if self.is_listening:
             self.is_listening = False
-            self.log_message("Listening stopped by user.")
+            self.log_message(CONFIG['messages']['listening_stopped'])
 
     def _listen_loop(self):
         try:
@@ -196,36 +164,28 @@ class SpeechRecognitionApp:
                 channels=ALSA_CHANNELS, rate=VOSK_RATE, format=ALSA_FORMAT, periodsize=ALSA_PERIOD_SIZE
             )
         except alsaaudio.ALSAAudioError as e:
-            self.gui_queue.put(("log", f"ALSA Error: {e}"))
+            self.gui_queue.put(("log", CONFIG['messages']['error_alsa'].format(e)))
             self.gui_queue.put(("idle", None))
             return
 
         rec = vosk.KaldiRecognizer(self.model, VOSK_RATE)
-        self.gui_queue.put(("status", STATUS_SPEAK))
-
+        self.gui_queue.put(("status", CONFIG['ui']['status']['speak']))
         executed_commands_in_utterance = set()
-
         while self.is_listening:
             length, data = inp.read()
             if length > 0:
                 is_final = rec.AcceptWaveform(data)
-
                 if is_final:
-                    result_json = rec.Result()
-                    result_dict = json.loads(result_json)
+                    result_dict = json.loads(rec.Result())
                     final_text = result_dict.get('text', '')
-
                     self.gui_queue.put(("recognized", final_text))
                     self.command_processor.execute_if_found(final_text, executed_commands_in_utterance)
                     executed_commands_in_utterance.clear()
                 else:
-                    partial_json = rec.PartialResult()
-                    partial_dict = json.loads(partial_json)
+                    partial_dict = json.loads(rec.PartialResult())
                     partial_text = partial_dict.get('partial', '')
-
                     self.gui_queue.put(("partial_update", partial_text))
                     self.command_processor.execute_if_found(partial_text, executed_commands_in_utterance)
-
         inp.close()
         self.gui_queue.put(("idle", None))
 
@@ -234,8 +194,7 @@ class SpeechRecognitionApp:
             while not self.gui_queue.empty():
                 task, data = self.gui_queue.get_nowait()
                 if task == "status":
-                    text, color = data
-                    self.status_label.config(text=text, foreground=color)
+                    self.status_label.config(text=data[0], foreground=data[1])
                 elif task == "partial_update":
                     self.update_recognized_text(data, is_partial=True)
                 elif task == "recognized":
@@ -267,12 +226,14 @@ class SpeechRecognitionApp:
     def update_ui_for_listening(self):
         self.listen_button.config(state="disabled")
         self.stop_button.config(state="normal")
-        self.status_label.config(text=STATUS_LISTENING[0], foreground=STATUS_LISTENING[1])
+        status_text, status_color = CONFIG['ui']['status']['listening']
+        self.status_label.config(text=status_text, foreground=status_color)
 
     def update_ui_for_idle(self):
         self.listen_button.config(state="normal")
         self.stop_button.config(state="disabled")
-        self.status_label.config(text=STATUS_IDLE[0], foreground=STATUS_IDLE[1])
+        status_text, status_color = CONFIG['ui']['status']['idle']
+        self.status_label.config(text=status_text, foreground=status_color)
         self.update_recognized_text("")
 
     def on_closing(self):
@@ -286,6 +247,7 @@ class SpeechRecognitionApp:
 
 
 if __name__ == "__main__":
-    root = tk.Tk()
-    app = SpeechRecognitionApp(root)
-    root.mainloop()
+    app_root = tk.Tk()
+    app = SpeechRecognitionApp(app_root)
+    if MODELS_FOUND:
+        app_root.mainloop()
