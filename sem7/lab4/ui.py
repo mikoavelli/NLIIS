@@ -46,10 +46,9 @@ class MachineTranslationApp:
 
         controls_frame = ttk.LabelFrame(io_frame, text="Translation Parameters")
         controls_frame.pack(fill=tk.X, pady=(0, 10))
+        self.direction_var = tk.StringVar(value="en_ru")
         ttk.Radiobutton(controls_frame, text="English -> Russian", variable=self.direction_var, value="en_ru").pack(
             side=tk.LEFT, padx=10, pady=5)
-        self.direction_var = tk.StringVar(value="en_ru")
-
         ttk.Radiobutton(controls_frame, text="Russian -> English", variable=self.direction_var, value="ru_en").pack(
             side=tk.LEFT, padx=10, pady=5)
 
