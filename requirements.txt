@@ -1,3 +1,4 @@
+vosk
 langdetect~=1.0.9
 watchdog~=6.0.0
 spacy~=3.8.5
