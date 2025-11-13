@@ -6,12 +6,12 @@ import subprocess
 import threading
 import pyttsx3
 
-EXAMPLE_TEXT = "To be, or not to be, that is the question: Whether 'tis nobler in the mind to suffer The slings and arrows of outrageous fortune, Or to take arms against a sea of troubles And by opposing end them."
+EXAMPLE_TEXT = "To be, or not to be, that is the question that was asked in 1601. Hello my comrad! How are you doing?"
 
 
 class SpeechSynthesisApp:
-    def __init__(self, root):
-        self.root = root
+    def __init__(self, _root):
+        self.root = _root
         self.root.title("Speech Synthesis System (Variant 5: English)")
         self.root.geometry("800x900")
 
